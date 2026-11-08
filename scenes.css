@@ -444,7 +444,7 @@
 .a5-stats div { display: flex; flex-direction: column; gap: 3px; }
 .a5-stats strong { font-family: var(--font-display); font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -.05em; color: #d8fff5; }
 .a5-stats span { font-size: 9px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(208, 238, 245, .48); }
-.a5-grid { position: absolute; left: 762px; top: 178px; width: 1070px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.a5-grid { position: absolute; left: 762px; top: 178px; width: 1070px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; perspective: 1400px; }
 .feat {
   position: relative;
   display: flex;
@@ -461,6 +461,7 @@
   backdrop-filter: blur(14px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .11), 0 24px 50px rgba(2, 10, 16, .18);
   will-change: transform, opacity;
+  transform-origin: 50% 100%;
 }
 .feat::after {
   content: "";
@@ -469,6 +470,16 @@
   border-radius: inherit;
   background: radial-gradient(280px 160px at 100% 0%, rgba(126, 220, 200, .11), transparent 70%);
   pointer-events: none;
+}
+.feat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22px;
+  width: 46px;
+  height: 1px;
+  background: linear-gradient(90deg, #9ef0dd, transparent);
+  opacity: .55;
 }
 .feat-ghost {
   position: absolute;
@@ -487,18 +498,18 @@
 .feat-icon {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   flex: none;
   border: 1px solid rgba(255, 255, 255, .16);
   border-radius: 12px;
   background: rgba(126, 220, 200, .09);
   color: #9ef0dd;
-  font-size: 20px;
+  font-size: 21px;
 }
 .feat div { position: relative; z-index: 1; }
-.feat h3 { margin: 14px 0 4px; font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: -.025em; color: #f1fcff; }
-.feat p { margin: 0; font-size: 12.2px; line-height: 1.56; color: rgba(212, 238, 245, .62); max-width: 370px; }
+.feat h3 { margin: 14px 0 4px; font-family: var(--font-display); font-size: 19.5px; font-weight: 700; letter-spacing: -.025em; color: #f1fcff; }
+.feat p { margin: 0; font-size: 13.2px; line-height: 1.56; color: rgba(212, 238, 245, .64); max-width: 380px; }
 .feat-tag {
   position: relative;
   z-index: 1;

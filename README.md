@@ -1,6 +1,6 @@
 # Putrajaya.rblx Wiki — Official Launch Film
 
-A 54-second cinematic motion-design film introducing the **official Putrajaya.rblx Wiki**.
+A 42-second cinematic motion-design film introducing the **official Putrajaya.rblx Wiki**.
 Built as a single, dependency-free web experience: vanilla HTML, CSS and JavaScript, a custom
 deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki itself.
 
@@ -18,12 +18,12 @@ deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki i
 
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
-| 01 | **Brand** | 0:00–0:07 | The official mark and wordmark arrive in a dark teal title sequence, with community and language badges, orbital rings and a light sweep. |
-| 02 | **Desktop** | 0:07–0:24 | The real splash homepage and its category artwork rise into frame. A simulated cursor opens Pagefind search, then the *City roles* article, scrolls to the Caution and page footer, and switches to dark mode through the real Appearance panel. |
-| 03 | **Mobile** | 0:24–0:34 | The real mobile splash: the category art stack, hero copy and buttons, the wiki menu drawer, and the same article with Navigation / On this page bars, Caution, Edit page and pagination. |
-| 04 | **Tablet** | 0:34–0:43 | The real 1024 article layout with sidebar, then the interactive map page with search, category filters and place pins. The act closes on a device-family hero shot — laptop, tablet and phone, all running the real interface. |
-| 05 | **Features** | 0:43–0:47 | Six capabilities presented as glass cards: Pagefind search, dark mode, English + Bahasa Melayu, the interactive map, open source, and community accuracy. |
-| 06 | **Launch** | 0:47–0:54 | The launch card: logo, **Now available**, live URL, device line and the final light sweep. |
+| 01 | **Brand** | 0:00–0:06 | The official mark and wordmark arrive in a dark teal title sequence, with community and language badges, orbital rings and a light sweep. |
+| 02 | **Desktop** | 0:06–0:19 | The real splash homepage and its category artwork rise into frame. A simulated cursor opens Pagefind search, then the *City roles* article, scrolls to the Caution and page footer, and switches to dark mode through the real Appearance panel. |
+| 03 | **Mobile** | 0:19–0:27 | The real mobile splash: the category art stack, hero copy and buttons, the wiki menu drawer, and the same article with Navigation / On this page bars, Caution, Edit page and pagination. |
+| 04 | **Tablet** | 0:27–0:34 | The real 1024 article layout with sidebar, then the interactive map page with search, category filters and place pins. The act closes on a device-family hero shot — laptop, tablet and phone, all running the real interface. |
+| 05 | **Features** | 0:34–0:37 | Six capabilities presented as glass cards: Pagefind search, dark mode, English + Bahasa Melayu, the interactive map, open source, and community accuracy. |
+| 06 | **Launch** | 0:37–0:42 | The launch card: logo, **Now available**, live URL, device line and the final light sweep. |
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
@@ -113,7 +113,7 @@ tiny screens are the same wiki, not mockups.
 ├── ui-mobile.css       Phone interface
 ├── ui-tablet.css       Tablet interface
 ├── scenes.css          Act compositions, device family, features, outro
-├── app.js              Timeline engine, 54-second score, particles, player, audio
+├── app.js              Timeline engine, 42-second score, particles, player, audio
 ├── vercel.json         Static hosting config
 ├── .nojekyll           GitHub Pages support
 └── README.md

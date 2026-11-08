@@ -418,3 +418,19 @@
 .cursor { position: absolute; top: 0; left: 0; z-index: 36; width: 24px; height: 24px; opacity: 0; pointer-events: none; filter: drop-shadow(0 3px 6px rgba(4, 18, 28, .35)); will-change: transform; }
 .cursor svg { width: 100%; height: 100%; }
 .cursor-ripple { position: absolute; top: 0; left: 0; z-index: 35; width: 44px; height: 44px; margin: -22px 0 0 -22px; border: 2px solid rgba(255, 255, 255, .9); border-radius: 50%; opacity: 0; pointer-events: none; box-shadow: 0 0 20px rgba(255, 255, 255, .4); will-change: transform, opacity; }
+
+.theme-ripple { position: absolute; inset: 0; z-index: 31; overflow: hidden; pointer-events: none; }
+.theme-ripple span {
+  position: absolute;
+  left: 1352px;
+  top: 418px;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .95) 0%, rgba(126, 220, 200, .4) 42%, transparent 70%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: scale(0);
+  will-change: transform, opacity;
+}

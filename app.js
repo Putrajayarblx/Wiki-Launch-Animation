@@ -6,6 +6,8 @@
   "use strict";
 
   const DURATION = 54;
+  const SPEED = 1.28;
+  const PLAYBACK = DURATION / SPEED;
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -140,8 +142,10 @@
       if (o.scale !== undefined) from.scale = o.scale;
       if (o.blur) from.blur = o.blur;
       if (o.rotateZ !== undefined) from.rotateZ = o.rotateZ;
+      if (o.rotateX !== undefined) from.rotateX = o.rotateX;
       const to = { t: s + d, opacity: 1, y: 0, x: 0, scale: 1, blur: 0, ease: o.ease || "expo" };
       if (o.rotateZ !== undefined) to.rotateZ = o.toRotateZ !== undefined ? o.toRotateZ : o.rotateZ;
+      if (o.rotateX !== undefined) to.rotateX = 0;
       track(el, [from, to]);
     });
   }
@@ -204,7 +208,8 @@
     { t: 6.4, opacity: 0, x: 24 },
   ]);
   track("#a1Lockup", [
-    { t: 5.3, y: 0, scale: 1, opacity: 1 },
+    { t: 2.4, y: 0, scale: 1, opacity: 1 },
+    { t: 5.3, y: -4, scale: 1.012, opacity: 1 },
     { t: 6.55, y: -60, scale: 0.94, opacity: 0, ease: "inOut" },
   ]);
   track("#a1Sweep", [
@@ -217,8 +222,8 @@
      ACT 2 — DESKTOP
      ============================================================ */
   track("#act2", [
-    { t: 6.9, opacity: 0 },
-    { t: 7.35, opacity: 1 },
+    { t: 6.35, opacity: 0 },
+    { t: 6.95, opacity: 1 },
     { t: 23.45, opacity: 1 },
     { t: 24.15, opacity: 0 },
   ]);
@@ -227,33 +232,29 @@
     { t: 17.0, scale: 1.012, y: 0, ease: "linear" },
   ]);
   track("#a2Copy", [
-    { t: 7.0, opacity: 0, y: 20 },
-    { t: 7.6, opacity: 1, y: 0, ease: "expo" },
+    { t: 6.5, opacity: 0, y: 20 },
+    { t: 7.25, opacity: 1, y: 0, ease: "expo" },
     { t: 13.55, opacity: 1, x: 0, blur: 0 },
     { t: 14.25, opacity: 0, x: -60, blur: 8, ease: "inOut" },
   ]);
   track(".a2-copy .eyebrow", [
-    { t: 7.15, opacity: 0, y: 14 },
-    { t: 7.8, opacity: 1, y: 0, ease: "expo" },
+    { t: 6.65, opacity: 0, y: 14 },
+    { t: 7.2, opacity: 1, y: 0, ease: "expo" },
   ]);
   const a2Lines = $$("#a2Headline .mask > span");
   a2Lines.forEach((el, i) => {
     track(el, [
-      { t: 7.35 + i * 0.13, y: 112 },
-      { t: 8.35 + i * 0.13, y: 0, ease: "expo" },
+      { t: 6.85 + i * 0.13, y: 112 },
+      { t: 7.9 + i * 0.13, y: 0, ease: "expo" },
     ]);
   });
   track("#a2Lede", [
-    { t: 8.15, opacity: 0, y: 18 },
-    { t: 8.95, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#a2Meta", [
-    { t: 8.55, opacity: 0, y: 16 },
-    { t: 9.25, opacity: 1, y: 0, ease: "expo" },
+    { t: 7.8, opacity: 0, y: 18 },
+    { t: 8.55, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#a2DeviceStage", [
-    { t: 7.15, opacity: 0, y: 150, scale: 0.97, x: 0 },
-    { t: 8.9, opacity: 1, y: 0, scale: 1, x: 0, ease: "expo" },
+    { t: 6.45, opacity: 0, y: 150, scale: 0.97, x: 0 },
+    { t: 8.0, opacity: 1, y: 0, scale: 1, x: 0, ease: "expo" },
     { t: 13.4, x: 0, y: 0 },
     { t: 14.45, x: -295, y: 8, ease: "inOut" },
     { t: 15.85, x: -295, y: 8 },
@@ -262,8 +263,8 @@
     { t: 23.9, x: -310, y: 70, ease: "inOut" },
   ]);
   track("#laptop", [
-    { t: 7.2, opacity: 0, y: 60, rotateX: 18, rotateY: -20, rotateZ: -2, scale: 0.96, blur: 8 },
-    { t: 9.0, opacity: 1, y: 0, rotateX: 5, rotateY: -10, rotateZ: -0.5, scale: 1, blur: 0, ease: "expo" },
+    { t: 6.45, opacity: 0, y: 60, rotateX: 18, rotateY: -20, rotateZ: -2, scale: 0.96, blur: 8 },
+    { t: 8.4, opacity: 1, y: 0, rotateX: 5, rotateY: -10, rotateZ: -0.5, scale: 1, blur: 0, ease: "expo" },
     { t: 13.4, rotateX: 5, rotateY: -10, rotateZ: -0.5, scale: 1 },
     { t: 14.45, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.32, ease: "inOut" },
     { t: 15.85, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.32 },
@@ -274,6 +275,11 @@
   track(".laptop-base, .laptop-shadow", [
     { t: 15.75, opacity: 1 },
     { t: 16.2, opacity: 0, ease: "inOut" },
+  ]);
+  track("[data-d-boot]", [
+    { t: 0, opacity: 1 },
+    { t: 8.05, opacity: 1 },
+    { t: 8.5, opacity: 0, ease: "inOut" },
   ]);
   track(".screen--desktop [data-d-flash]", [
     { t: 8.15, opacity: 0 },
@@ -375,7 +381,9 @@
   track("[data-d-result]", [
     { t: 13.7, opacity: 0.1, y: 8 },
     { t: 14.55, opacity: 0.35, y: 8 },
-    { t: 14.95, opacity: 1, y: 0, ease: "expo" },
+    { t: 14.95, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 15.35, opacity: 1, y: 0, scale: 1.012, ease: "out" },
+    { t: 15.6, opacity: 1, y: 0, scale: 1 },
     { t: 15.7, opacity: 0 },
   ]);
   track(".d-search-result--dim", [
@@ -391,12 +399,12 @@
 
   // page transition
   track(".d-page--home", [
-    { t: 15.7, opacity: 1, x: 0 },
-    { t: 16.12, opacity: 0, x: -55, ease: "inOut" },
+    { t: 15.7, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 16.12, opacity: 0, x: -55, blur: 8, scale: 1.015, ease: "inOut" },
   ]);
   track(".d-page--article", [
-    { t: 15.85, opacity: 0, x: 45 },
-    { t: 16.35, opacity: 1, x: 0, ease: "expo" },
+    { t: 15.85, opacity: 0, x: 45, blur: 8, scale: 1.015 },
+    { t: 16.35, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
   ]);
   track(".d-side", [
     { t: 16.1, opacity: 0, x: -12 },
@@ -432,39 +440,38 @@
     { t: 20.9, "--dark": 0 },
     { t: 21.75, "--dark": 1, ease: "inOut" },
   ]);
+  track("[data-theme-ripple] span", [
+    { t: 20.98, opacity: 0, scale: 0 },
+    { t: 21.08, opacity: 0.65, scale: 0.5, ease: "out" },
+    { t: 21.75, opacity: 0, scale: 24, ease: "inOut" },
+  ]);
 
   /* ============================================================
      ACT 3 — MOBILE
      ============================================================ */
   track("#act3", [
-    { t: 23.7, opacity: 0 },
-    { t: 24.25, opacity: 1 },
-    { t: 33.2, opacity: 1 },
-    { t: 33.85, opacity: 0 },
+    { t: 23.4, opacity: 0 },
+    { t: 24.0, opacity: 1 },
+    { t: 33.25, opacity: 1 },
+    { t: 33.45, opacity: 1 },
+    { t: 34.05, opacity: 0 },
   ]);
   track("#a3Copy", [
-    { t: 24.05, opacity: 0, y: 30 },
-    { t: 24.85, opacity: 1, y: 0, ease: "expo" },
+    { t: 23.7, opacity: 0, y: 30 },
+    { t: 24.5, opacity: 1, y: 0, ease: "expo" },
     { t: 32.9, opacity: 1, y: 0 },
     { t: 33.45, opacity: 0, y: -20, ease: "inOut" },
   ]);
   const a3Lines = $$("#a3Headline .mask > span");
   a3Lines.forEach((el, i) =>
     track(el, [
-      { t: 24.2 + i * 0.13, y: 100 },
-      { t: 25.15 + i * 0.13, y: 0, ease: "expo" },
+      { t: 23.9 + i * 0.13, y: 100 },
+      { t: 24.8 + i * 0.13, y: 0, ease: "expo" },
     ])
   );
   track("#a3Lede", [
-    { t: 24.85, opacity: 0, y: 18 },
-    { t: 25.5, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  stagger(".a3-point", 24.95, 0.14, { y: 18, dur: 0.75 });
-  track("#a3Float", [
-    { t: 25.55, opacity: 0, y: 26, scale: 0.97, rotateZ: -4 },
-    { t: 26.35, opacity: 1, y: 0, scale: 1, rotateZ: -2.5, ease: "expo" },
-    { t: 27.0, opacity: 1, y: 0, rotateZ: -2.5 },
-    { t: 27.35, opacity: 0, y: -14, rotateZ: -2.5, ease: "inOut" },
+    { t: 24.5, opacity: 0, y: 18 },
+    { t: 25.15, opacity: 1, y: 0, ease: "expo" },
   ]);
   track(".a3-ghost", [
     { t: 23.9, opacity: 0, x: 40 },
@@ -472,16 +479,21 @@
     { t: 33.0, opacity: 0.6, x: -90, ease: "linear" },
   ]);
   track("#a3DeviceStage", [
-    { t: 23.85, opacity: 0, y: 160, scale: 0.96 },
-    { t: 25.3, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 23.55, opacity: 0, y: 160, scale: 0.96 },
+    { t: 24.9, opacity: 1, y: 0, scale: 1, ease: "expo" },
     { t: 31.2, y: 0 },
     { t: 32.2, y: -20, ease: "inOut" },
   ]);
   track("#phone", [
-    { t: 24.05, y: 120, rotateX: 10, rotateY: -28, rotateZ: 3, scale: 0.94 },
-    { t: 25.55, y: 0, rotateX: 4, rotateY: -16, rotateZ: 0, scale: 1, ease: "expo" },
+    { t: 23.7, y: 120, rotateX: 10, rotateY: -28, rotateZ: 3, scale: 0.94 },
+    { t: 25.2, y: 0, rotateX: 4, rotateY: -16, rotateZ: 0, scale: 1, ease: "expo" },
     { t: 31.2, y: 0, rotateX: 1, rotateY: -7, rotateZ: 0, scale: 1.04, ease: "inOut" },
     { t: 33.0, y: -8, rotateX: 1, rotateY: -7, rotateZ: 0, scale: 1.07 },
+  ]);
+  track("[data-p-boot]", [
+    { t: 0, opacity: 1 },
+    { t: 24.8, opacity: 1 },
+    { t: 25.2, opacity: 0, ease: "inOut" },
   ]);
   track(".screen--phone [data-p-flash]", [
     { t: 24.85, opacity: 0 },
@@ -567,12 +579,12 @@
   ]);
   // mobile article
   track(".p-page--home", [
-    { t: 29.0, opacity: 1, x: 0 },
-    { t: 29.45, opacity: 0, x: -46, ease: "inOut" },
+    { t: 29.0, opacity: 1, x: 0, blur: 0 },
+    { t: 29.45, opacity: 0, x: -46, blur: 5, ease: "inOut" },
   ]);
   track(".p-page--article", [
-    { t: 29.05, opacity: 0, x: 46 },
-    { t: 29.6, opacity: 1, x: 0, ease: "expo" },
+    { t: 29.05, opacity: 0, x: 46, blur: 5 },
+    { t: 29.6, opacity: 1, x: 0, blur: 0, ease: "expo" },
   ]);
   track(".p-mobilebars", [
     { t: 29.1, opacity: 0 },
@@ -603,40 +615,44 @@
      ACT 4 — TABLET + FAMILY
      ============================================================ */
   track("#act4", [
-    { t: 33.6, opacity: 0 },
-    { t: 34.15, opacity: 1 },
+    { t: 33.3, opacity: 0 },
+    { t: 33.9, opacity: 1 },
     { t: 42.95, opacity: 1 },
     { t: 43.45, opacity: 0 },
   ]);
   track("#a4Copy", [
-    { t: 34.0, opacity: 0, y: 26 },
-    { t: 34.8, opacity: 1, y: 0, ease: "expo" },
+    { t: 33.6, opacity: 0, y: 26 },
+    { t: 34.4, opacity: 1, y: 0, ease: "expo" },
     { t: 37.85, opacity: 1, y: 0 },
     { t: 38.4, opacity: 0, y: -20, ease: "inOut" },
   ]);
   const a4Lines = $$("#a4Headline .mask > span");
   a4Lines.forEach((el, i) =>
     track(el, [
-      { t: 34.2 + i * 0.13, y: 100 },
-      { t: 35.15 + i * 0.13, y: 0, ease: "expo" },
+      { t: 33.85 + i * 0.13, y: 100 },
+      { t: 34.8 + i * 0.13, y: 0, ease: "expo" },
     ])
   );
   track("#a4Lede", [
-    { t: 34.9, opacity: 0, y: 16 },
-    { t: 35.55, opacity: 1, y: 0, ease: "expo" },
+    { t: 34.5, opacity: 0, y: 16 },
+    { t: 35.15, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".a4-list span", 35.05, 0.1, { y: 14, dur: 0.65 });
   track("#a4DeviceStage", [
-    { t: 33.85, opacity: 0, x: -120, y: 40 },
-    { t: 34.85, opacity: 1, x: 0, y: 0, ease: "expo" },
-    { t: 37.9, opacity: 1, x: 0, y: 0 },
-    { t: 38.45, opacity: 0, x: 0, y: -20, ease: "inOut" },
+    { t: 33.45, opacity: 0, x: -120, y: 40, scale: 0.98 },
+    { t: 34.5, opacity: 1, x: 0, y: 0, scale: 1, ease: "expo" },
+    { t: 37.9, opacity: 1, x: 0, y: -4, scale: 1.015 },
+    { t: 38.45, opacity: 0, x: 0, y: -20, scale: 1.015, ease: "inOut" },
   ]);
   track("#tablet", [
-    { t: 34.0, y: 50, rotateX: 6, rotateY: 20, rotateZ: 1, scale: 0.95 },
-    { t: 35.5, y: 0, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1, ease: "expo" },
+    { t: 33.6, y: 50, rotateX: 6, rotateY: 20, rotateZ: 1, scale: 0.95 },
+    { t: 35.1, y: 0, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1, ease: "expo" },
     { t: 37.8, y: 0, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1 },
     { t: 38.4, y: -10, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1.02, ease: "inOut" },
+  ]);
+  track("[data-t-boot]", [
+    { t: 0, opacity: 1 },
+    { t: 34.55, opacity: 1 },
+    { t: 35.0, opacity: 0, ease: "inOut" },
   ]);
   track(".screen--tablet [data-t-flash]", [
     { t: 34.6, opacity: 0 },
@@ -657,8 +673,8 @@
     { t: 36.55, opacity: 0, x: -40, ease: "inOut" },
   ]);
   track(".t-map-page", [
-    { t: 36.45, opacity: 0, y: 18 },
-    { t: 36.98, opacity: 1, y: 0, ease: "expo" },
+    { t: 36.45, opacity: 0, y: 18, scale: 0.985 },
+    { t: 36.98, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track(".t-map-scroll h1", [
     { t: 36.55, opacity: 0, y: 14 },
@@ -730,8 +746,8 @@
      ACT 5 — FEATURES
      ============================================================ */
   track("#act5", [
-    { t: 42.85, opacity: 0 },
-    { t: 43.3, opacity: 1 },
+    { t: 42.75, opacity: 0 },
+    { t: 43.2, opacity: 1 },
   ]);
   track("#a5Features", [
     { t: 42.9, opacity: 0, y: 24 },
@@ -755,7 +771,7 @@
     { t: 43.9, opacity: 0, y: 14 },
     { t: 44.45, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".feat", 43.6, 0.095, { y: 42, dur: 0.85, scale: 0.97 });
+  stagger(".feat", 43.6, 0.075, { y: 42, dur: 0.7, scale: 0.97, rotateX: 8 });
 
   /* ============================================================
      OUTRO
@@ -840,28 +856,28 @@
   track(".bg--outro", [{ t: 47.2, opacity: 0 }, { t: 48.0, opacity: 1 }]);
   track(".bg-plus--intro", [
     { t: 0.3, opacity: 0 },
-    { t: 1.4, opacity: 0.32 },
-    { t: 6.4, opacity: 0.32 },
+    { t: 1.4, opacity: 0.24 },
+    { t: 6.4, opacity: 0.24 },
     { t: 7.2, opacity: 0 },
   ]);
   track(".bg-plus--bright", [
     { t: 6.8, opacity: 0 },
-    { t: 7.6, opacity: 0.52 },
-    { t: 23.2, opacity: 0.52 },
+    { t: 7.6, opacity: 0.34 },
+    { t: 23.2, opacity: 0.34 },
     { t: 23.9, opacity: 0 },
     { t: 33.7, opacity: 0 },
-    { t: 34.4, opacity: 0.4 },
-    { t: 42.8, opacity: 0.4 },
+    { t: 34.4, opacity: 0.3 },
+    { t: 42.8, opacity: 0.3 },
     { t: 43.4, opacity: 0 },
   ]);
   track(".bg-plus--dark", [
     { t: 23.6, opacity: 0 },
-    { t: 24.3, opacity: 0.4 },
-    { t: 33.1, opacity: 0.4 },
+    { t: 24.3, opacity: 0.26 },
+    { t: 33.1, opacity: 0.26 },
     { t: 33.8, opacity: 0 },
     { t: 43.0, opacity: 0 },
-    { t: 43.6, opacity: 0.34 },
-    { t: 47.3, opacity: 0.34 },
+    { t: 43.6, opacity: 0.24 },
+    { t: 47.3, opacity: 0.24 },
     { t: 48.0, opacity: 0 },
   ]);
   track(".aurora--a", [
@@ -904,25 +920,25 @@
 
   track("#flashCut", [
     { t: 6.62, opacity: 0 },
-    { t: 6.76, opacity: 0.96, ease: "out" },
-    { t: 6.86, opacity: 0.96 },
-    { t: 7.22, opacity: 0, ease: "inOut" },
+    { t: 6.76, opacity: 0.4, ease: "out" },
+    { t: 6.84, opacity: 0.4 },
+    { t: 7.18, opacity: 0, ease: "inOut" },
     { t: 23.48, opacity: 0 },
-    { t: 23.6, opacity: 0.96, ease: "out" },
-    { t: 23.7, opacity: 0.96 },
-    { t: 24.06, opacity: 0, ease: "inOut" },
+    { t: 23.6, opacity: 0.32, ease: "out" },
+    { t: 23.68, opacity: 0.32 },
+    { t: 24.02, opacity: 0, ease: "inOut" },
     { t: 33.4, opacity: 0 },
-    { t: 33.52, opacity: 0.96, ease: "out" },
-    { t: 33.62, opacity: 0.96 },
-    { t: 33.98, opacity: 0, ease: "inOut" },
+    { t: 33.52, opacity: 0.32, ease: "out" },
+    { t: 33.6, opacity: 0.32 },
+    { t: 33.94, opacity: 0, ease: "inOut" },
     { t: 42.86, opacity: 0 },
-    { t: 42.98, opacity: 0.94, ease: "out" },
-    { t: 43.08, opacity: 0.94 },
-    { t: 43.44, opacity: 0, ease: "inOut" },
+    { t: 42.98, opacity: 0.3, ease: "out" },
+    { t: 43.06, opacity: 0.3 },
+    { t: 43.4, opacity: 0, ease: "inOut" },
     { t: 47.1, opacity: 0 },
-    { t: 47.22, opacity: 0.96, ease: "out" },
-    { t: 47.32, opacity: 0.96 },
-    { t: 47.68, opacity: 0, ease: "inOut" },
+    { t: 47.22, opacity: 0.36, ease: "out" },
+    { t: 47.3, opacity: 0.36 },
+    { t: 47.64, opacity: 0, ease: "inOut" },
   ]);
 
   track("#wipe", [
@@ -1152,9 +1168,9 @@
     const p = clamp(t / DURATION, 0, 1);
     scrubFill.style.width = p * 100 + "%";
     scrubThumb.style.left = p * 100 + "%";
-    const sec = Math.floor(t);
+    const sec = Math.floor(t / SPEED);
     if (sec !== lastSecond) {
-      timeNow.textContent = fmt(t);
+      timeNow.textContent = fmt(t / SPEED);
       lastSecond = sec;
     }
     let ci = 0;
@@ -1179,7 +1195,7 @@
     const dt = Math.min(0.05, (now - state.last) / 1000);
     state.last = now;
     const prev = state.t;
-    state.t += dt;
+    state.t += dt * SPEED;
     if (state.t >= DURATION) {
       state.t = DURATION;
       render(state.t);
@@ -1239,7 +1255,7 @@
   scrubWrap.addEventListener("pointermove", (e) => {
     const r = scrubWrap.getBoundingClientRect();
     const p = clamp((e.clientX - r.left) / r.width, 0, 1);
-    scrubTip.textContent = fmt(p * DURATION);
+    scrubTip.textContent = fmt(p * PLAYBACK);
     scrubTip.style.left = `${p * 100}%`;
     if (state.scrubbing) seekFromEvent(e);
   });
@@ -1431,7 +1447,7 @@
   function resetAudioPosition(t) {
     lastTypeTick = Math.floor(t * 11);
     lastPulse = Math.floor((t - 7) / 2);
-    lastArp = Math.floor((t - 7) / 1.5);
+    lastArp = Math.floor((t - 7) / 1.8);
   }
 
   function updateSoundUI() {
@@ -1629,7 +1645,7 @@
     const lp = ctx.createBiquadFilter();
     lp.type = "lowpass";
     lp.frequency.value = 1800;
-    const g = envGain(0.022, 0.006, 0.38);
+    const g = envGain(0.016, 0.006, 0.38);
     o.connect(lp);
     lp.connect(g);
     sendTo(g, 0.35);
@@ -1645,12 +1661,16 @@
     { t: 15.5, fn: () => sfxClick(0.06) },
     { t: 16.45, fn: () => sfxChime(523.25, 0.045) },
     { t: 20.99, fn: () => sfxClick(0.065) },
+    { t: 21.18, fn: () => sfxChime(659.25, 0.03) },
     { t: 23.5, fn: () => sfxWhoosh(0.95, 0.13, 160, 2400) },
+    { t: 25.55, fn: () => sfxBoom(0.07) },
     { t: 27.15, fn: () => sfxClick(0.045) },
     { t: 28.3, fn: () => sfxClick(0.04) },
     { t: 29.06, fn: () => sfxClick(0.05) },
     { t: 33.42, fn: () => sfxWhoosh(0.95, 0.13, 180, 2600) },
+    { t: 35.45, fn: () => sfxBoom(0.07) },
     { t: 36.5, fn: () => sfxWhoosh(0.7, 0.06, 300, 1800) },
+    { t: 39.15, fn: () => sfxChime(392, 0.032) },
     { t: 42.9, fn: () => sfxWhoosh(0.9, 0.13, 160, 2400) },
     { t: 47.18, fn: () => sfxWhoosh(1.0, 0.14, 200, 3200) },
     { t: 48.1, fn: () => { sfxBoom(0.15); sfxChime(523.25, 0.055); } },
@@ -1673,7 +1693,7 @@
         lastPulse = beat;
         sfxPulse();
       }
-      const arp = Math.floor((next - 7) / 1.5);
+      const arp = Math.floor((next - 7) / 1.8);
       if (arp !== lastArp) {
         lastArp = arp;
         const chord = CHORDS[clamp(ci, 0, CHORDS.length - 1)];
@@ -1715,7 +1735,7 @@
     clone.removeAttribute("style");
     clone.querySelectorAll("[style]").forEach((el) => el.removeAttribute("style"));
     clone
-      .querySelectorAll(".d-search-modal,.cursor,.cursor-ripple,.d-progress,.d-toc,.screen-flash,.screen-sweep,.p-drawer")
+      .querySelectorAll(".d-search-modal,.cursor,.cursor-ripple,.d-progress,.d-toc,.screen-flash,.screen-sweep,.screen-boot,.p-drawer")
       .forEach((n) => n.remove());
     if (opts.dark) clone.style.setProperty("--dark", "1");
     if (opts.view === "map") {
@@ -1747,7 +1767,7 @@
     if (booted) return;
     booted = true;
     fit();
-    timeTotal.textContent = fmt(DURATION);
+    timeTotal.textContent = fmt(PLAYBACK);
     const startT = previewT !== null ? clamp(previewT, 0, DURATION) : 0;
     state.t = startT;
     render(startT);
