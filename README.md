@@ -6,6 +6,8 @@ deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki i
 
 > **One wiki. Every screen.**
 
+**Live film:** [wiki-launch-animation.vercel.app](https://wiki-launch-animation.vercel.app)
+
 [Watch the film](index.html) · [Read the wiki](https://putrajayarblx-wiki.vercel.app) · [Wiki repository](https://github.com/Putrajayarblx/Putrajayarblx-Wiki)
 
 ---
@@ -138,6 +140,8 @@ last updated November 2026. Update the counts in `index.html` and `app.js` when 
 ---
 
 ## Deployment
+
+**Live:** <https://wiki-launch-animation.vercel.app>
 
 ### Vercel
 
