@@ -153,11 +153,11 @@ enables clean URLs.
 vercel --prod
 ```
 
-### GitHub Pages
+### Any static host
 
-Enable **Settings → Pages → Source: GitHub Actions**, then push to `main`. The included
-`.github/workflows/pages.yml` publishes the root of the repository. `.nojekyll` keeps the folder
-structure intact.
+The repository root is fully static. It can be served directly by GitHub Pages, Netlify, Cloudflare
+Pages or any object store. `.nojekyll` keeps the folder structure intact on GitHub Pages; no build
+command or output directory is required.
 
 ---
 
