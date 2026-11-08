@@ -6,6 +6,8 @@ deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki i
 
 > **One wiki. Every screen.**
 
+![Putrajaya.rblx Wiki launch graphic](https://raw.githubusercontent.com/Putrajayarblx/Putrajayarblx-Wiki/main/public/PutrajayaWikiLaunch.png)
+
 **Live film:** [wiki-launch-animation.vercel.app](https://wiki-launch-animation.vercel.app)
 
 [Watch the film](index.html) · [Read the wiki](https://putrajayarblx-wiki.vercel.app) · [Wiki repository](https://github.com/Putrajayarblx/Putrajayarblx-Wiki)
