@@ -8,6 +8,9 @@
   const DURATION = 54;
   const SPEED = 1.28;
   const PLAYBACK = DURATION / SPEED;
+  const MASTER_LEVEL = 2.2;
+  const PAUSED_LEVEL = 0.18;
+  const SFX_BOOST = 1.25;
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -1218,7 +1221,7 @@
     document.body.classList.add("is-playing");
     document.body.classList.remove("idle");
     playBtn.setAttribute("aria-label", "Pause");
-    if (audioOn) audioLevel(0.8, 0.4);
+    if (audioOn) audioLevel(MASTER_LEVEL, 0.4);
     raf = requestAnimationFrame(tick);
     scheduleIdle();
   }
@@ -1228,7 +1231,7 @@
     cancelAnimationFrame(raf);
     document.body.classList.remove("is-playing", "idle");
     playBtn.setAttribute("aria-label", "Play");
-    if (audioOn) audioLevel(0.04, 0.3);
+    if (audioOn) audioLevel(PAUSED_LEVEL, 0.3);
     clearTimeout(idleTimer);
   }
 
@@ -1325,11 +1328,11 @@
   let lastArp = -1;
 
   const CHORDS = [
-    [110, 164.81, 220, 329.63],
     [130.81, 196, 261.63, 329.63],
-    [87.31, 130.81, 174.61, 220],
     [98, 146.83, 196, 293.66],
     [110, 164.81, 220, 329.63],
+    [87.31, 130.81, 174.61, 220],
+    [98, 146.83, 196, 293.66],
     [130.81, 196, 261.63, 392],
   ];
 
@@ -1360,14 +1363,26 @@
     const ctx = new AC();
     const master = ctx.createGain();
     master.gain.value = 0;
-    master.connect(ctx.destination);
+    const limiter = ctx.createDynamicsCompressor();
+    limiter.threshold.value = -1.2;
+    limiter.knee.value = 0;
+    limiter.ratio.value = 20;
+    limiter.attack.value = 0.002;
+    limiter.release.value = 0.12;
+    limiter.connect(ctx.destination);
+    master.connect(limiter);
     const comp = ctx.createDynamicsCompressor();
-    comp.threshold.value = -16;
+    comp.threshold.value = -14;
     comp.knee.value = 18;
-    comp.ratio.value = 3.2;
+    comp.ratio.value = 2.8;
     comp.attack.value = 0.004;
     comp.release.value = 0.25;
-    comp.connect(master);
+    const shelf = ctx.createBiquadFilter();
+    shelf.type = "highshelf";
+    shelf.frequency.value = 2600;
+    shelf.gain.value = 2.5;
+    comp.connect(shelf);
+    shelf.connect(master);
     const bus = ctx.createGain();
     bus.gain.value = 1;
     bus.connect(comp);
@@ -1383,7 +1398,7 @@
     filter.frequency.value = 900;
     filter.Q.value = 0.45;
     const padGain = ctx.createGain();
-    padGain.gain.value = 0.15;
+    padGain.gain.value = 0.18;
     filter.connect(padGain);
     padGain.connect(bus);
     const padSend = ctx.createGain();
@@ -1398,7 +1413,7 @@
       o.frequency.value = f;
       o.detune.value = (i - 1.5) * 4;
       const g = ctx.createGain();
-      g.gain.value = [0.5, 0.17, 0.11, 0.07][i];
+      g.gain.value = [0.55, 0.2, 0.13, 0.08][i];
       o.connect(g);
       g.connect(filter);
       o.start();
@@ -1446,7 +1461,7 @@
 
   function resetAudioPosition(t) {
     lastTypeTick = Math.floor(t * 11);
-    lastPulse = Math.floor((t - 7) / 2);
+    lastPulse = Math.floor((t - 7) / 1.5);
     lastArp = Math.floor((t - 7) / 1.8);
   }
 
@@ -1473,7 +1488,7 @@
     audioMuted = false;
     if (a.ctx.state === "suspended") a.ctx.resume();
     audioOn = true;
-    audioLevel(state.playing ? 0.8 : 0.2, 0.5);
+    audioLevel(state.playing ? MASTER_LEVEL : PAUSED_LEVEL, 0.5);
     audioChapter = chapterAt(state.t);
     setChord(audioChapter, true);
     resetAudioPosition(state.t);
@@ -1533,7 +1548,7 @@
     bp.Q.value = 1.5;
     bp.frequency.setValueAtTime(from, t);
     bp.frequency.exponentialRampToValueAtTime(to, t + dur);
-    const g = envGain(vol, 0.08, dur);
+    const g = envGain(vol * SFX_BOOST, 0.08, dur);
     src.connect(bp);
     bp.connect(g);
     if (ctx.createStereoPanner) {
@@ -1557,7 +1572,7 @@
     o.type = "sine";
     o.frequency.setValueAtTime(92, t);
     o.frequency.exponentialRampToValueAtTime(36, t + 0.7);
-    const g = envGain(vol, 0.012, 1.1);
+    const g = envGain(vol * SFX_BOOST, 0.012, 1.1);
     o.connect(g);
     sendTo(g, 0.35);
     o.start(t);
@@ -1567,7 +1582,7 @@
     const lp = ctx.createBiquadFilter();
     lp.type = "lowpass";
     lp.frequency.value = 180;
-    const ng = envGain(vol * 0.5, 0.005, 0.45);
+    const ng = envGain(vol * 0.5 * SFX_BOOST, 0.005, 0.45);
     n.connect(lp);
     lp.connect(ng);
     sendTo(ng, 0.2);
@@ -1583,7 +1598,7 @@
     o.type = "sine";
     o.frequency.setValueAtTime(1500, t);
     o.frequency.exponentialRampToValueAtTime(720, t + 0.05);
-    const g = envGain(vol, 0.003, 0.07);
+    const g = envGain(vol * SFX_BOOST, 0.003, 0.07);
     o.connect(g);
     sendTo(g, 0.12);
     o.start(t);
@@ -1598,7 +1613,7 @@
       const o = ctx.createOscillator();
       o.type = "sine";
       o.frequency.value = freq * mult;
-      const g = envGain(vol * (i ? 0.32 : 1), 0.01, 1.8);
+      const g = envGain(vol * (i ? 0.32 : 1) * SFX_BOOST, 0.01, 1.8);
       o.connect(g);
       sendTo(g, 0.45);
       o.start(t);
@@ -1614,7 +1629,7 @@
     o.type = "sine";
     o.frequency.setValueAtTime(62, t);
     o.frequency.exponentialRampToValueAtTime(48, t + 0.3);
-    const g = envGain(0.045, 0.01, 0.4);
+    const g = envGain(0.06, 0.01, 0.4);
     o.connect(g);
     sendTo(g, 0.15);
     o.start(t);
@@ -1628,7 +1643,7 @@
     const o = ctx.createOscillator();
     o.type = "sine";
     o.frequency.value = 2400;
-    const g = envGain(0.012, 0.002, 0.035);
+    const g = envGain(0.016, 0.002, 0.035);
     o.connect(g);
     sendTo(g, 0.04);
     o.start(t);
@@ -1645,7 +1660,7 @@
     const lp = ctx.createBiquadFilter();
     lp.type = "lowpass";
     lp.frequency.value = 1800;
-    const g = envGain(0.016, 0.006, 0.38);
+    const g = envGain(0.022, 0.006, 0.38);
     o.connect(lp);
     lp.connect(g);
     sendTo(g, 0.35);
@@ -1688,7 +1703,7 @@
       if (prev < cue.t && next >= cue.t) cue.fn();
     }
     if (next >= 7 && next < 47.2) {
-      const beat = Math.floor((next - 7) / 2);
+      const beat = Math.floor((next - 7) / 1.5);
       if (beat !== lastPulse) {
         lastPulse = beat;
         sfxPulse();
