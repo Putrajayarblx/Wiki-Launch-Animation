@@ -343,7 +343,8 @@
 #tablet { transform-origin: 50% 48%; }
 #a4Caption { left: 122px; bottom: 96px; }
 
-.a4-family { position: absolute; inset: 0; opacity: 0; will-change: opacity, transform; }
+.a4-family { position: absolute; inset: 0; opacity: 0; visibility: hidden; will-change: opacity, transform; }
+.a4-family.is-live { visibility: visible; }
 .a4-family .eyebrow { margin-top: 76px; margin-bottom: 14px; }
 .a4-family .display { font-size: 76px; letter-spacing: -.05em; }
 .device-row {

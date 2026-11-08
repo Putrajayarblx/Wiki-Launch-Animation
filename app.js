@@ -271,6 +271,10 @@
     { t: 22.7, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.71 },
     { t: 23.9, scale: 1.74, ease: "inOut" },
   ]);
+  track(".laptop-base, .laptop-shadow", [
+    { t: 15.75, opacity: 1 },
+    { t: 16.2, opacity: 0, ease: "inOut" },
+  ]);
   track(".screen--desktop [data-d-flash]", [
     { t: 8.15, opacity: 0 },
     { t: 8.35, opacity: 0.9 },
@@ -285,79 +289,40 @@
     { t: 9.5, opacity: 0, "--screen-sweep-x": 1700, ease: "inOut" },
   ]);
 
-  // desktop UI cascade
+  // desktop UI cascade — faithful to the real splash homepage
   track(".d-header", [
     { t: 8.25, opacity: 0, y: -22 },
     { t: 9.0, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".d-side-group", 8.55, 0.1, { y: 14, dur: 0.7 });
-  track(".d-side-search", [
-    { t: 8.4, opacity: 0, y: 10 },
-    { t: 9.05, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-side-foot", [
-    { t: 9.15, opacity: 0, y: 10 },
-    { t: 9.7, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-badges", [
-    { t: 9.1, opacity: 0, y: 14 },
-    { t: 9.75, opacity: 1, y: 0, ease: "expo" },
-  ]);
   track(".d-hero-title", [
-    { t: 9.2, opacity: 0, y: 18 },
+    { t: 9.15, opacity: 0, y: 18 },
     { t: 9.95, opacity: 1, y: 0, ease: "expo" },
   ]);
   track(".d-hero-tag", [
-    { t: 9.45, opacity: 0, y: 16 },
+    { t: 9.4, opacity: 0, y: 16 },
     { t: 10.15, opacity: 1, y: 0, ease: "expo" },
   ]);
   track(".d-hero-actions", [
-    { t: 9.7, opacity: 0, y: 14 },
+    { t: 9.65, opacity: 0, y: 14 },
     { t: 10.35, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".d-art-card", 9.6, 0.14, { y: 18, dur: 0.8 });
-  track(".d-hero-search", [
-    { t: 10.05, opacity: 0, y: 16 },
-    { t: 10.75, opacity: 1, y: 0, ease: "expo" },
+  const deskArtRot = [-7, 6, -4];
+  $$(".d-art-card").forEach((el, i) => {
+    const rot = deskArtRot[i] || 0;
+    const s = 9.25 + i * 0.15;
+    track(el, [
+      { t: s, opacity: 0, y: 22, rotateZ: rot },
+      { t: s + 0.85, opacity: 1, y: 0, rotateZ: rot, ease: "expo" },
+    ]);
+  });
+  track(".d-hero-badges", [
+    { t: 10.15, opacity: 0, y: 14 },
+    { t: 10.8, opacity: 1, y: 0, ease: "expo" },
   ]);
-  track(".d-section-head", [
-    { t: 10.45, opacity: 0, y: 12 },
+  track(".d-hero-search", [
+    { t: 10.35, opacity: 0, y: 14 },
     { t: 11.0, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".d-cat", 10.7, 0.12, { y: 20, dur: 0.8 });
-  track(".d-stats", [
-    { t: 11.3, opacity: 0, y: 14 },
-    { t: 11.95, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-lower", [
-    { t: 11.65, opacity: 0, y: 14 },
-    { t: 12.2, opacity: 1, y: 0, ease: "expo" },
-  ]);
-
-  // callouts
-  const co = (sel, t0, axis) => {
-    track(sel, [
-      { t: t0, opacity: 0 },
-      { t: t0 + 0.55, opacity: 1, ease: "expo" },
-      { t: 13.05, opacity: 1 },
-      { t: 13.45, opacity: 0, ease: "inOut" },
-    ]);
-    const lineProp = axis === "y" ? "scaleY" : "scaleX";
-    track(`${sel} .callout-line`, [
-      { t: t0, [lineProp]: 0 },
-      { t: t0 + 0.7, [lineProp]: 1, ease: "expo" },
-    ]);
-    track(`${sel} .callout-dot`, [
-      { t: t0, scale: 0 },
-      { t: t0 + 0.4, scale: 1, ease: "expo" },
-    ]);
-    track(`${sel} .callout-body`, [
-      { t: t0 + 0.15, opacity: 0, y: 10 },
-      { t: t0 + 0.75, opacity: 1, y: 0, ease: "expo" },
-    ]);
-  };
-  co("#co2", 12.0, "y");
-  co("#co3", 12.55, "y");
   track("#a2Caption", [
     { t: 10.8, opacity: 0, y: 8 },
     { t: 11.5, opacity: 1, y: 0, ease: "expo" },
@@ -369,33 +334,33 @@
   track("[data-d-cursor]", [
     { t: 12.1, opacity: 0, x: 1120, y: 760, scale: 1 },
     { t: 12.45, opacity: 1 },
-    { t: 13.35, x: 1002, y: 34, ease: "inOut" },
+    { t: 13.35, x: 500, y: 36, ease: "inOut" },
     { t: 13.45, scale: 0.82, ease: "out" },
     { t: 13.6, scale: 1, ease: "out" },
-    { t: 15.05, x: 1010, y: 34, ease: "inOut" },
-    { t: 15.45, x: 625, y: 195, ease: "inOut" },
+    { t: 15.05, x: 520, y: 36, ease: "inOut" },
+    { t: 15.45, x: 620, y: 205, ease: "inOut" },
     { t: 15.52, scale: 0.82 },
     { t: 15.66, scale: 1 },
-    { t: 15.8, opacity: 0, x: 625, y: 195 },
-    { t: 20.55, opacity: 0, x: 1230, y: 240 },
-    { t: 20.8, opacity: 1 },
-    { t: 21.0, x: 1322, y: 34, ease: "inOut" },
+    { t: 15.8, opacity: 0, x: 620, y: 205 },
+    { t: 20.45, opacity: 0, x: 1240, y: 300 },
+    { t: 20.7, opacity: 1 },
+    { t: 21.0, x: 1352, y: 418, ease: "inOut" },
     { t: 21.08, scale: 0.82 },
     { t: 21.22, scale: 1 },
     { t: 21.5, opacity: 0 },
   ]);
   track("[data-d-ripple]", [
-    { t: 13.42, opacity: 0, scale: 0.3, x: 1002, y: 34 },
-    { t: 13.48, opacity: 0.9, scale: 0.6, x: 1002, y: 34 },
-    { t: 13.9, opacity: 0, scale: 1.7, x: 1002, y: 34, ease: "out" },
-    { t: 14.0, opacity: 0, scale: 1.7, x: 1002, y: 34 },
-    { t: 15.4, opacity: 0, scale: 0.4, x: 625, y: 195 },
-    { t: 15.48, opacity: 0.9, scale: 0.6, x: 625, y: 195 },
-    { t: 15.9, opacity: 0, scale: 1.7, x: 625, y: 195, ease: "out" },
-    { t: 16.0, opacity: 0, scale: 1.7, x: 625, y: 195 },
-    { t: 20.95, opacity: 0, scale: 0.4, x: 1322, y: 34 },
-    { t: 21.03, opacity: 0.9, scale: 0.6, x: 1322, y: 34 },
-    { t: 21.45, opacity: 0, scale: 1.7, x: 1322, y: 34, ease: "out" },
+    { t: 13.42, opacity: 0, scale: 0.3, x: 500, y: 36 },
+    { t: 13.48, opacity: 0.9, scale: 0.6, x: 500, y: 36 },
+    { t: 13.9, opacity: 0, scale: 1.7, x: 500, y: 36, ease: "out" },
+    { t: 14.0, opacity: 0, scale: 1.7, x: 500, y: 36 },
+    { t: 15.4, opacity: 0, scale: 0.4, x: 620, y: 205 },
+    { t: 15.48, opacity: 0.9, scale: 0.6, x: 620, y: 205 },
+    { t: 15.9, opacity: 0, scale: 1.7, x: 620, y: 205, ease: "out" },
+    { t: 16.0, opacity: 0, scale: 1.7, x: 620, y: 205 },
+    { t: 20.95, opacity: 0, scale: 0.4, x: 1352, y: 418 },
+    { t: 21.03, opacity: 0.9, scale: 0.6, x: 1352, y: 418 },
+    { t: 21.45, opacity: 0, scale: 1.7, x: 1352, y: 418, ease: "out" },
   ]);
   track("[data-d-modal]", [
     { t: 13.45, opacity: 0 },
@@ -433,9 +398,17 @@
     { t: 15.85, opacity: 0, x: 45 },
     { t: 16.35, opacity: 1, x: 0, ease: "expo" },
   ]);
+  track(".d-side", [
+    { t: 16.1, opacity: 0, x: -12 },
+    { t: 16.65, opacity: 1, x: 0, ease: "expo" },
+  ]);
+  track(".d-rail", [
+    { t: 16.1, opacity: 0, x: 12 },
+    { t: 16.65, opacity: 1, x: 0, ease: "expo" },
+  ]);
   track(".d-toc", [
-    { t: 16.05, opacity: 0, x: 18 },
-    { t: 16.6, opacity: 1, x: 0, ease: "expo" },
+    { t: 16.2, opacity: 0 },
+    { t: 16.7, opacity: 1, ease: "expo" },
   ]);
   track(".d-progress", [
     { t: 16.0, opacity: 0 },
@@ -443,17 +416,17 @@
   ]);
   track("[data-d-progress]", [
     { t: 18.2, scaleX: 0 },
-    { t: 20.5, scaleX: 0.58, ease: "inOut" },
+    { t: 20.5, scaleX: 0.82, ease: "inOut" },
   ]);
   track(".d-article-head", [
     { t: 15.95, opacity: 0, y: 22 },
     { t: 16.55, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".d-article-body > *", 16.1, 0.05, { y: 16, dur: 0.65 });
+  stagger(".d-article-body > *", 16.1, 0.055, { y: 16, dur: 0.65 });
   track("[data-d-article-scroll]", [
     { t: 18.2, y: 0 },
-    { t: 20.6, y: -430, ease: "inOut" },
-    { t: 23.7, y: -430 },
+    { t: 20.6, y: -170, ease: "inOut" },
+    { t: 23.7, y: -170 },
   ]);
   track("#desktopUI", [
     { t: 20.9, "--dark": 0 },
@@ -519,43 +492,39 @@
     { t: 24.95, opacity: 0, y: -14 },
     { t: 25.45, opacity: 1, y: 0, ease: "expo" },
   ]);
-  track(".p-badges", [
-    { t: 25.0, opacity: 0, y: 12 },
-    { t: 25.5, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-hero h1", [
-    { t: 25.08, opacity: 0, y: 14 },
-    { t: 25.6, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-hero > p", [
-    { t: 25.22, opacity: 0, y: 12 },
+  const phoneArtRot = [-7, 6, -4];
+  $$(".p-art-card").forEach((el, i) => {
+    const rot = phoneArtRot[i] || 0;
+    const s = 25.0 + i * 0.13;
+    track(el, [
+      { t: s, opacity: 0, y: 22, rotateZ: rot },
+      { t: s + 0.85, opacity: 1, y: 0, rotateZ: rot, ease: "expo" },
+    ]);
+  });
+  track(".p-hero-title", [
+    { t: 25.15, opacity: 0, y: 14 },
     { t: 25.72, opacity: 1, y: 0, ease: "expo" },
   ]);
-  track(".p-actions", [
-    { t: 25.35, opacity: 0, y: 10 },
+  track(".p-hero-tag", [
+    { t: 25.3, opacity: 0, y: 12 },
     { t: 25.85, opacity: 1, y: 0, ease: "expo" },
   ]);
-  track(".p-hero-img", [
-    { t: 25.4, opacity: 0, y: 16 },
-    { t: 25.95, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-search", [
-    { t: 25.55, opacity: 0, y: 10 },
+  track(".p-actions", [
+    { t: 25.45, opacity: 0, y: 10 },
     { t: 26.0, opacity: 1, y: 0, ease: "expo" },
   ]);
-  track(".p-section-head", [
-    { t: 25.65, opacity: 0, y: 10 },
+  track(".p-badges", [
+    { t: 25.6, opacity: 0, y: 10 },
     { t: 26.1, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".p-cat", 25.75, 0.07, { y: 14, dur: 0.65 });
-  track(".p-stats", [
-    { t: 26.05, opacity: 0, y: 10 },
-    { t: 26.45, opacity: 1, y: 0, ease: "expo" },
+  track(".p-search", [
+    { t: 25.75, opacity: 0, y: 10 },
+    { t: 26.2, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("[data-p-home-scroll]", [
-    { t: 26.25, y: 0 },
-    { t: 27.05, y: -310, ease: "inOut" },
-    { t: 29.2, y: -310 },
+    { t: 26.35, y: 0 },
+    { t: 27.0, y: -46, ease: "inOut" },
+    { t: 29.2, y: -46 },
   ]);
   // drawer
   track(".p-drawer-scrim", [
@@ -564,10 +533,10 @@
     { t: 28.95, opacity: 0, ease: "inOut" },
   ]);
   track(".p-drawer-panel", [
-    { t: 27.2, x: -330 },
+    { t: 27.2, x: -340 },
     { t: 27.85, x: 0, ease: "expo" },
     { t: 28.3, x: 0 },
-    { t: 28.95, x: -330, ease: "inOut" },
+    { t: 28.95, x: -340, ease: "inOut" },
   ]);
   stagger(".p-drawer-link", 27.4, 0.055, { y: 10, dur: 0.55 });
   track(".p-drawer-search", [
@@ -580,21 +549,21 @@
   ]);
   // touch
   track("[data-p-touch]", [
-    { t: 27.0, opacity: 0, scale: 0.6, x: 27, y: 58 },
-    { t: 27.15, opacity: 1, scale: 1, x: 27, y: 58, ease: "out" },
+    { t: 27.0, opacity: 0, scale: 0.6, x: 352, y: 58 },
+    { t: 27.15, opacity: 1, scale: 1, x: 352, y: 58, ease: "out" },
     { t: 27.25, scale: 0.78 },
     { t: 27.4, scale: 1 },
-    { t: 27.62, opacity: 0, x: 27, y: 58 },
-    { t: 28.22, opacity: 0, x: 289, y: 29 },
-    { t: 28.32, opacity: 1, scale: 1, x: 289, y: 29 },
+    { t: 27.62, opacity: 0, x: 352, y: 58 },
+    { t: 28.22, opacity: 0, x: 300, y: 30 },
+    { t: 28.32, opacity: 1, scale: 1, x: 300, y: 30 },
     { t: 28.4, scale: 0.78 },
     { t: 28.55, scale: 1 },
-    { t: 28.72, opacity: 0, x: 289, y: 29 },
-    { t: 28.98, opacity: 0, x: 146, y: 430 },
-    { t: 29.08, opacity: 1, scale: 1, x: 146, y: 430 },
+    { t: 28.72, opacity: 0, x: 300, y: 30 },
+    { t: 28.98, opacity: 0, x: 160, y: 450 },
+    { t: 29.08, opacity: 1, scale: 1, x: 160, y: 450 },
     { t: 29.16, scale: 0.78 },
     { t: 29.3, scale: 1 },
-    { t: 29.5, opacity: 0, x: 146, y: 430 },
+    { t: 29.5, opacity: 0, x: 160, y: 450 },
   ]);
   // mobile article
   track(".p-page--home", [
@@ -605,50 +574,23 @@
     { t: 29.05, opacity: 0, x: 46 },
     { t: 29.6, opacity: 1, x: 0, ease: "expo" },
   ]);
+  track(".p-mobilebars", [
+    { t: 29.1, opacity: 0 },
+    { t: 29.55, opacity: 1, ease: "out" },
+  ]);
   track(".p-article-title", [
     { t: 29.15, opacity: 0, y: 16 },
     { t: 29.75, opacity: 1, y: 0, ease: "expo" },
   ]);
   stagger(".p-article-scroll > *:not(.p-article-title)", 29.3, 0.05, { y: 14, dur: 0.6 });
   track("[data-p-article-scroll]", [
-    { t: 29.9, y: 0 },
-    { t: 31.1, y: -360, ease: "inOut" },
-    { t: 33.2, y: -360 },
+    { t: 30.35, y: 0 },
+    { t: 31.45, y: -196, ease: "inOut" },
+    { t: 33.2, y: -196 },
   ]);
-  track("#coM", [
-    { t: 26.55, opacity: 0 },
-    { t: 26.95, opacity: 1, ease: "expo" },
-    { t: 27.3, opacity: 0, ease: "inOut" },
-  ]);
-  track("#coM .callout-line", [
-    { t: 26.55, scaleX: 0 },
-    { t: 27.0, scaleX: 1, ease: "expo" },
-  ]);
-  track("#coM .callout-dot", [
-    { t: 26.55, scale: 0 },
-    { t: 26.85, scale: 1, ease: "expo" },
-  ]);
-  track("#coM .callout-body", [
-    { t: 26.65, opacity: 0, y: 8 },
-    { t: 27.05, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#coM2", [
-    { t: 29.8, opacity: 0 },
-    { t: 30.2, opacity: 1, ease: "expo" },
-    { t: 30.6, opacity: 1 },
-    { t: 30.95, opacity: 0, ease: "inOut" },
-  ]);
-  track("#coM2 .callout-line", [
-    { t: 29.8, scaleX: 0 },
-    { t: 30.2, scaleX: 1, ease: "expo" },
-  ]);
-  track("#coM2 .callout-dot", [
-    { t: 29.8, scale: 0 },
-    { t: 30.1, scale: 1, ease: "expo" },
-  ]);
-  track("#coM2 .callout-body", [
-    { t: 29.9, opacity: 0, y: 8 },
-    { t: 30.3, opacity: 1, y: 0, ease: "expo" },
+  track(".p-appearance-pill", [
+    { t: 29.7, opacity: 0, y: 10 },
+    { t: 30.2, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#a3Caption", [
     { t: 25.1, opacity: 0, y: 8 },
@@ -712,20 +654,33 @@
   stagger(".t-article-scroll > *", 34.95, 0.06, { y: 16, dur: 0.65 });
   track(".t-page--article", [
     { t: 36.1, opacity: 1, x: 0 },
-    { t: 36.55, opacity: 0, x: -60, ease: "inOut" },
+    { t: 36.55, opacity: 0, x: -40, ease: "inOut" },
   ]);
-  track(".t-page--map", [
-    { t: 36.45, opacity: 0, x: 40 },
-    { t: 36.95, opacity: 1, x: 0, ease: "expo" },
+  track(".t-map-page", [
+    { t: 36.45, opacity: 0, y: 18 },
+    { t: 36.98, opacity: 1, y: 0, ease: "expo" },
+  ]);
+  track(".t-map-scroll h1", [
+    { t: 36.55, opacity: 0, y: 14 },
+    { t: 37.05, opacity: 1, y: 0, ease: "expo" },
+  ]);
+  track(".t-map-desc", [
+    { t: 36.65, opacity: 0, y: 10 },
+    { t: 37.1, opacity: 1, y: 0, ease: "expo" },
+  ]);
+  track(".t-map-card", [
+    { t: 36.7, opacity: 0, y: 18 },
+    { t: 37.25, opacity: 1, y: 0, ease: "expo" },
   ]);
   track(".t-map-img", [
-    { t: 36.4, scale: 1.06 },
-    { t: 38.3, scale: 1.14, ease: "inOut" },
+    { t: 36.7, scale: 1.04 },
+    { t: 38.3, scale: 1.08, ease: "inOut" },
   ]);
-  stagger(".t-pin", 36.9, 0.12, { y: 0, scale: 0.4, dur: 0.7 });
-  track(".t-map-card", [
-    { t: 37.2, opacity: 0, y: 18 },
-    { t: 37.7, opacity: 1, y: 0, ease: "expo" },
+  stagger(".t-map-filters span", 36.95, 0.045, { y: 8, dur: 0.45 });
+  stagger(".t-map-pin", 37.05, 0.075, { y: 0, scale: 0.4, dur: 0.55 });
+  track(".t-map-tools", [
+    { t: 37.3, opacity: 0, x: 8 },
+    { t: 37.75, opacity: 1, x: 0, ease: "expo" },
   ]);
   track("#a4Caption", [
     { t: 35.2, opacity: 0, y: 8 },
@@ -1091,10 +1046,11 @@
   const dUI = $("#desktopUI");
   const pUI = $("#phoneUI");
   const tUI = $("#tabletUI");
+  const a4Family = $("#a4Family");
   const typeEl = $("[data-d-type]");
-  const themeUse = $("#desktopUI [data-d-theme] use");
-  let themeIsDark = false;
-  const tocLinks = $$(".d-toc nav a");
+  const tocLinks = $$(".d-toc a");
+  const appearanceAuto = $('[data-appearance="auto"]');
+  const appearanceDark = $('[data-appearance="dark"]');
   const countEls = $$(".a5-stats strong[data-count]");
   const stage = $("#stage");
   let lastTyped = null;
@@ -1103,12 +1059,15 @@
     dUI.classList.toggle("is-article", t >= 16.15);
     pUI.classList.toggle("is-article", t >= 29.1);
     tUI.classList.toggle("is-map", t >= 36.3);
+    if (a4Family) a4Family.classList.toggle("is-live", t >= 37.9);
     stage.classList.toggle("is-ended", t >= 53.75);
     let idx = 0;
-    if (t >= 18.85) idx = 1;
-    if (t >= 19.6) idx = 2;
-    if (t >= 20.35) idx = 3;
+    if (t >= 18.9) idx = 1;
+    if (t >= 19.8) idx = 2;
     tocLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
+    const dark = t >= 20.98;
+    if (appearanceAuto) appearanceAuto.classList.toggle("is-checked", !dark);
+    if (appearanceDark) appearanceDark.classList.toggle("is-checked", dark);
   }
 
   function extras(t) {
@@ -1127,11 +1086,6 @@
       const str = String(clamp(val, 0, target)).padStart(2, "0");
       if (el.textContent !== str) el.textContent = str;
     });
-    const dark = t >= 21.0;
-    if (dark !== themeIsDark && themeUse) {
-      themeUse.setAttribute("href", dark ? "#i-moon" : "#i-sun");
-      themeIsDark = dark;
-    }
   }
 
   function render(t) {
@@ -1217,21 +1171,25 @@
     state.t = clamp(t, 0, DURATION);
     if (state.t < DURATION - 0.02) stage.classList.remove("is-ended");
     render(state.t);
+    if (audioOn) resetAudioPosition(state.t);
   }
 
   function tick(now) {
     if (!state.playing) return;
     const dt = Math.min(0.05, (now - state.last) / 1000);
     state.last = now;
+    const prev = state.t;
     state.t += dt;
     if (state.t >= DURATION) {
       state.t = DURATION;
       render(state.t);
+      audioFrame(prev, state.t);
       stage.classList.add("is-ended");
       pause();
       return;
     }
     render(state.t);
+    audioFrame(prev, state.t);
     raf = requestAnimationFrame(tick);
   }
 
@@ -1244,6 +1202,7 @@
     document.body.classList.add("is-playing");
     document.body.classList.remove("idle");
     playBtn.setAttribute("aria-label", "Pause");
+    if (audioOn) audioLevel(0.8, 0.4);
     raf = requestAnimationFrame(tick);
     scheduleIdle();
   }
@@ -1253,6 +1212,7 @@
     cancelAnimationFrame(raf);
     document.body.classList.remove("is-playing", "idle");
     playBtn.setAttribute("aria-label", "Play");
+    if (audioOn) audioLevel(0.04, 0.3);
     clearTimeout(idleTimer);
   }
 
@@ -1307,6 +1267,7 @@
   document.addEventListener("keydown", (e) => {
     if (e.target instanceof HTMLInputElement) return;
     const k = e.key.toLowerCase();
+    if (!audioOn && !audioMuted && k !== "m") enableAudio();
     if (k === " " || k === "k") { e.preventDefault(); toggle(); }
     else if (k === "arrowright") { e.preventDefault(); seek(state.t + 2); }
     else if (k === "arrowleft") { e.preventDefault(); seek(state.t - 2); }
@@ -1338,9 +1299,44 @@
   window.addEventListener("resize", fit);
   fit();
 
-  /* ---------------- AUDIO (optional ambient bed) ---------------- */
+  /* ---------------- SOUNDTRACK & SOUND DESIGN ---------------- */
   let audio = null;
   let audioOn = false;
+  let audioMuted = false;
+  let audioChapter = -1;
+  let lastTypeTick = -1;
+  let lastPulse = -1;
+  let lastArp = -1;
+
+  const CHORDS = [
+    [110, 164.81, 220, 329.63],
+    [130.81, 196, 261.63, 329.63],
+    [87.31, 130.81, 174.61, 220],
+    [98, 146.83, 196, 293.66],
+    [110, 164.81, 220, 329.63],
+    [130.81, 196, 261.63, 392],
+  ];
+
+  function makeNoise(ctx, seconds) {
+    const len = Math.floor(ctx.sampleRate * seconds);
+    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+    return buf;
+  }
+
+  function makeImpulse(ctx, seconds, decay) {
+    const len = Math.floor(ctx.sampleRate * seconds);
+    const buf = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let ch = 0; ch < 2; ch++) {
+      const data = buf.getChannelData(ch);
+      for (let i = 0; i < len; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+      }
+    }
+    return buf;
+  }
+
   function ensureAudio() {
     if (audio) return audio;
     const AC = window.AudioContext || window.webkitAudioContext;
@@ -1349,55 +1345,363 @@
     const master = ctx.createGain();
     master.gain.value = 0;
     master.connect(ctx.destination);
+    const comp = ctx.createDynamicsCompressor();
+    comp.threshold.value = -16;
+    comp.knee.value = 18;
+    comp.ratio.value = 3.2;
+    comp.attack.value = 0.004;
+    comp.release.value = 0.25;
+    comp.connect(master);
+    const bus = ctx.createGain();
+    bus.gain.value = 1;
+    bus.connect(comp);
+    const convolver = ctx.createConvolver();
+    convolver.buffer = makeImpulse(ctx, 2.4, 2.2);
+    const wet = ctx.createGain();
+    wet.gain.value = 0.28;
+    convolver.connect(wet);
+    wet.connect(comp);
+
     const filter = ctx.createBiquadFilter();
     filter.type = "lowpass";
-    filter.frequency.value = 780;
-    filter.Q.value = 0.4;
-    filter.connect(master);
-    const notes = [110, 164.81, 220, 277.18, 329.63];
+    filter.frequency.value = 900;
+    filter.Q.value = 0.45;
+    const padGain = ctx.createGain();
+    padGain.gain.value = 0.15;
+    filter.connect(padGain);
+    padGain.connect(bus);
+    const padSend = ctx.createGain();
+    padSend.gain.value = 0.35;
+    padGain.connect(padSend);
+    padSend.connect(convolver);
+
+    const notes = CHORDS[0];
     const oscs = notes.map((f, i) => {
       const o = ctx.createOscillator();
       o.type = i === 0 ? "sine" : "triangle";
       o.frequency.value = f;
-      o.detune.value = (i - 2) * 3.5;
+      o.detune.value = (i - 1.5) * 4;
       const g = ctx.createGain();
-      g.gain.value = i === 0 ? 0.5 : 0.12;
+      g.gain.value = [0.5, 0.17, 0.11, 0.07][i];
       o.connect(g);
       g.connect(filter);
       o.start();
       return o;
     });
     const lfo = ctx.createOscillator();
-    lfo.frequency.value = 0.055;
+    lfo.frequency.value = 0.05;
     const lfoGain = ctx.createGain();
-    lfoGain.gain.value = 260;
+    lfoGain.gain.value = 230;
     lfo.connect(lfoGain);
     lfoGain.connect(filter.frequency);
     lfo.start();
-    audio = { ctx, master, filter, oscs };
+
+    const noise = makeNoise(ctx, 2.5);
+    const air = ctx.createBufferSource();
+    air.buffer = noise;
+    air.loop = true;
+    const airFilter = ctx.createBiquadFilter();
+    airFilter.type = "bandpass";
+    airFilter.frequency.value = 1100;
+    airFilter.Q.value = 0.5;
+    const airGain = ctx.createGain();
+    airGain.gain.value = 0.007;
+    air.connect(airFilter);
+    airFilter.connect(airGain);
+    airGain.connect(bus);
+    air.start();
+
+    audio = { ctx, master, bus, filter, padGain, oscs, noise, convolver };
     return audio;
   }
-  function toggleSound() {
-    if (!audioOn) {
-      const a = ensureAudio();
-      if (!a) return;
-      if (a.ctx.state === "suspended") a.ctx.resume();
-      a.master.gain.cancelScheduledValues(a.ctx.currentTime);
-      a.master.gain.setTargetAtTime(0.075, a.ctx.currentTime, 0.8);
-      audioOn = true;
-      document.body.classList.add("sound-on");
-      const icon = $("#soundBtn use");
-      icon.setAttribute("href", "#i-volume");
-    } else {
-      if (audio) {
-        audio.master.gain.cancelScheduledValues(audio.ctx.currentTime);
-        audio.master.gain.setTargetAtTime(0, audio.ctx.currentTime, 0.5);
-      }
-      audioOn = false;
-      document.body.classList.remove("sound-on");
-      $("#soundBtn use").setAttribute("href", "#i-volume-off");
+
+  const chapterAt = (t) => {
+    let ci = 0;
+    for (let i = 0; i < chapters.length; i++) if (t >= chapters[i].t) ci = i;
+    return ci;
+  };
+
+  function setChord(ci, immediate) {
+    if (!audio) return;
+    const chord = CHORDS[clamp(ci, 0, CHORDS.length - 1)];
+    const now = audio.ctx.currentTime;
+    audio.oscs.forEach((o, i) => o.frequency.setTargetAtTime(chord[i], now, immediate ? 0.01 : 0.5));
+  }
+
+  function resetAudioPosition(t) {
+    lastTypeTick = Math.floor(t * 11);
+    lastPulse = Math.floor((t - 7) / 2);
+    lastArp = Math.floor((t - 7) / 1.5);
+  }
+
+  function updateSoundUI() {
+    const btn = $("#soundBtn");
+    if (!btn) return;
+    const use = btn.querySelector("use");
+    const label = $("#soundLabel");
+    if (use) use.setAttribute("href", audioOn ? "#i-volume" : "#i-volume-off");
+    if (label) label.textContent = audioOn ? "Sound on" : "Sound off";
+    btn.setAttribute("aria-label", audioOn ? "Mute sound" : "Enable sound");
+    btn.setAttribute("aria-pressed", String(audioOn));
+    document.body.classList.toggle("sound-on", audioOn);
+    if (audioOn) {
+      document.body.classList.add("sound-dismissed");
+      const hint = $("#soundHint");
+      if (hint) hint.remove();
     }
   }
+
+  function enableAudio() {
+    const a = ensureAudio();
+    if (!a) return;
+    audioMuted = false;
+    if (a.ctx.state === "suspended") a.ctx.resume();
+    audioOn = true;
+    audioLevel(state.playing ? 0.8 : 0.2, 0.5);
+    audioChapter = chapterAt(state.t);
+    setChord(audioChapter, true);
+    resetAudioPosition(state.t);
+    updateSoundUI();
+  }
+
+  function audioLevel(value, tc) {
+    if (!audio) return;
+    const now = audio.ctx.currentTime;
+    audio.master.gain.cancelScheduledValues(now);
+    audio.master.gain.setTargetAtTime(value, now, tc || 0.35);
+  }
+
+  function disableAudio() {
+    if (audio) audioLevel(0, 0.35);
+    audioOn = false;
+    updateSoundUI();
+  }
+
+  function toggleSound() {
+    if (audioOn) {
+      audioMuted = true;
+      disableAudio();
+    } else {
+      enableAudio();
+    }
+  }
+
+  const envGain = (peak, attack, dur) => {
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(Math.max(peak, 0.0002), t + attack);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    return g;
+  };
+
+  function sendTo(node, wet) {
+    node.connect(audio.bus);
+    if (wet > 0) {
+      const s = audio.ctx.createGain();
+      s.gain.value = wet;
+      node.connect(s);
+      s.connect(audio.convolver);
+    }
+  }
+
+  function sfxWhoosh(dur = 0.9, vol = 0.12, from = 220, to = 2600) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = audio.noise;
+    const bp = ctx.createBiquadFilter();
+    bp.type = "bandpass";
+    bp.Q.value = 1.5;
+    bp.frequency.setValueAtTime(from, t);
+    bp.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = envGain(vol, 0.08, dur);
+    src.connect(bp);
+    bp.connect(g);
+    if (ctx.createStereoPanner) {
+      const p = ctx.createStereoPanner();
+      p.pan.setValueAtTime(-0.65, t);
+      p.pan.linearRampToValueAtTime(0.65, t + dur);
+      g.connect(p);
+      sendTo(p, 0.3);
+    } else {
+      sendTo(g, 0.3);
+    }
+    src.start(t);
+    src.stop(t + dur + 0.05);
+  }
+
+  function sfxBoom(vol = 0.22) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "sine";
+    o.frequency.setValueAtTime(92, t);
+    o.frequency.exponentialRampToValueAtTime(36, t + 0.7);
+    const g = envGain(vol, 0.012, 1.1);
+    o.connect(g);
+    sendTo(g, 0.35);
+    o.start(t);
+    o.stop(t + 1.2);
+    const n = ctx.createBufferSource();
+    n.buffer = audio.noise;
+    const lp = ctx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = 180;
+    const ng = envGain(vol * 0.5, 0.005, 0.45);
+    n.connect(lp);
+    lp.connect(ng);
+    sendTo(ng, 0.2);
+    n.start(t);
+    n.stop(t + 0.5);
+  }
+
+  function sfxClick(vol = 0.05) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "sine";
+    o.frequency.setValueAtTime(1500, t);
+    o.frequency.exponentialRampToValueAtTime(720, t + 0.05);
+    const g = envGain(vol, 0.003, 0.07);
+    o.connect(g);
+    sendTo(g, 0.12);
+    o.start(t);
+    o.stop(t + 0.09);
+  }
+
+  function sfxChime(freq = 523.25, vol = 0.05) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    [1, 2.01].forEach((mult, i) => {
+      const o = ctx.createOscillator();
+      o.type = "sine";
+      o.frequency.value = freq * mult;
+      const g = envGain(vol * (i ? 0.32 : 1), 0.01, 1.8);
+      o.connect(g);
+      sendTo(g, 0.45);
+      o.start(t);
+      o.stop(t + 1.9);
+    });
+  }
+
+  function sfxPulse() {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "sine";
+    o.frequency.setValueAtTime(62, t);
+    o.frequency.exponentialRampToValueAtTime(48, t + 0.3);
+    const g = envGain(0.045, 0.01, 0.4);
+    o.connect(g);
+    sendTo(g, 0.15);
+    o.start(t);
+    o.stop(t + 0.45);
+  }
+
+  function sfxTick() {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "sine";
+    o.frequency.value = 2400;
+    const g = envGain(0.012, 0.002, 0.035);
+    o.connect(g);
+    sendTo(g, 0.04);
+    o.start(t);
+    o.stop(t + 0.05);
+  }
+
+  function sfxPluck(freq) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "triangle";
+    o.frequency.value = freq;
+    const lp = ctx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = 1800;
+    const g = envGain(0.022, 0.006, 0.38);
+    o.connect(lp);
+    lp.connect(g);
+    sendTo(g, 0.35);
+    o.start(t);
+    o.stop(t + 0.42);
+  }
+
+  const AUDIO_CUES = [
+    { t: 0.45, fn: () => sfxBoom(0.25) },
+    { t: 6.72, fn: () => sfxWhoosh(1.1, 0.14, 180, 2800) },
+    { t: 7.25, fn: () => sfxBoom(0.12) },
+    { t: 13.46, fn: () => sfxClick(0.07) },
+    { t: 15.5, fn: () => sfxClick(0.06) },
+    { t: 16.45, fn: () => sfxChime(523.25, 0.045) },
+    { t: 20.99, fn: () => sfxClick(0.065) },
+    { t: 23.5, fn: () => sfxWhoosh(0.95, 0.13, 160, 2400) },
+    { t: 27.15, fn: () => sfxClick(0.045) },
+    { t: 28.3, fn: () => sfxClick(0.04) },
+    { t: 29.06, fn: () => sfxClick(0.05) },
+    { t: 33.42, fn: () => sfxWhoosh(0.95, 0.13, 180, 2600) },
+    { t: 36.5, fn: () => sfxWhoosh(0.7, 0.06, 300, 1800) },
+    { t: 42.9, fn: () => sfxWhoosh(0.9, 0.13, 160, 2400) },
+    { t: 47.18, fn: () => sfxWhoosh(1.0, 0.14, 200, 3200) },
+    { t: 48.1, fn: () => { sfxBoom(0.15); sfxChime(523.25, 0.055); } },
+    { t: 50.1, fn: () => sfxChime(659.25, 0.045) },
+  ];
+
+  function audioFrame(prev, next) {
+    if (!audioOn || !audio || next < prev) return;
+    const ci = chapterAt(next);
+    if (ci !== audioChapter) {
+      audioChapter = ci;
+      setChord(ci);
+    }
+    for (const cue of AUDIO_CUES) {
+      if (prev < cue.t && next >= cue.t) cue.fn();
+    }
+    if (next >= 7 && next < 47.2) {
+      const beat = Math.floor((next - 7) / 2);
+      if (beat !== lastPulse) {
+        lastPulse = beat;
+        sfxPulse();
+      }
+      const arp = Math.floor((next - 7) / 1.5);
+      if (arp !== lastArp) {
+        lastArp = arp;
+        const chord = CHORDS[clamp(ci, 0, CHORDS.length - 1)];
+        const pattern = [1, 2, 3, 2, 1, 3];
+        sfxPluck(chord[pattern[arp % pattern.length]] * 2);
+      }
+    }
+    if (next >= 14.15 && next <= 15.15) {
+      const k = Math.floor(next * 11);
+      if (k !== lastTypeTick) {
+        lastTypeTick = k;
+        sfxTick();
+      }
+    }
+  }
+
+  function autoEnableAudio(e) {
+    if (audioOn || audioMuted) return;
+    if (e && e.target && e.target.closest && (e.target.closest("#soundBtn") || e.target.closest("#soundHint"))) return;
+    enableAudio();
+  }
+  document.addEventListener("pointerdown", autoEnableAudio, { passive: true });
+  const soundHintEl = $("#soundHint");
+  if (soundHintEl) soundHintEl.addEventListener("click", (e) => { e.stopPropagation(); enableAudio(); });
+  setTimeout(() => {
+    const hint = $("#soundHint");
+    if (hint && !audioOn) hint.classList.add("is-quiet");
+  }, 11000);
 
   /* ---------------- MINI DEVICE SCREENS ----------------
      Built from the real interfaces, stripped of animation state.
@@ -1415,10 +1719,11 @@
       .forEach((n) => n.remove());
     if (opts.dark) clone.style.setProperty("--dark", "1");
     if (opts.view === "map") {
-      const article = clone.querySelector(".t-page--article");
-      const map = clone.querySelector(".t-page--map");
-      if (article) article.style.opacity = "0";
-      if (map) map.style.opacity = "1";
+      const map = clone.querySelector(".t-map-page");
+      if (map) {
+        map.style.opacity = "1";
+        map.style.pointerEvents = "none";
+      }
     }
     const wrap = document.createElement("div");
     wrap.className = "mini-scaler";
