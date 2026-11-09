@@ -1236,13 +1236,12 @@
 .a3-type .type-sub { color: rgba(226, 247, 250, .7); }
 
 /* desktop feature type */
-.a2-type .type-block { left: 92px; top: 228px; width: 570px; transform-origin: left top; }
+.a2-type .type-block { left: 92px; top: 228px; width: 540px; transform-origin: left top; }
 .a4-type, .a3-type { transform-origin: left top; }
 .a4-type .type-block, .a3-type .type-block { transform-origin: left top; }
 .type-block--search .type-title { font-size: 128px; }
-.type-block--roles { width: 580px; }
+.type-block--roles { width: 550px; }
 .type-block--roles .type-title { font-size: 104px; }
-.type-block--current .type-title { font-size: 116px; }
 
 /* map type */
 .a4-type { left: 0; top: 0; width: 100%; height: 100%; opacity: 1; }
@@ -1302,3 +1301,46 @@
   width: 250px;
 }
 .family-stage #miniTablet { display: none; }
+
+/* --- floating software window for search and article --- */
+.act2 .laptop-lid {
+  padding: 0;
+  border-radius: 20px;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+.act2 .laptop-bezel {
+  width: 1440px;
+  height: 900px;
+  border-radius: 20px;
+  background: transparent;
+  box-shadow:
+    0 44px 90px rgba(3, 17, 28, .30),
+    0 8px 24px rgba(3, 17, 28, .18),
+    0 0 0 1px rgba(255, 255, 255, .34);
+}
+.act2 .screen--desktop { border-radius: 20px; }
+.act2 .laptop-cam,
+.act2 .laptop-base,
+.act2 .laptop-shadow { display: none; }
+
+/* --- floating map window --- */
+.act4 .tablet {
+  width: 1024px;
+  padding: 0;
+  border-radius: 20px;
+  background: transparent;
+  box-shadow: none;
+}
+.act4 .tablet-frame {
+  border-radius: 20px;
+  background: transparent;
+  box-shadow:
+    0 40px 84px rgba(3, 17, 28, .30),
+    0 8px 22px rgba(3, 17, 28, .16),
+    0 0 0 1px rgba(255, 255, 255, .34);
+}
+.act4 .screen--tablet { border-radius: 20px; }
+.act4 .tablet-cam,
+.act4 .tablet-shadow { display: none; }

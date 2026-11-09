@@ -249,19 +249,17 @@
     { t: 28.9, x: 0, y: 0 },
   ]);
   track("#laptop", [
-    { t: 5, opacity: 1, y: 0, rotateX: 0, rotateY: -12, rotateZ: 0, scale: 0.78 },
-    { t: 5.8, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.8, ease: "expo" },
-    { t: 8.8, scale: 0.8 },
-    { t: 9.3, scale: 0.84, y: -8, rotateY: 0 },
+    { t: 5, opacity: 1, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.78 },
+    { t: 5.8, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.82, ease: "expo" },
+    { t: 8.8, scale: 0.82 },
+    { t: 9.3, scale: 0.84, y: -8 },
     { t: 13.2, scale: 0.86, y: -8 },
-    { t: 16.5, scale: 0.8, y: 0, ease: "inOut" },
-    { t: 17.2, scale: 0.8, rotateY: -6 },
-    { t: 17.8, rotateY: 0, scale: 0.8, ease: "expo" },
+    { t: 16.5, scale: 0.82, y: 0, ease: "inOut" },
+    { t: 17.2, scale: 0.82 },
     { t: 20.8, scale: 0.84, y: -6 },
-    { t: 23.2, scale: 0.86, rotateY: -4, y: -6 },
-    { t: 23.8, rotateY: 0, scale: 0.86 },
-    { t: 27.6, scale: 0.8, y: 0, ease: "inOut" },
-    { t: 28.9, scale: 0.8 },
+    { t: 23.2, scale: 0.85, y: -6 },
+    { t: 27.6, scale: 0.82, y: 0, ease: "inOut" },
+    { t: 28.9, scale: 0.82 },
   ]);
 
   /* headline: FIND IT FAST */
@@ -286,32 +284,15 @@
     { t: 16.72, opacity: 0, y: 34, scale: 1 },
     { t: 17.08, opacity: 1, y: 0, scale: 1, ease: "expo" },
     { t: 20.55, opacity: 1, y: 0, scale: 1 },
-    { t: 20.95, opacity: 0.6, y: -118, scale: 0.52, ease: "inOut" },
-    { t: 22.8, opacity: 0.6, y: -118, scale: 0.52 },
-    { t: 23.1, opacity: 0, y: -138, scale: 0.5, ease: "inOut" },
+    { t: 20.95, opacity: 0.62, y: -118, scale: 0.52, ease: "inOut" },
+    { t: 27.6, opacity: 0.62, y: -118, scale: 0.52 },
+    { t: 28.3, opacity: 0, y: -138, scale: 0.5, ease: "inOut" },
   ]);
   const rolesTypeLines = $$("#a2TypeRoles .mask > span");
   rolesTypeLines.forEach((el, i) => {
     track(el, [
       { t: 16.82 + i * 0.065, y: 100 },
       { t: 17.44 + i * 0.065, y: 0, ease: "expo" },
-    ]);
-  });
-
-  /* headline: KEPT CURRENT */
-  track("#a2TypeCurrent", [
-    { t: 23.0, opacity: 0, y: 34, scale: 1 },
-    { t: 23.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 26.4, opacity: 1, y: 0, scale: 1 },
-    { t: 26.9, opacity: 0.6, y: -118, scale: 0.55, ease: "inOut" },
-    { t: 28.4, opacity: 0.6, y: -118, scale: 0.55 },
-    { t: 28.8, opacity: 0, y: -138, scale: 0.52, ease: "inOut" },
-  ]);
-  const currentTypeLines = $$("#a2TypeCurrent .mask > span");
-  currentTypeLines.forEach((el, i) => {
-    track(el, [
-      { t: 23.08 + i * 0.07, y: 100 },
-      { t: 23.7 + i * 0.07, y: 0, ease: "expo" },
     ]);
   });
   track(".laptop-base, .laptop-shadow", [{ t: 0, opacity: 0 }]);
@@ -391,23 +372,10 @@
     { t: 0, y: 0 },
     { t: 17.4, y: 0 },
     { t: 19.0, y: -180, ease: "inOut" },
-    { t: 20.4, y: -180 },
-    { t: 21.6, y: -300, ease: "inOut" },
-    { t: 23.0, y: -300 },
-    { t: 24.0, y: -470, ease: "inOut" },
-    { t: 26.8, y: -470 },
-    { t: 28.6, y: -540, ease: "inOut" },
+    { t: 27.4, y: -180 },
   ]);
-  track("#desktopUI", [
-    { t: 0, "--dark": 0 },
-    { t: 23.5, "--dark": 0 },
-    { t: 23.6, "--dark": 1, ease: "inOut" },
-  ]);
-  track("[data-theme-ripple] span", [
-    { t: 23.44, opacity: 0, scale: 0 },
-    { t: 23.51, opacity: 0.22, scale: 0.3, ease: "out" },
-    { t: 23.76, opacity: 0, scale: 9, ease: "inOut" },
-  ]);
+  track("#desktopUI", [{ t: 0, "--dark": 0 }]);
+  track("[data-theme-ripple] span", [{ t: 0, opacity: 0, scale: 0 }]);
 
   /* cursor: open the first result */
   track("[data-d-cursor]", [
@@ -469,8 +437,8 @@
     { t: 29.4, opacity: 1, y: 0, scale: 1, ease: "expo" },
     { t: 32.8, opacity: 1, y: 0, scale: 1.01 },
     { t: 33.2, opacity: 0.6, y: -95, scale: 0.55, ease: "inOut" },
-    { t: 37.4, opacity: 0.6, y: -95, scale: 0.55 },
-    { t: 38.2, opacity: 0, y: -115, scale: 0.5, ease: "inOut" },
+    { t: 38.8, opacity: 0.6, y: -95, scale: 0.55 },
+    { t: 39.6, opacity: 0, y: -115, scale: 0.5, ease: "inOut" },
   ]);
   const mapTypeLines = $$("#a4Type .mask > span");
   mapTypeLines.forEach((el, i) => {
@@ -535,7 +503,7 @@
     { t: 45.9, opacity: 0, y: -14, x: 0, scale: 1.005, ease: "inOut" },
   ]);
   track("#phone", [
-    { t: 41.2, y: 0, rotateX: 0, rotateY: 8, rotateZ: 0, scale: 1 },
+    { t: 41.2, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1 },
     { t: 41.9, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.01, ease: "expo" },
     { t: 45.6, y: -4, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.04, ease: "inOut" },
   ]);
@@ -555,11 +523,7 @@
   track(".p-article-title", [{ t: 0, opacity: 1, y: 0 }]);
   $$(".p-article-scroll > *:not(.p-article-title)").forEach((el) => track(el, [{ t: 0, opacity: 1, y: 0 }]));
   track(".p-appearance-pill", [{ t: 0, opacity: 1, y: 0 }]);
-  track("[data-p-article-scroll]", [
-    { t: 0, y: 0 },
-    { t: 42.5, y: 0 },
-    { t: 45.0, y: -235, ease: "inOut" },
-  ]);
+  track("[data-p-article-scroll]", [{ t: 0, y: 0 }]);
   track(".p-drawer-scrim", [{ t: 0, opacity: 0 }]);
   track(".p-drawer-panel", [{ t: 0, x: -340 }]);
   track(".p-drawer-link, .p-drawer-search, .p-drawer-foot", [{ t: 0, opacity: 1, y: 0 }]);
@@ -813,11 +777,9 @@
     if (t >= 19.0) idx = 1;
     if (t >= 21.4) idx = 2;
     tocLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
-    const dark = t >= 23.6;
-    if (appearanceAuto) appearanceAuto.classList.toggle("is-checked", !dark);
+    if (appearanceAuto) appearanceAuto.classList.add("is-checked");
     if (appearanceDark) {
-      appearanceDark.classList.toggle("is-checked", dark);
-      appearanceDark.classList.toggle("is-active", t >= 23.4 && t < 24.4);
+      appearanceDark.classList.remove("is-checked", "is-active");
     }
   }
 
@@ -856,16 +818,14 @@
     const mq = "bridge";
     let mn = 0;
     if (t >= 31.8) mn = Math.min(mq.length, Math.floor((t - 31.8) * 8) + 1);
-    const mapTyped = t < 34.6 ? mq.slice(0, mn) : "";
+    const mapTyped = t < 39.0 ? mq.slice(0, mn) : "";
     if (mapTyped !== lastMapTyped) {
       if (mapSearchText) mapSearchText.textContent = mapTyped;
       lastMapTyped = mapTyped;
     }
-    tUI.classList.toggle("is-map-search", t >= 31.6 && t < 35.2);
-    const filterOn = t >= 35.3 && t < 39.6;
-    mapFilters.forEach((el, i) => el.classList.toggle("is-active", i === (filterOn ? 5 : 0)));
-    tUI.classList.toggle("is-map-filter", filterOn);
-    tUI.classList.toggle("is-map-pin", t >= 37.1 && t < 39.6);
+    tUI.classList.toggle("is-map-search", t >= 31.6 && t < 39.2);
+    mapFilters.forEach((el, i) => el.classList.toggle("is-active", i === 0));
+    tUI.classList.remove("is-map-filter", "is-map-pin");
 
     countEls.forEach((el, i) => {
       const target = Number(el.dataset.count || 0);

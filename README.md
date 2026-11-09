@@ -23,15 +23,15 @@ Devices support the words, then step back for the launch card and CTA.
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
 | 01 | **Brand** | 0:00–0:05 | A short brand resolve, then the promise: **EVERY ANSWER. ONE PLACE.** |
-| 02 | **Search** | 0:05–0:17 | **FIND IT FAST.** The real wiki opens, Pagefind types `city roles`, the result lands, and a close-up reads the result before the cursor opens the article. |
-| 03 | **Article** | 0:17–0:29 | **EVERY ROLE, EXPLAINED.** The article close-up shows the role list; the type then hands over to **KEPT CURRENT.** as the page switches to dark and the updated date comes into view. |
-| 04 | **Map** | 0:29–0:41 | **THE WHOLE CITY, MAPPED.** An overhead tablet angle introduces the map, then search types `bridge`, the **Landmarks** filter narrows it, and the bridge pins stay lit. |
-| 05 | **Every screen** | 0:41–0:51 | **ONE WIKI. ANYWHERE.** on the phone, then a wide **EVERY SCREEN.** shot with the laptop and phone as supporting proof. |
+| 02 | **Search** | 0:05–0:17 | **FIND IT FAST.** A floating wiki window opens, Pagefind types `city roles`, the result lands, and a close-up reads it before the cursor opens the article. |
+| 03 | **Article** | 0:17–0:29 | **EVERY ROLE, EXPLAINED.** One floating article window scrolls to the role list and the verified **Last updated Nov 2026** line. No second feature beat. |
+| 04 | **Map** | 0:29–0:41 | **THE WHOLE CITY, MAPPED.** An overhead tablet angle introduces the map, then search types `bridge` and the bridge pins take focus. The whole map stays in frame. |
+| 05 | **Every screen** | 0:41–0:51 | **ONE WIKI. ANYWHERE.** on the phone with one **Start reading** tap, then a wide **EVERY SCREEN.** shot with the laptop and phone as supporting proof. |
 | 06 | **Visit** | 0:51–1:00 | A clean brand close: **The official wiki**, **Now available**, the live URL and a high-contrast **Visit the wiki** CTA. |
 
 The film is cut to the **uploaded `AudioTrack.mp3`**, using the 6–66 second section of the 86.7-second track. The title/result beats land on the main drop, the map opens on the build into the breakdown, the every-screen section uses the breakdown, and the CTA reacts to the final section at 0:53.
 
-Typography is the primary layer. Each feature has one short benefit phrase, animated as a mask reveal and allowed to land before the interface action takes over. Devices are framed as supporting evidence — an angled entry, a close-up when a detail matters, then a return to a readable front-facing view. The typed search and map queries are placed on the track’s typewriter-like passages, so the picture stays typing-or-text whenever the audio is clicking.
+Typography is the primary layer. Each feature has one short benefit phrase, animated as a mask reveal and allowed to land before the interface action takes over. Search and article use a floating rounded software window rather than a hardware mockup; the phone and the wide every-screen shot keep their device frames because the device itself is the point there. The typed search and map queries are placed on the track’s typewriter-like passages, so the picture stays typing-or-text whenever the audio is clicking.
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
@@ -98,8 +98,8 @@ The wiki interface is **not a screenshot**. It is rebuilt in HTML/CSS from the l
 - The real splash homepage: header, hero copy, gradient wordmark, official category artwork, badge row and search
 - The real *City roles and departments* article: exact copy, Caution callout, sidebar, On this page, Appearance panel and page footer
 - Pagefind-style search overlay with live typing and results
-- Light and dark themes, switched through the real Appearance → Color control
-- The real mobile splash, menu drawer, and article with Navigation / On this page bars, pagination and the Appearance pill
+- The real Appearance → Color control remains in the article rail; the launch edit keeps the article light for readability
+- The real mobile splash and article with Navigation / On this page bars, pagination and the Appearance pill
 - The real tablet article layout, plus the interactive Putrajaya map page with search, category filters and place pins
 - Real device chrome: laptop lid and base, phone frame with island, tablet bezel and glass reflections
 
