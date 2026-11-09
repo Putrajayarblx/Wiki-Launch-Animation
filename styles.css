@@ -782,6 +782,27 @@ body.hide-chrome .chrome { opacity: 0 !important; pointer-events: none !importan
 .chrome-live { display: flex; align-items: center; gap: 7px; font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; opacity: .7; }
 .chrome-live i { width: 5px; height: 5px; border-radius: 50%; background: #8ff0d8; box-shadow: 0 0 8px #8ff0d8; }
 .chrome-runtime { font-family: var(--font-display); font-size: 10px; letter-spacing: .12em; opacity: .45; }
+.chrome-download {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 999px;
+  background: rgba(4, 25, 36, .52);
+  color: #eafffa;
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s ease, transform .2s ease;
+}
+.chrome-download:hover { background: rgba(4, 25, 36, .82); transform: translateY(-1px); }
+.chrome-download .i { font-size: 13px; }
 
 .chrome--bottom {
   left: 50%;
@@ -903,6 +924,7 @@ body.is-playing .play-btn .icon-pause { display: block; }
 .tool-btn:hover { background: rgba(255, 255, 255, .12); color: #fff; transform: translateY(-1px); }
 .tool-btn .i { width: 15px; height: 15px; }
 .tool-btn--sound { width: auto; padding: 0 11px; display: flex; align-items: center; gap: 6px; }
+.tool-btn--download { width: auto; padding: 0 10px; display: flex; align-items: center; gap: 6px; text-decoration: none; }
 .tool-label { font-family: var(--font-display); font-size: 8.5px; font-weight: 600; letter-spacing: .04em; white-space: nowrap; }
 body.sound-on #soundBtn { color: #8ff0d8; border-color: rgba(143, 240, 216, .4); background: rgba(143, 240, 216, .1); }
 
@@ -1044,8 +1066,8 @@ body.is-ready .loader { opacity: 0; visibility: hidden; pointer-events: none; }
   .chrome-brand span { display: none; }
 }
 @media (max-width: 560px) {
-  .tool-btn:not(#soundBtn):not(#fullBtn) { display: none; }
-  #fullBtn { display: flex; }
+  .tool-btn:not(#soundBtn):not(#fullBtn):not(#downloadBtn) { display: none; }
+  #fullBtn, #downloadBtn { display: flex; width: 30px; padding: 0; justify-content: center; }
   .timecode { font-size: 9.5px; }
 }
 @media (max-aspect-ratio: 1/1) {

@@ -14,6 +14,8 @@ Devices support the words, then step back for the launch card and CTA.
 
 **Live film:** [wiki-launch-animation.vercel.app](https://wiki-launch-animation.vercel.app)
 
+**Download:** [Putrajaya-Wiki-Launch.mp4](Putrajaya-Wiki-Launch.mp4) — 60 seconds, 1920×1080, H.264/AAC.
+
 [Watch the film](index.html) · [Read the wiki](https://putrajayarblx-wiki.vercel.app) · [Wiki repository](https://github.com/Putrajayarblx/Putrajayarblx-Wiki)
 
 ---
@@ -124,6 +126,7 @@ the shot is the same wiki, not a mockup.
 ├── scenes.css          Act compositions, kinetic feature typography, device frames, outro
 ├── app.js              Timeline engine, soundtrack sync, player
 ├── AudioTrack.mp3       Uploaded soundtrack; the film uses 6–66s
+├── Putrajaya-Wiki-Launch.mp4  Encoded 60-second download
 ├── vercel.json         Static hosting config
 ├── .nojekyll           GitHub Pages support
 └── README.md

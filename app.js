@@ -1585,7 +1585,7 @@
 
   function autoEnableAudio(e) {
     if (audioOn || audioMuted) return;
-    if (e && e.target && e.target.closest && (e.target.closest("#soundBtn") || e.target.closest("#soundHint"))) return;
+    if (e && e.target && e.target.closest && (e.target.closest("#soundBtn") || e.target.closest("#soundHint") || e.target.closest("#downloadBtn") || e.target.closest(".chrome-download"))) return;
     enableAudio();
   }
   document.addEventListener("pointerdown", autoEnableAudio, { passive: true });
