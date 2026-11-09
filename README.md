@@ -14,7 +14,7 @@ Devices support the words, then step back for the launch card and CTA.
 
 **Live film:** [wiki-launch-animation.vercel.app](https://wiki-launch-animation.vercel.app)
 
-**Download:** [Putrajaya-Wiki-Launch.mp4](Putrajaya-Wiki-Launch.mp4) — 60 seconds, 1920×1080, H.264/AAC.
+**Download:** [Putrajaya-Wiki-Launch.mp4](https://wiki-launch-animation.vercel.app/Putrajaya-Wiki-Launch.mp4) — 60 seconds, 1920×1080, H.264/AAC.
 
 [Watch the film](index.html) · [Read the wiki](https://putrajayarblx-wiki.vercel.app) · [Wiki repository](https://github.com/Putrajayarblx/Putrajayarblx-Wiki)
 
