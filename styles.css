@@ -1044,9 +1044,12 @@ body.is-ready .loader { opacity: 0; visibility: hidden; pointer-events: none; }
   .chrome-brand span { display: none; }
 }
 @media (max-width: 560px) {
-  #fullBtn { display: none; }
-  .tool-btn:not(#soundBtn) { display: none; }
+  .tool-btn:not(#soundBtn):not(#fullBtn) { display: none; }
+  #fullBtn { display: flex; }
   .timecode { font-size: 9.5px; }
+}
+@media (max-aspect-ratio: 1/1) {
+  .stage { transform: translate(-50%, -50%) scale(calc(100vw * 0.0005208333)); }
 }
 
 /* ---------------- REDUCED MOTION ---------------- */

@@ -539,7 +539,7 @@
       <p class="t-map-desc">Every named place from the in-game map, from government offices and emergency services to shops, bridges, parks and transport stops. Search, filter by category, or click a pin to see its world coordinates.</p>
       <div class="t-map-card">
         <div class="t-map-controls">
-          <div class="t-map-search"><svg class="i"><use href="#i-search"/></svg><span>Search places…</span></div>
+          <div class="t-map-search" id="mapSearch"><svg class="i"><use href="#i-search"/></svg><span class="t-map-search-ph">Search places…</span><span class="t-map-search-q" id="mapSearchText"></span><i class="t-map-caret"></i></div>
           <div class="t-map-filters">
             <span class="is-active">All <b>67</b></span>
             <span>Government <b>8</b></span>
@@ -552,15 +552,15 @@
         </div>
         <div class="t-map-canvas">
           <img class="t-map-img" src="https://raw.githubusercontent.com/Putrajayarblx/Putrajayarblx-Wiki/main/public/minimap.svg" alt="Interactive map of Putrajaya" />
-          <span class="t-map-pin t-pin--a"><i></i><em>Putrajaya Temporary Bus Terminal</em></span>
-          <span class="t-map-pin t-pin--b"><i></i><em>Federal Court of Malaysia</em></span>
-          <span class="t-map-pin t-pin--c"><i></i><em>Putrajaya Development Office HQ</em></span>
-          <span class="t-map-pin t-pin--d"><i></i><em>Seri Wawasan Bridge</em></span>
-          <span class="t-map-pin t-pin--e"><i></i><em>Seri Saujana Bridge</em></span>
-          <span class="t-map-pin t-pin--f"><i></i><em>Putrajaya Airstrip</em></span>
-          <span class="t-map-pin t-pin--g"><i></i><em>HCC Putra Autos</em></span>
-          <span class="t-map-pin t-pin--h"><i></i><em>Perdana Putra</em></span>
-          <span class="t-map-pin t-pin--i"><i></i><em>Precinct 7 Fire Station</em></span>
+          <span class="t-map-pin t-pin--a" data-pin="other"><i></i><em>Putrajaya Temporary Bus Terminal</em></span>
+          <span class="t-map-pin t-pin--b" data-pin="other"><i></i><em>Federal Court of Malaysia</em></span>
+          <span class="t-map-pin t-pin--c" data-pin="other"><i></i><em>Putrajaya Development Office HQ</em></span>
+          <span class="t-map-pin t-pin--d" data-pin="bridge"><i></i><em>Seri Wawasan Bridge</em></span>
+          <span class="t-map-pin t-pin--e" data-pin="bridge"><i></i><em>Seri Saujana Bridge</em></span>
+          <span class="t-map-pin t-pin--f" data-pin="other"><i></i><em>Putrajaya Airstrip</em></span>
+          <span class="t-map-pin t-pin--g" data-pin="other"><i></i><em>HCC Putra Autos</em></span>
+          <span class="t-map-pin t-pin--h" data-pin="other"><i></i><em>Perdana Putra</em></span>
+          <span class="t-map-pin t-pin--i" data-pin="other"><i></i><em>Precinct 7 Fire Station</em></span>
           <div class="t-map-tools">
             <span><svg class="i"><use href="#i-pencil"/></svg></span>
             <span><svg class="i"><use href="#i-star"/></svg></span>
@@ -662,7 +662,7 @@
       <img src="https://raw.githubusercontent.com/Putrajayarblx/Putrajayarblx-Wiki/main/public/favicon.svg" alt="" />
       <div><strong>Putrajaya.rblx Wiki</strong><span>Launch film · 2026</span></div>
     </div>
-    <div class="chrome-right"><span class="chrome-live"><i></i>Official release</span><span class="chrome-runtime">00:29</span></div>
+    <div class="chrome-right"><span class="chrome-live"><i></i>Official release</span><span class="chrome-runtime">01:00</span></div>
   </header>
 
   <footer class="chrome chrome--bottom" id="chromeBottom">
@@ -671,7 +671,7 @@
         <svg class="i icon-play"><use href="#i-play"/></svg>
         <svg class="i icon-pause"><use href="#i-pause"/></svg>
       </button>
-      <div class="timecode"><span id="timeNow">00:00</span><span class="time-sep">/</span><span id="timeTotal">00:29</span></div>
+      <div class="timecode"><span id="timeNow">00:00</span><span class="time-sep">/</span><span id="timeTotal">01:00</span></div>
       <div class="scrub-wrap" id="scrubWrap">
         <div class="chapter-ticks" id="chapterTicks"></div>
         <div class="scrub" id="scrub">

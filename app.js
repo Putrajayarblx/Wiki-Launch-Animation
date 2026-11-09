@@ -5,35 +5,9 @@
 (() => {
   "use strict";
 
-  const DURATION = 38;
-  const SPEED = 1.3;
-  const PLAYBACK = DURATION / SPEED;
-
-  /* Compress the old atmospheric timeline between the informative beats.
-     The hook is given a little more room; the article, map, mobile, family
-     and outro lose only holds, not product detail. */
-  const TIME_WARP = [
-    [0, 4.0, 0, 3.05],
-    [4.0, 13.0, 3.05, 16.5],
-    [13.0, 20.0, 16.5, 27.0],
-    [20.0, 28.0, 27.0, 37.35],
-    [28.0, 32.0, 37.35, 43.15],
-    [32.0, 38.0, 43.15, 54.0],
-  ];
-  function warpTime(t) {
-    if (t <= 0) return 0;
-    for (const [n0, n1, o0, o1] of TIME_WARP) {
-      if (t <= n1) return o0 + ((t - n0) * (o1 - o0)) / (n1 - n0);
-    }
-    return 54;
-  }
-  function unwarpTime(t) {
-    if (t <= 0) return 0;
-    for (const [n0, n1, o0, o1] of TIME_WARP) {
-      if (t <= o1) return n0 + ((t - o0) * (n1 - n0)) / (o1 - o0);
-    }
-    return 38;
-  }
+  const DURATION = 60;
+  const SPEED = 1.0;
+  const PLAYBACK = DURATION;
   const MASTER_LEVEL = 2.2;
   const PAUSED_LEVEL = 0.18;
   const SFX_BOOST = 1.25;
@@ -184,71 +158,64 @@
   }
 
   /* ============================================================
-     ACT 1 — BRAND STING
+     ACT 1 — LOGO RESOLVE
      ============================================================ */
-  track("#act1", [{ t: 0, opacity: 0 }]);
+  track("#act1", [
+    { t: 0, opacity: 1 },
+    { t: 2.55, opacity: 1 },
+    { t: 2.98, opacity: 0, ease: "inOut" },
+  ]);
   track("#a1Lockup", [
-    { t: 4.68, opacity: 0, y: 16, scale: 0.98 },
-    { t: 5.16, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 6.08, opacity: 1, y: 0, scale: 1.006 },
-    { t: 6.24, opacity: 0, y: -8, scale: 0.996, ease: "inOut" },
+    { t: 0.05, opacity: 0, y: 16, scale: 0.98 },
+    { t: 0.9, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 2.4, opacity: 1, y: 0, scale: 1.005 },
+    { t: 2.82, opacity: 0, y: -6, scale: 0.996, ease: "inOut" },
   ]);
   track(".a1-mark", [
-    { t: 4.7, opacity: 0, y: 16, scale: 0.94 },
-    { t: 5.2, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 0.1, opacity: 0, y: 14, scale: 0.94 },
+    { t: 0.82, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   const a1Lines = $$(".a1-word .mask > span");
   a1Lines.forEach((el, i) => {
     track(el, [
-      { t: 4.82 + i * 0.09, y: 72 },
-      { t: 5.34 + i * 0.09, y: 0, ease: "expo" },
+      { t: 0.24 + i * 0.08, y: 72 },
+      { t: 0.96 + i * 0.08, y: 0, ease: "expo" },
     ]);
   });
   track("#a1Rule", [
-    { t: 5.12, scaleX: 0, opacity: 0 },
-    { t: 5.52, scaleX: 1, opacity: 1, ease: "inOut" },
+    { t: 0.86, scaleX: 0, opacity: 0 },
+    { t: 1.26, scaleX: 1, opacity: 1, ease: "inOut" },
   ]);
   track("#a1Kicker", [
-    { t: 5.2, opacity: 0, y: 8 },
-    { t: 5.62, opacity: 1, y: 0, ease: "expo" },
+    { t: 1.0, opacity: 0, y: 8 },
+    { t: 1.4, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
-     ACT 2 — FIND INFORMATION
-     Search → article → reading comfort
+     ACT 2 — SEARCH + ARTICLE
      ============================================================ */
   track("#act2", [
     { t: 0, opacity: 1 },
-    { t: 16.5, opacity: 1 },
-    { t: 16.58, opacity: 0, ease: "inOut" },
+    { t: 21.95, opacity: 1 },
+    { t: 22.0, opacity: 0, ease: "inOut" },
   ]);
-  track("#a2World", [
-    { t: 0, scale: 1, y: 0 },
-    { t: 16.5, scale: 1.008, y: 0, ease: "linear" },
-  ]);
-
-  /* camera: close on the real UI */
+  track("#a2World", [{ t: 0, scale: 1, y: 0 }]);
   track("#a2DeviceStage", [
     { t: 0, x: -200, y: 150, scale: 1 },
-    { t: 2.95, x: -200, y: 150, scale: 1 },
-    { t: 3.35, x: -272, y: 120, scale: 1, ease: "inOut" },
-    { t: 10.9, x: -272, y: 120, scale: 1 },
-    { t: 11.35, x: -276, y: 120, scale: 1, ease: "inOut" },
-    { t: 16.5, x: -280, y: 120, scale: 1, ease: "linear" },
+    { t: 7.15, x: -200, y: 150, scale: 1 },
+    { t: 7.62, x: -272, y: 120, scale: 1, ease: "inOut" },
+    { t: 21.7, x: -272, y: 120, scale: 1 },
   ]);
   track("#laptop", [
     { t: 0, opacity: 1, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.05 },
-    { t: 2.95, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.08, ease: "inOut" },
-    { t: 3.35, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7, ease: "inOut" },
-    { t: 10.9, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7 },
-    { t: 11.35, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.71, ease: "inOut" },
-    { t: 16.5, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.73, ease: "linear" },
+    { t: 7.15, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.08, ease: "inOut" },
+    { t: 7.66, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7, ease: "inOut" },
+    { t: 21.7, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7 },
   ]);
   track(".laptop-base, .laptop-shadow", [{ t: 0, opacity: 0 }]);
   track("[data-d-boot], .screen--desktop [data-d-flash], .screen--desktop [data-d-sweep]", [{ t: 0, opacity: 0 }]);
   track("[data-d-cursor], [data-d-ripple]", [{ t: 0, opacity: 0 }]);
 
-  /* home is already loaded under the search */
   track(".d-header", [{ t: 0, opacity: 1, y: 0 }]);
   track(".d-hero-title, .d-hero-tag, .d-hero-actions, .d-hero-badges, .d-hero-search", [{ t: 0, opacity: 1, y: 0 }]);
   const deskArtRot = [-7, 6, -4];
@@ -256,109 +223,159 @@
     track(el, [{ t: 0, opacity: 1, y: 0, rotateZ: deskArtRot[i] || 0 }]);
   });
 
-  /* search payoff */
+  /* real Pagefind search */
   track("[data-d-modal]", [
-    { t: 0.08, opacity: 0 },
-    { t: 0.34, opacity: 1, ease: "out" },
-    { t: 2.9, opacity: 1 },
-    { t: 3.08, opacity: 0, ease: "inOut" },
+    { t: 2.98, opacity: 0 },
+    { t: 3.07, opacity: 1, ease: "out" },
+    { t: 7.24, opacity: 1 },
+    { t: 7.5, opacity: 0, ease: "inOut" },
   ]);
   track("[data-d-panel]", [
-    { t: 0.08, y: 16, scale: 0.975 },
-    { t: 0.52, y: 0, scale: 1, ease: "expo" },
+    { t: 2.98, y: 10, scale: 0.99 },
+    { t: 3.16, y: 0, scale: 1, ease: "out" },
   ]);
   track("[data-d-result]", [
-    { t: 0.85, opacity: 0.1, y: 8, scale: 1 },
-    { t: 1.35, opacity: 0.32, y: 8, scale: 1 },
-    { t: 1.78, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
-    { t: 2.12, opacity: 1, y: 0, scale: 1 },
-    { t: 2.7, opacity: 1, y: 0, scale: 1 },
-    { t: 3.04, opacity: 0, y: 0, scale: 1 },
+    { t: 4.9, opacity: 0.08, y: 8, scale: 1 },
+    { t: 5.35, opacity: 0.3, y: 8, scale: 1 },
+    { t: 5.76, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
+    { t: 6.1, opacity: 1, y: 0, scale: 1 },
+    { t: 7.2, opacity: 1, y: 0, scale: 1 },
+    { t: 7.35, opacity: 0, y: 0, scale: 1 },
   ]);
   track(".d-search-result--dim", [
-    { t: 0.85, opacity: 0.04, y: 8 },
-    { t: 1.35, opacity: 0.1, y: 8 },
-    { t: 2.05, opacity: 0.85, y: 0, ease: "expo" },
-    { t: 2.8, opacity: 0, y: 0 },
+    { t: 4.9, opacity: 0.04, y: 8 },
+    { t: 5.35, opacity: 0.1, y: 8 },
+    { t: 5.95, opacity: 0.85, y: 0, ease: "expo" },
+    { t: 7.3, opacity: 0, y: 0 },
   ]);
   track(".d-search-foot", [
-    { t: 1.9, opacity: 0 },
-    { t: 2.25, opacity: 1, ease: "out" },
+    { t: 5.8, opacity: 0 },
+    { t: 6.15, opacity: 1, ease: "out" },
   ]);
 
-  /* page change: search result → article */
+  /* search result becomes the article */
   track(".d-page--home", [
     { t: 0, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 3.02, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 3.18, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
+    { t: 7.3, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 7.56, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
   ]);
   track(".d-page--article", [
     { t: 0, opacity: 0, x: 18, blur: 3, scale: 1.005 },
-    { t: 3.02, opacity: 0, x: 18, blur: 3, scale: 1.005 },
-    { t: 3.28, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
+    { t: 7.34, opacity: 0, x: 18, blur: 3, scale: 1.005 },
+    { t: 7.7, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
   ]);
 
-  /* article content is fully rendered, never clipped mid-change */
   track(".d-side", [{ t: 0, opacity: 1, x: 0 }]);
   track(".d-rail", [{ t: 0, opacity: 1, x: 0 }]);
   track(".d-toc", [{ t: 0, opacity: 1 }]);
   track(".d-progress", [
-    { t: 3.0, opacity: 0 },
-    { t: 3.3, opacity: 1 },
+    { t: 7.4, opacity: 0 },
+    { t: 7.7, opacity: 1 },
   ]);
   track("[data-d-progress]", [
-    { t: 3.4, scaleX: 0 },
-    { t: 14.4, scaleX: 0.84, ease: "inOut" },
+    { t: 7.8, scaleX: 0 },
+    { t: 21.5, scaleX: 0.9, ease: "inOut" },
   ]);
   track(".d-article-head", [{ t: 0, opacity: 1, y: 0 }]);
   $$(".d-article-body > *").forEach((el) => track(el, [{ t: 0, opacity: 1, y: 0 }]));
 
+  /* read the article, then switch to dark */
   track("[data-d-article-scroll]", [
     { t: 0, y: 0 },
-    { t: 9.45, y: 0 },
-    { t: 10.65, y: -340, ease: "inOut" },
-    { t: 12.55, y: -340 },
-    { t: 13.85, y: -500, ease: "inOut" },
-    { t: 16.5, y: -500 },
+    { t: 7.7, y: 0 },
+    { t: 10.5, y: 0 },
+    { t: 12.0, y: -340, ease: "inOut" },
+    { t: 14.0, y: -340 },
+    { t: 18.0, y: -500, ease: "inOut" },
+    { t: 21.7, y: -500 },
   ]);
-
-  /* reading comfort */
   track("#desktopUI", [
     { t: 0, "--dark": 0 },
-    { t: 11.08, "--dark": 0 },
-    { t: 11.72, "--dark": 1, ease: "inOut" },
+    { t: 14.35, "--dark": 0 },
+    { t: 14.52, "--dark": 1, ease: "inOut" },
   ]);
   track("[data-theme-ripple] span", [
-    { t: 11.05, opacity: 0, scale: 0 },
-    { t: 11.14, opacity: 0.24, scale: 0.3, ease: "out" },
-    { t: 11.66, opacity: 0, scale: 10, ease: "inOut" },
+    { t: 14.3, opacity: 0, scale: 0 },
+    { t: 14.37, opacity: 0.22, scale: 0.3, ease: "out" },
+    { t: 14.6, opacity: 0, scale: 9, ease: "inOut" },
+  ]);
+
+  /* ============================================================
+     ACT 4 — MAP + FAMILY
+     ============================================================ */
+  track("#act4", [
+    { t: 21.99, opacity: 0 },
+    { t: 22.0, opacity: 1, ease: "out" },
+    { t: 34.99, opacity: 1 },
+    { t: 35.0, opacity: 0, ease: "inOut" },
+    { t: 46.7, opacity: 0 },
+    { t: 46.9, opacity: 1, ease: "out" },
+    { t: 51.9, opacity: 1 },
+    { t: 52.35, opacity: 0, ease: "inOut" },
+  ]);
+  track("#a4DeviceStage", [
+    { t: 21.99, opacity: 0, y: 0, scale: 1 },
+    { t: 22.0, opacity: 1, y: 0, scale: 1, ease: "out" },
+    { t: 34.99, opacity: 1, y: 0, scale: 1 },
+    { t: 35.0, opacity: 0, y: -10, scale: 1.005, ease: "inOut" },
+    { t: 46.7, opacity: 0 },
+  ]);
+  track("#tablet", [{ t: 0, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1 }]);
+  track("[data-t-boot], .screen--tablet [data-t-flash]", [{ t: 0, opacity: 0 }]);
+  track(".t-header", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".t-page--article", [{ t: 0, opacity: 0 }]);
+  track(".t-map-page", [{ t: 0, opacity: 1 }]);
+  track(".t-map-scroll h1, .t-map-desc, .t-map-card, .t-map-filters span, .t-map-tools", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".t-map-img", [{ t: 0, scale: 1.04 }]);
+
+  /* family — the audience line */
+  track("#a4Family", [
+    { t: 46.7, opacity: 0, y: 16 },
+    { t: 47.2, opacity: 1, y: 0, ease: "out" },
+    { t: 51.7, opacity: 1, y: 0, scale: 1 },
+    { t: 52.35, opacity: 0, y: -16, scale: 1.015, ease: "inOut" },
+  ]);
+  const famLines = $$("#a4FamilyTitle .mask > span");
+  famLines.forEach((el) =>
+    track(el, [
+      { t: 46.85, y: 64 },
+      { t: 47.5, y: 0, ease: "expo" },
+    ])
+  );
+  track("#a4FamilySub", [
+    { t: 47.0, opacity: 0, y: 8 },
+    { t: 47.6, opacity: 1, y: 0, ease: "expo" },
+  ]);
+  track("#miniLaptop", [
+    { t: 46.8, opacity: 0, y: 60, scale: 0.97 },
+    { t: 47.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
+  ]);
+  track("#miniTablet", [
+    { t: 46.9, opacity: 0, x: -120, y: 24, rotateZ: -10, scale: 0.96 },
+    { t: 47.65, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
+  ]);
+  track("#miniPhone", [
+    { t: 47.0, opacity: 0, x: 120, y: 30, rotateZ: 9, scale: 0.96 },
+    { t: 47.75, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
   ]);
 
   /* ============================================================
      ACT 3 — MOBILE
-     One answer, in your hand
      ============================================================ */
   track("#act3", [
-    { t: 26.9, opacity: 0 },
-    { t: 26.98, opacity: 1, ease: "out" },
-    { t: 36.9, opacity: 1 },
-    { t: 37.35, opacity: 0, ease: "inOut" },
+    { t: 34.99, opacity: 0 },
+    { t: 35.0, opacity: 1, ease: "out" },
+    { t: 46.9, opacity: 1 },
+    { t: 47.25, opacity: 0, ease: "inOut" },
   ]);
   track("#a3DeviceStage", [
-    { t: 26.9, opacity: 0, y: 34, x: 18, scale: 0.985 },
-    { t: 27.0, opacity: 1, y: 0, x: 0, scale: 1, ease: "out" },
-    { t: 36.9, opacity: 1, y: 0, x: 0, scale: 1 },
-    { t: 37.3, opacity: 0, y: -18, x: 0, scale: 1.008, ease: "inOut" },
+    { t: 34.99, opacity: 0, y: 0, x: 0, scale: 1 },
+    { t: 35.0, opacity: 1, y: 0, x: 0, scale: 1, ease: "out" },
+    { t: 46.9, opacity: 1, y: 0, x: 0, scale: 1 },
+    { t: 47.25, opacity: 0, y: -14, x: 0, scale: 1.005, ease: "inOut" },
   ]);
-  track("#phone", [
-    { t: 26.9, y: 50, rotateX: 0, rotateY: -8, rotateZ: 0, scale: 0.99 },
-    { t: 27.6, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, ease: "expo" },
-    { t: 36.9, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.008, ease: "linear" },
-  ]);
+  track("#phone", [{ t: 0, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1 }]);
   track("[data-p-boot], .screen--phone [data-p-flash]", [{ t: 0, opacity: 0 }]);
-  track("[data-p-touch]", [{ t: 0, opacity: 0 }]);
-
-  /* the article is already open — real reading, no empty app state */
   track(".p-header", [{ t: 0, opacity: 1, y: 0 }]);
   track(".p-page--home", [{ t: 0, opacity: 0, x: 0, blur: 0 }]);
   track(".p-page--article", [{ t: 0, opacity: 1, x: 0, blur: 0 }]);
@@ -368,140 +385,65 @@
   track(".p-appearance-pill", [{ t: 0, opacity: 1, y: 0 }]);
   track("[data-p-article-scroll]", [
     { t: 0, y: 0 },
-    { t: 29.75, y: 0 },
-    { t: 31.15, y: -196, ease: "inOut" },
-    { t: 36.9, y: -196 },
+    { t: 38.5, y: 0 },
+    { t: 40.0, y: -196, ease: "inOut" },
+    { t: 46.8, y: -196 },
   ]);
-
-  /* mobile navigation is a real interaction */
   track(".p-drawer-scrim", [
-    { t: 31.9, opacity: 0 },
-    { t: 32.2, opacity: 0.45, ease: "out" },
-    { t: 35.5, opacity: 0.45 },
-    { t: 35.95, opacity: 0, ease: "inOut" },
+    { t: 41.7, opacity: 0 },
+    { t: 42.0, opacity: 0.45, ease: "out" },
+    { t: 44.5, opacity: 0.45 },
+    { t: 44.95, opacity: 0, ease: "inOut" },
   ]);
   track(".p-drawer-panel", [
-    { t: 31.9, x: -340 },
-    { t: 32.42, x: 0, ease: "expo" },
-    { t: 35.5, x: 0 },
-    { t: 36.05, x: -340, ease: "inOut" },
+    { t: 41.7, x: -340 },
+    { t: 42.22, x: 0, ease: "expo" },
+    { t: 44.5, x: 0 },
+    { t: 45.05, x: -340, ease: "inOut" },
   ]);
   track(".p-drawer-link, .p-drawer-search, .p-drawer-foot", [{ t: 0, opacity: 1, y: 0 }]);
-
-  /* ============================================================
-     ACT 4 — MAP + FAMILY
-     Explore the city, then see it on every screen
-     ============================================================ */
-  track("#act4", [
-    { t: 16.5, opacity: 0 },
-    { t: 16.62, opacity: 1, ease: "out" },
-    { t: 26.95, opacity: 1 },
-    { t: 27.02, opacity: 0, ease: "inOut" },
-    { t: 28.0, opacity: 0 },
-    { t: 32.0, opacity: 0 },
-    { t: 37.0, opacity: 0 },
-    { t: 37.2, opacity: 1, ease: "out" },
-    { t: 42.7, opacity: 1 },
-    { t: 43.15, opacity: 0, ease: "inOut" },
-  ]);
-  track("#a4DeviceStage", [
-    { t: 16.5, opacity: 0, y: 24, scale: 0.99 },
-    { t: 16.64, opacity: 1, y: 0, scale: 1, ease: "out" },
-    { t: 26.8, opacity: 1, y: 0, scale: 1.008, ease: "linear" },
-    { t: 27.0, opacity: 0, y: -14, scale: 1.008, ease: "inOut" },
-    { t: 37.3, opacity: 0 },
-  ]);
-  track("#tablet", [
-    { t: 16.5, y: 20, rotateX: 0, rotateY: -6, rotateZ: 0, scale: 0.99 },
-    { t: 17.2, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, ease: "expo" },
-    { t: 26.8, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.008, ease: "linear" },
-  ]);
-  track("[data-t-boot], .screen--tablet [data-t-flash]", [{ t: 0, opacity: 0 }]);
-  track(".t-header", [{ t: 0, opacity: 1, y: 0 }]);
-  track(".t-page--article", [{ t: 0, opacity: 0 }]);
-  track(".t-map-page", [
-    { t: 16.5, opacity: 0, y: 0, scale: 1 },
-    { t: 16.6, opacity: 1, y: 0, scale: 1, ease: "out" },
-  ]);
-  track(".t-map-scroll h1", [{ t: 0, opacity: 1, y: 0 }]);
-  track(".t-map-desc", [{ t: 0, opacity: 1, y: 0 }]);
-  track(".t-map-card", [{ t: 0, opacity: 1, y: 0 }]);
-  track(".t-map-img", [
-    { t: 16.6, scale: 1.02 },
-    { t: 26.6, scale: 1.08, ease: "inOut" },
-  ]);
-  track(".t-map-filters span", [{ t: 0, opacity: 1, y: 0 }]);
-  track(".t-map-pin", [{ t: 0, opacity: 1, y: 0, scale: 1 }]);
-  track(".t-map-tools", [{ t: 0, opacity: 1, x: 0 }]);
-
-  /* family — one wiki, every screen */
-  track("#a4Family", [
-    { t: 37.0, opacity: 0, y: 16 },
-    { t: 37.4, opacity: 1, y: 0, ease: "out" },
-    { t: 42.5, opacity: 1, y: 0, scale: 1 },
-    { t: 43.0, opacity: 0, y: -16, scale: 1.015, ease: "inOut" },
-  ]);
-  const famLines = $$("#a4FamilyTitle .mask > span");
-  famLines.forEach((el) =>
-    track(el, [
-      { t: 37.15, y: 64 },
-      { t: 37.9, y: 0, ease: "expo" },
-    ])
-  );
-  track("#a4FamilySub", [
-    { t: 37.3, opacity: 0, y: 8 },
-    { t: 37.95, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#miniLaptop", [
-    { t: 37.1, opacity: 0, y: 60, scale: 0.97 },
-    { t: 37.85, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 41.9, y: -6, scale: 1.01 },
-  ]);
-  track("#miniTablet", [
-    { t: 37.2, opacity: 0, x: -120, y: 24, rotateZ: -10, scale: 0.96 },
-    { t: 37.95, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
-    { t: 41.9, y: 5, rotateZ: -6, scale: 1 },
-  ]);
-  track("#miniPhone", [
-    { t: 37.3, opacity: 0, x: 120, y: 30, rotateZ: 9, scale: 0.96 },
-    { t: 38.05, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
-    { t: 41.9, y: -4, rotateZ: 5, scale: 1 },
+  track("[data-p-touch]", [
+    { t: 41.35, opacity: 0, scale: 0.6, x: 352, y: 58 },
+    { t: 41.5, opacity: 1, scale: 1, x: 352, y: 58, ease: "out" },
+    { t: 41.65, scale: 0.78 },
+    { t: 41.8, scale: 1 },
+    { t: 42.0, opacity: 0, x: 352, y: 58 },
   ]);
 
   /* ============================================================
      ACT 5 — VISIT
      ============================================================ */
   track("#act5", [
-    { t: 43.0, opacity: 0 },
-    { t: 43.3, opacity: 1, ease: "out" },
+    { t: 52.0, opacity: 0 },
+    { t: 52.2, opacity: 1, ease: "out" },
   ]);
   track("#a5Outro", [
-    { t: 43.15, opacity: 0 },
-    { t: 43.5, opacity: 1, ease: "out" },
+    { t: 52.0, opacity: 0 },
+    { t: 52.35, opacity: 1, ease: "out" },
   ]);
   track("#outroMark", [
-    { t: 43.05, opacity: 0, y: 18, scale: 0.92 },
-    { t: 43.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 52.05, opacity: 0, y: 18, scale: 0.92 },
+    { t: 52.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroEyebrow", [
-    { t: 43.3, opacity: 0, y: 8 },
-    { t: 43.6, opacity: 1, y: 0, ease: "expo" },
+    { t: 52.3, opacity: 0, y: 8 },
+    { t: 52.6, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroTitle .mask > span", [
-    { t: 43.15, y: 80 },
-    { t: 43.8, y: 0, ease: "expo" },
+    { t: 52.0, y: 80 },
+    { t: 52.75, y: 0, ease: "expo" },
   ]);
   track("#outroSub", [
-    { t: 43.6, opacity: 0, y: 12 },
-    { t: 44.05, opacity: 1, y: 0, ease: "expo" },
+    { t: 52.55, opacity: 0, y: 12 },
+    { t: 53.0, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroUrl", [
-    { t: 43.8, opacity: 0, y: 16, scale: 0.98 },
-    { t: 44.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 52.8, opacity: 0, y: 16, scale: 0.98 },
+    { t: 53.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroNote", [
-    { t: 44.15, opacity: 0, y: 8 },
-    { t: 44.55, opacity: 1, y: 0, ease: "expo" },
+    { t: 53.15, opacity: 0, y: 8 },
+    { t: 53.55, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
@@ -510,46 +452,46 @@
   track(".bg--intro, .bg--features", [{ t: 0, opacity: 0 }]);
   track(".bg--bright", [
     { t: 0, opacity: 1 },
-    { t: 16.9, opacity: 1 },
-    { t: 17.55, opacity: 0 },
+    { t: 21.9, opacity: 1 },
+    { t: 22.4, opacity: 0 },
   ]);
   track(".bg--warm", [
-    { t: 16.9, opacity: 0 },
-    { t: 17.45, opacity: 1 },
-    { t: 26.95, opacity: 1 },
-    { t: 27.45, opacity: 0 },
-    { t: 37.0, opacity: 0 },
-    { t: 37.55, opacity: 1 },
-    { t: 42.8, opacity: 1 },
-    { t: 43.3, opacity: 0 },
+    { t: 21.9, opacity: 0 },
+    { t: 22.4, opacity: 1 },
+    { t: 34.8, opacity: 1 },
+    { t: 35.3, opacity: 0 },
+    { t: 46.6, opacity: 0 },
+    { t: 47.15, opacity: 1 },
+    { t: 51.95, opacity: 1 },
+    { t: 52.5, opacity: 0 },
   ]);
   track(".bg--night", [
-    { t: 26.95, opacity: 0 },
-    { t: 27.45, opacity: 1 },
-    { t: 37.0, opacity: 1 },
-    { t: 37.55, opacity: 0 },
+    { t: 34.9, opacity: 0 },
+    { t: 35.4, opacity: 1 },
+    { t: 46.8, opacity: 1 },
+    { t: 47.3, opacity: 0 },
   ]);
   track(".bg--outro", [
-    { t: 43.0, opacity: 0 },
-    { t: 43.55, opacity: 1 },
+    { t: 52.1, opacity: 0 },
+    { t: 52.65, opacity: 1 },
   ]);
 
   /* ============================================================
      TRANSITIONS
      ============================================================ */
   track("#wipe", [
-    { t: 16.4, opacity: 0, "--wipe-x": -140 },
-    { t: 16.62, opacity: 0.3, "--wipe-x": -60, ease: "out" },
-    { t: 17.2, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 26.9, opacity: 0, "--wipe-x": -140 },
-    { t: 27.12, opacity: 0.28, "--wipe-x": -60, ease: "out" },
-    { t: 27.7, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 37.25, opacity: 0, "--wipe-x": -140 },
-    { t: 37.47, opacity: 0.26, "--wipe-x": -60, ease: "out" },
-    { t: 38.05, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 42.9, opacity: 0, "--wipe-x": -140 },
-    { t: 43.12, opacity: 0.3, "--wipe-x": -60, ease: "out" },
-    { t: 43.7, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 21.8, opacity: 0, "--wipe-x": -140 },
+    { t: 22.0, opacity: 0.26, "--wipe-x": -60, ease: "out" },
+    { t: 22.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 34.8, opacity: 0, "--wipe-x": -140 },
+    { t: 35.0, opacity: 0.24, "--wipe-x": -60, ease: "out" },
+    { t: 35.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 46.8, opacity: 0, "--wipe-x": -140 },
+    { t: 47.0, opacity: 0.24, "--wipe-x": -60, ease: "out" },
+    { t: 47.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 51.8, opacity: 0, "--wipe-x": -140 },
+    { t: 52.0, opacity: 0.26, "--wipe-x": -60, ease: "out" },
+    { t: 52.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
   ]);
 
   /* ============================================================
@@ -652,32 +594,37 @@
   const captionEl = $("#filmCaption");
   const captionKickerEl = $("#filmCaptionKicker");
   const captionTitleEl = $("#filmCaptionTitle");
+  const mapSearchText = $("#mapSearchText");
   let lastTyped = null;
+  let lastMapTyped = null;
   let lastCaption = null;
 
   const captionCues = [
-    { from: 0.32, to: 3.05, kicker: "Search the wiki", title: "Ask. Get the answer." },
-    { from: 6.55, to: 9.35, kicker: "City roles and departments", title: "Every role, explained." },
-    { from: 9.55, to: 12.45, kicker: "Appearance", title: "Read it your way." },
-    { from: 12.55, to: 16.4, kicker: "Community maintained", title: "Kept current." },
-    { from: 16.95, to: 23.8, kicker: "Interactive map", title: "The whole city, mapped.", side: "right" },
-    { from: 27.25, to: 31.8, kicker: "On mobile", title: "The same answer, in your hand." },
-    { from: 32.0, to: 35.2, kicker: "Navigation", title: "Everything within reach." },
+    { from: 3.1, to: 7.4, kicker: "Search the wiki", title: "Ask. Get the answer." },
+    { from: 8.2, to: 11.8, kicker: "City roles and departments", title: "Every role, explained." },
+    { from: 13.8, to: 17.2, kicker: "Appearance", title: "Read it your way." },
+    { from: 18.2, to: 21.6, kicker: "Community maintained", title: "Kept current." },
+    { from: 22.4, to: 27.8, kicker: "Interactive map", title: "The whole city, mapped.", side: "right" },
+    { from: 35.6, to: 40.4, kicker: "On mobile", title: "The same answer, in your hand." },
+    { from: 41.5, to: 45.2, kicker: "Navigation", title: "Everything within reach." },
   ];
 
   function setStates(t) {
-    dUI.classList.toggle("is-article", t >= 3.02);
-    pUI.classList.toggle("is-article", t >= 26.8);
-    tUI.classList.toggle("is-map", t >= 16.5);
-    if (a4Family) a4Family.classList.toggle("is-live", t >= 37.0);
-    stage.classList.toggle("is-ended", t >= 53.75);
+    dUI.classList.toggle("is-article", t >= 7.35);
+    pUI.classList.toggle("is-article", t >= 35.0);
+    tUI.classList.toggle("is-map", t >= 22.0);
+    if (a4Family) a4Family.classList.toggle("is-live", t >= 46.7);
+    stage.classList.toggle("is-ended", t >= 59.7);
     let idx = 0;
     if (t >= 9.5) idx = 1;
-    if (t >= 10.7) idx = 2;
+    if (t >= 11.2) idx = 2;
     tocLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
-    const dark = t >= 11.08;
+    const dark = t >= 14.3;
     if (appearanceAuto) appearanceAuto.classList.toggle("is-checked", !dark);
-    if (appearanceDark) appearanceDark.classList.toggle("is-checked", dark);
+    if (appearanceDark) {
+      appearanceDark.classList.toggle("is-checked", dark);
+      appearanceDark.classList.toggle("is-active", t >= 14.0 && t < 15.3);
+    }
   }
 
   function setCaption(t) {
@@ -699,12 +646,23 @@
   function extras(t) {
     const q = "city roles";
     let n = 0;
-    if (t >= 0.55) n = Math.min(q.length, Math.floor((t - 0.55) * 10.5) + 1);
+    if (t >= 3.6) n = Math.min(q.length, Math.floor((t - 3.6) * 10.5) + 1);
     const typed = q.slice(0, n);
     if (typed !== lastTyped) {
       typeEl.textContent = typed;
       lastTyped = typed;
     }
+
+    const mq = "bridge";
+    let mn = 0;
+    if (t >= 24.0) mn = Math.min(mq.length, Math.floor((t - 24.0) * 8) + 1);
+    const mapTyped = t < 29.0 ? mq.slice(0, mn) : "";
+    if (mapTyped !== lastMapTyped) {
+      if (mapSearchText) mapSearchText.textContent = mapTyped;
+      lastMapTyped = mapTyped;
+    }
+    tUI.classList.toggle("is-map-search", t >= 23.85 && t < 29.4);
+
     countEls.forEach((el, i) => {
       const target = Number(el.dataset.count || 0);
       const p = clamp((t - 44.05 - i * 0.12) / 0.85, 0, 1);
@@ -715,12 +673,11 @@
   }
 
   function render(t) {
-    const ot = warpTime(t);
-    applyTimeline(ot);
-    setStates(ot);
-    extras(ot);
-    setCaption(ot);
-    drawParticles(ot);
+    applyTimeline(t);
+    setStates(t);
+    extras(t);
+    setCaption(t);
+    drawParticles(t);
     updatePlayerUI(t);
   }
 
@@ -744,12 +701,13 @@
   const chaptersEl = $("#chapters");
 
   const chapters = [
-    { t: 0, label: "Search" },
-    { t: 4, label: "Article" },
-    { t: 13, label: "Map" },
-    { t: 20, label: "Mobile" },
-    { t: 28, label: "Every screen" },
-    { t: 32, label: "Visit" },
+    { t: 0, label: "Logo" },
+    { t: 3, label: "Search" },
+    { t: 8, label: "Article" },
+    { t: 22, label: "Map" },
+    { t: 35, label: "Mobile" },
+    { t: 47, label: "Every screen" },
+    { t: 52, label: "Visit" },
   ];
 
   const fmt = (s) => {
@@ -925,7 +883,9 @@
     document.documentElement.style.setProperty("--stage-scale", String(s));
   }
   window.addEventListener("resize", fit);
+  window.addEventListener("load", fit);
   fit();
+  setTimeout(fit, 300);
 
   /* ---------------- SOUNDTRACK & SOUND DESIGN ---------------- */
   let audio = null;
@@ -1069,9 +1029,9 @@
   }
 
   function resetAudioPosition(t) {
-    lastTypeTick = Math.floor(t * 9);
-    lastPulse = Math.floor((t - 5.5) / 1.5);
-    lastArp = Math.floor((t - 5.5) / 1.8);
+    lastTypeTick = Math.floor(t * 8);
+    lastPulse = Math.floor((t - 7) / 1.5);
+    lastArp = Math.floor((t - 7) / 1.8);
   }
 
   function updateSoundUI() {
@@ -1278,23 +1238,30 @@
   }
 
   const AUDIO_CUES = [
-    { t: 0.34, fn: () => sfxClick(0.035) },
-    { t: 1.95, fn: () => sfxChime(523.25, 0.04) },
-    { t: 3.12, fn: () => sfxWhoosh(0.6, 0.055, 300, 1500) },
-    { t: 9.5, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
-    { t: 11.08, fn: () => sfxClick(0.06) },
-    { t: 11.32, fn: () => sfxChime(659.25, 0.03) },
-    { t: 16.6, fn: () => sfxWhoosh(0.9, 0.12, 160, 2400) },
-    { t: 16.95, fn: () => sfxBoom(0.08) },
-    { t: 27.0, fn: () => sfxWhoosh(0.9, 0.11, 180, 2400) },
-    { t: 32.0, fn: () => sfxClick(0.045) },
-    { t: 34.2, fn: () => sfxClick(0.035) },
-    { t: 37.45, fn: () => sfxWhoosh(0.7, 0.07, 240, 1800) },
-    { t: 37.85, fn: () => sfxBoom(0.07) },
-    { t: 43.05, fn: () => sfxWhoosh(1.0, 0.13, 180, 3000) },
-    { t: 43.8, fn: () => sfxBoom(0.13) },
-    { t: 44.7, fn: () => sfxChime(523.25, 0.05) },
-    { t: 47.8, fn: () => sfxChime(659.25, 0.04) },
+    { t: 0.25, fn: () => sfxBoom(0.14) },
+    { t: 0.8, fn: () => sfxChime(523.25, 0.04) },
+    { t: 3.3, fn: () => sfxClick(0.035) },
+    { t: 5.1, fn: () => sfxChime(659.25, 0.04) },
+    { t: 7.45, fn: () => sfxWhoosh(0.6, 0.055, 300, 1500) },
+    { t: 10.5, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
+    { t: 14.0, fn: () => sfxClick(0.06) },
+    { t: 14.45, fn: () => sfxChime(523.25, 0.03) },
+    { t: 22.0, fn: () => sfxWhoosh(0.9, 0.12, 160, 2400) },
+    { t: 22.3, fn: () => sfxBoom(0.08) },
+    { t: 24.0, fn: () => sfxClick(0.045) },
+    { t: 25.0, fn: () => sfxChime(659.25, 0.035) },
+    { t: 29.2, fn: () => sfxClick(0.03) },
+    { t: 35.0, fn: () => sfxWhoosh(0.9, 0.11, 180, 2400) },
+    { t: 38.5, fn: () => sfxWhoosh(0.7, 0.05, 240, 1400) },
+    { t: 41.45, fn: () => sfxClick(0.04) },
+    { t: 42.1, fn: () => sfxWhoosh(0.55, 0.06, 300, 1600) },
+    { t: 44.7, fn: () => sfxClick(0.035) },
+    { t: 46.8, fn: () => sfxWhoosh(0.7, 0.07, 240, 1800) },
+    { t: 47.2, fn: () => sfxBoom(0.07) },
+    { t: 52.0, fn: () => sfxWhoosh(1.0, 0.13, 180, 3000) },
+    { t: 52.8, fn: () => sfxBoom(0.13) },
+    { t: 53.5, fn: () => sfxChime(523.25, 0.05) },
+    { t: 56.5, fn: () => sfxChime(659.25, 0.04) },
   ];
 
   function audioFrame(prev, next) {
@@ -1305,16 +1272,15 @@
       setChord(ci);
     }
     for (const cue of AUDIO_CUES) {
-      const ct = unwarpTime(cue.t);
-      if (prev < ct && next >= ct) cue.fn();
+      if (prev < cue.t && next >= cue.t) cue.fn();
     }
-    if (next >= 5.5 && next < 35.5) {
-      const beat = Math.floor((next - 5.5) / 1.5);
+    if (next >= 7 && next < 57) {
+      const beat = Math.floor((next - 7) / 1.5);
       if (beat !== lastPulse) {
         lastPulse = beat;
         sfxPulse();
       }
-      const arp = Math.floor((next - 5.5) / 1.8);
+      const arp = Math.floor((next - 7) / 1.8);
       if (arp !== lastArp) {
         lastArp = arp;
         const chord = CHORDS[clamp(ci, 0, CHORDS.length - 1)];
@@ -1322,8 +1288,8 @@
         sfxPluck(chord[pattern[arp % pattern.length]] * 2);
       }
     }
-    if (next >= 0.45 && next <= 2.2) {
-      const k = Math.floor(next * 9);
+    if (next >= 3.55 && next <= 5.3) {
+      const k = Math.floor(next * 8);
       if (k !== lastTypeTick) {
         lastTypeTick = k;
         sfxTick();

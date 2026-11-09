@@ -865,3 +865,32 @@
   color: rgba(8, 43, 60, .66);
   opacity: 0;
 }
+
+/* --- map search interaction --- */
+.t-map-search { position: relative; }
+.t-map-search-ph { display: inline; }
+.t-map-search-q { display: none; font-size: 11.5px; font-weight: 600; color: #173a24; }
+.t-map-caret { display: none; width: 1px; height: 14px; background: #2f7fb8; animation: map-caret 0.9s steps(1) infinite; }
+@keyframes map-caret { 50% { opacity: 0; } }
+.ui-tablet.is-map-search .t-map-search-ph { display: none; }
+.ui-tablet.is-map-search .t-map-search-q { display: inline; }
+.ui-tablet.is-map-search .t-map-caret { display: block; }
+.ui-tablet.is-map-search .t-map-search { box-shadow: 0 0 0 2px #2f7fb8, 0 2px 6px rgba(12, 45, 28, .18); }
+.ui-tablet.is-map-search .t-map-pin[data-pin="other"] { opacity: .16; }
+.ui-tablet.is-map-search .t-map-pin[data-pin="bridge"] { z-index: 5; }
+.ui-tablet.is-map-search .t-map-pin[data-pin="bridge"] em { background: #2f7fb8; color: #fff; }
+.ui-tablet.is-map-search .t-map-pin[data-pin="bridge"] i { background: #2f7fb8; box-shadow: 0 0 0 4px rgba(47, 127, 184, .22), 0 3px 7px rgba(7, 38, 24, .28); }
+
+/* --- dark-mode choice --- */
+.d-appearance label.is-active {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* touch indicator on the light phone UI */
+.touch {
+  border-color: rgba(4, 45, 58, .92);
+  background: rgba(126, 220, 200, .24);
+  box-shadow: 0 0 0 10px rgba(4, 45, 58, .08), 0 0 30px rgba(47, 127, 184, .45);
+}
