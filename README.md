@@ -21,8 +21,8 @@ article, the map and every screen — ending on a clean launch card and CTA.
 
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
-| 01 | **Logo** | 0:00–0:03 | A clean brand resolve on a dark teal field — no hero copy, navigation or floating cards behind it. The product is revealed only after the mark settles. |
-| 02 | **Search** | 0:03–0:08 | The real wiki opens. Pagefind search types `city roles`, the matching article appears as the first result, and the result opens the article. |
+| 01 | **Logo** | 0:00–0:02 | A clean brand resolve on a deep teal field with a brighter mint glow — no hero copy, navigation or floating cards behind it. The product is revealed at 0:02. |
+| 02 | **Search** | 0:02–0:08 | The real wiki opens. Pagefind search types `city roles`, the matching article appears as the first result, and the result opens the article. |
 | 03 | **Article** | 0:08–0:22 | The real *City roles and departments* article fills the frame at a readable scale. It scrolls to the Caution, the Appearance panel highlights **Dark**, and the page switches themes. |
 | 04 | **Map** | 0:22–0:35 | The real 67-place interactive map on tablet. The map search types `bridge`; the two bridge pins stay prominent while the rest recede. The search clears and the full map returns. |
 | 05 | **Mobile** | 0:35–0:47 | The complete phone frame shows the same article, scrolls to the Caution, then a touch opens the real menu drawer. The footer keeps **Auto** and **English** visible. |

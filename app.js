@@ -162,33 +162,33 @@
      ============================================================ */
   track("#act1", [
     { t: 0, opacity: 1 },
-    { t: 2.55, opacity: 1 },
-    { t: 2.98, opacity: 0, ease: "inOut" },
+    { t: 1.28, opacity: 1 },
+    { t: 1.6, opacity: 0, ease: "inOut" },
   ]);
   track("#a1Lockup", [
-    { t: 0.05, opacity: 0, y: 16, scale: 0.98 },
-    { t: 0.9, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 2.4, opacity: 1, y: 0, scale: 1.005 },
-    { t: 2.82, opacity: 0, y: -6, scale: 0.996, ease: "inOut" },
+    { t: 0.03, opacity: 0, y: 14, scale: 0.98 },
+    { t: 0.62, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 1.22, opacity: 1, y: 0, scale: 1.005 },
+    { t: 1.5, opacity: 0, y: -6, scale: 0.996, ease: "inOut" },
   ]);
   track(".a1-mark", [
-    { t: 0.1, opacity: 0, y: 14, scale: 0.94 },
-    { t: 0.82, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 0.06, opacity: 0, y: 12, scale: 0.94 },
+    { t: 0.56, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   const a1Lines = $$(".a1-word .mask > span");
   a1Lines.forEach((el, i) => {
     track(el, [
-      { t: 0.24 + i * 0.08, y: 72 },
-      { t: 0.96 + i * 0.08, y: 0, ease: "expo" },
+      { t: 0.16 + i * 0.06, y: 64 },
+      { t: 0.66 + i * 0.06, y: 0, ease: "expo" },
     ]);
   });
   track("#a1Rule", [
-    { t: 0.86, scaleX: 0, opacity: 0 },
-    { t: 1.26, scaleX: 1, opacity: 1, ease: "inOut" },
+    { t: 0.54, scaleX: 0, opacity: 0 },
+    { t: 0.84, scaleX: 1, opacity: 1, ease: "inOut" },
   ]);
   track("#a1Kicker", [
-    { t: 1.0, opacity: 0, y: 8 },
-    { t: 1.4, opacity: 1, y: 0, ease: "expo" },
+    { t: 0.7, opacity: 0, y: 8 },
+    { t: 1.0, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
@@ -225,32 +225,32 @@
 
   /* real Pagefind search */
   track("[data-d-modal]", [
-    { t: 2.98, opacity: 0 },
-    { t: 3.07, opacity: 1, ease: "out" },
+    { t: 1.62, opacity: 0 },
+    { t: 1.72, opacity: 1, ease: "out" },
     { t: 7.24, opacity: 1 },
     { t: 7.5, opacity: 0, ease: "inOut" },
   ]);
   track("[data-d-panel]", [
-    { t: 2.98, y: 10, scale: 0.99 },
-    { t: 3.16, y: 0, scale: 1, ease: "out" },
+    { t: 1.62, y: 10, scale: 0.99 },
+    { t: 1.82, y: 0, scale: 1, ease: "out" },
   ]);
   track("[data-d-result]", [
-    { t: 4.9, opacity: 0.08, y: 8, scale: 1 },
-    { t: 5.35, opacity: 0.3, y: 8, scale: 1 },
-    { t: 5.76, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
-    { t: 6.1, opacity: 1, y: 0, scale: 1 },
+    { t: 3.1, opacity: 0.08, y: 8, scale: 1 },
+    { t: 3.45, opacity: 0.3, y: 8, scale: 1 },
+    { t: 3.7, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
+    { t: 4.0, opacity: 1, y: 0, scale: 1 },
     { t: 7.2, opacity: 1, y: 0, scale: 1 },
     { t: 7.35, opacity: 0, y: 0, scale: 1 },
   ]);
   track(".d-search-result--dim", [
-    { t: 4.9, opacity: 0.04, y: 8 },
-    { t: 5.35, opacity: 0.1, y: 8 },
-    { t: 5.95, opacity: 0.85, y: 0, ease: "expo" },
+    { t: 3.1, opacity: 0.04, y: 8 },
+    { t: 3.45, opacity: 0.1, y: 8 },
+    { t: 3.8, opacity: 0.85, y: 0, ease: "expo" },
     { t: 7.3, opacity: 0, y: 0 },
   ]);
   track(".d-search-foot", [
-    { t: 5.8, opacity: 0 },
-    { t: 6.15, opacity: 1, ease: "out" },
+    { t: 3.9, opacity: 0 },
+    { t: 4.2, opacity: 1, ease: "out" },
   ]);
 
   /* search result becomes the article */
@@ -351,12 +351,12 @@
     { t: 47.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#miniTablet", [
-    { t: 46.9, opacity: 0, x: -120, y: 24, rotateZ: -10, scale: 0.96 },
-    { t: 47.65, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
+    { t: 46.9, opacity: 0, x: -120, y: 24, rotateZ: 0, scale: 0.96 },
+    { t: 47.65, opacity: 1, x: 0, y: 0, rotateZ: 0, scale: 1, ease: "expo" },
   ]);
   track("#miniPhone", [
-    { t: 47.0, opacity: 0, x: 120, y: 30, rotateZ: 9, scale: 0.96 },
-    { t: 47.75, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
+    { t: 47.0, opacity: 0, x: 120, y: 30, rotateZ: 0, scale: 0.96 },
+    { t: 47.75, opacity: 1, x: 0, y: 0, rotateZ: 0, scale: 1, ease: "expo" },
   ]);
 
   /* ============================================================
@@ -600,7 +600,7 @@
   let lastCaption = null;
 
   const captionCues = [
-    { from: 3.1, to: 7.4, kicker: "Search the wiki", title: "Ask. Get the answer." },
+    { from: 1.7, to: 7.4, kicker: "Search the wiki", title: "Ask. Get the answer." },
     { from: 8.2, to: 11.8, kicker: "City roles and departments", title: "Every role, explained." },
     { from: 13.8, to: 17.2, kicker: "Appearance", title: "Read it your way." },
     { from: 18.2, to: 21.6, kicker: "Community maintained", title: "Kept current." },
@@ -646,7 +646,7 @@
   function extras(t) {
     const q = "city roles";
     let n = 0;
-    if (t >= 3.6) n = Math.min(q.length, Math.floor((t - 3.6) * 10.5) + 1);
+    if (t >= 2.0) n = Math.min(q.length, Math.floor((t - 2.0) * 10.5) + 1);
     const typed = q.slice(0, n);
     if (typed !== lastTyped) {
       typeEl.textContent = typed;
@@ -702,7 +702,7 @@
 
   const chapters = [
     { t: 0, label: "Logo" },
-    { t: 3, label: "Search" },
+    { t: 1.6, label: "Search" },
     { t: 8, label: "Article" },
     { t: 22, label: "Map" },
     { t: 35, label: "Mobile" },
@@ -1242,10 +1242,10 @@
   }
 
   const AUDIO_CUES = [
-    { t: 0.25, fn: () => sfxBoom(0.14) },
-    { t: 0.8, fn: () => sfxChime(523.25, 0.04) },
-    { t: 3.3, fn: () => sfxClick(0.035) },
-    { t: 5.1, fn: () => sfxChime(659.25, 0.04) },
+    { t: 0.22, fn: () => sfxBoom(0.14) },
+    { t: 0.66, fn: () => sfxChime(523.25, 0.04) },
+    { t: 1.7, fn: () => sfxClick(0.035) },
+    { t: 3.3, fn: () => sfxChime(659.25, 0.04) },
     { t: 7.45, fn: () => sfxWhoosh(0.6, 0.055, 300, 1500) },
     { t: 10.5, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
     { t: 14.0, fn: () => sfxClick(0.06) },
@@ -1292,7 +1292,7 @@
         sfxPluck(chord[pattern[arp % pattern.length]] * 2);
       }
     }
-    if (next >= 3.55 && next <= 5.3) {
+    if (next >= 2.0 && next <= 3.8) {
       const k = Math.floor(next * 8);
       if (k !== lastTypeTick) {
         lastTypeTick = k;

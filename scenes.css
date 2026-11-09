@@ -103,7 +103,7 @@
 }
 .a1-word .mask { display: inline-block; vertical-align: bottom; padding-bottom: .12em; margin-bottom: -.12em; }
 .a1-word .mask + .mask { margin-left: .16em; }
-.a1-word-sub { font-weight: 300; letter-spacing: -.02em; color: #b6f4e4; }
+.a1-word-sub { font-weight: 300; letter-spacing: -.02em; color: #d6fff6; }
 .a1-rule { width: 64px; height: 1px; margin: 26px auto 0; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .7), transparent); transform-origin: center; }
 .a1-kicker {
   margin: 19px 0 0;
@@ -112,7 +112,7 @@
   font-weight: 600;
   letter-spacing: .24em;
   text-transform: uppercase;
-  color: rgba(214, 242, 246, .74);
+  color: rgba(226, 250, 250, .82);
   opacity: 1;
 }
 .a1-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
@@ -727,15 +727,15 @@
   place-items: center;
   text-align: center;
   background:
-    radial-gradient(760px 520px at 50% 44%, rgba(24, 98, 104, .38), transparent 72%),
-    linear-gradient(158deg, #051720 0%, #072833 52%, #04131b 100%);
+    radial-gradient(780px 540px at 50% 42%, rgba(79, 195, 198, .34), transparent 72%),
+    linear-gradient(158deg, #082a35 0%, #0a3641 52%, #061b25 100%);
 }
 .a1-lockup { top: 50%; margin-top: -236px; padding: 0 40px; }
 .a1-mark { width: 158px; margin: 0 auto 4px; }
 .a1-mark img { width: 158px; }
 .a1-word { font-size: 66px; }
 .a1-rule { margin-top: 22px; }
-.a1-kicker { margin-top: 16px; font-size: 11.5px; letter-spacing: .2em; color: rgba(214, 242, 246, .66); }
+.a1-kicker { margin-top: 16px; font-size: 11.5px; letter-spacing: .18em; color: rgba(226, 250, 250, .84); }
 
 /* --- global lower-third --- */
 .film-caption {
@@ -791,8 +791,8 @@
 .a3-device .device-shadow { opacity: .6; }
 
 /* --- tablet map close-up --- */
-.a4-device { left: 10px; top: 70px; width: 1450px; height: 1096px; }
-.a4-device .tablet-float { transform: scale(1.35); transform-origin: 50% 0; animation: none; }
+.a4-device { left: 40px; top: 70px; width: 1380px; height: 1096px; }
+.a4-device .tablet-float { transform: scale(1.25); transform-origin: 50% 0; animation: none; }
 .a4-device .device-shadow { opacity: .55; }
 
 /* --- family --- */
@@ -823,7 +823,7 @@
 .outro-url > span:nth-child(2) { font-size: 20px; font-weight: 600; }
 .outro-url-cta { height: 52px; padding: 0 22px; background: #9ef0dd; color: #04313b; font-size: 12px; font-weight: 800; letter-spacing: .01em; }
 .outro-url-cta .i { font-size: 13px; }
-.outro-note { margin-top: 17px; font-size: 11.5px; color: rgba(4, 38, 52, .64); }
+.outro-note { margin-top: 17px; font-size: 13px; font-weight: 500; letter-spacing: .035em; color: rgba(4, 38, 52, .88); }
 
 /* --- calmer environments --- */
 .bg--bright {
@@ -894,3 +894,14 @@
   background: rgba(126, 220, 200, .24);
   box-shadow: 0 0 0 10px rgba(4, 45, 58, .08), 0 0 30px rgba(47, 127, 184, .45);
 }
+
+/* --- clean device-family cluster --- */
+.a4-family .device-row { height: 660px; margin-top: 18px; }
+.a4-family .mini-tablet { top: 190px; }
+.a4-family .miniPhone { top: 80px; }
+.a4-family .mini-cards,
+.a4-family .mini-card-wide { display: none; }
+
+/* keep the family screens clean, not busy */
+.a4-family .mini-scaler .d-hero-art,
+.a4-family .mini-scaler .p-art { display: none; }
