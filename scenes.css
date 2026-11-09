@@ -439,7 +439,7 @@
 .a5-features { position: absolute; inset: 0; will-change: opacity, transform; }
 .a5-copy { position: absolute; left: 112px; top: 208px; width: 590px; }
 .a5-copy .display { font-size: 64px; }
-.a5-copy .lede { font-size: 16px; max-width: 440px; margin-top: 22px; }
+.a5-copy .lede { font-size: 17px; max-width: 470px; margin-top: 22px; }
 .a5-stats { display: flex; gap: 34px; margin-top: 48px; }
 .a5-stats div { display: flex; flex-direction: column; gap: 3px; }
 .a5-stats strong { font-family: var(--font-display); font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -.05em; color: #d8fff5; }
@@ -660,3 +660,51 @@
 
 /* ================= END STATE ================= */
 .stage.is-ended .replay-hint { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+
+/* --- Clean three-point feature story --- */
+.a5-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  perspective: none;
+}
+.a5-grid .feat {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  min-height: 168px;
+  padding: 22px 26px;
+  transform-origin: center center;
+}
+.a5-grid .feat div { flex: 1; }
+.a5-grid .feat h3 { margin: 0 0 5px; font-size: 24px; }
+.a5-grid .feat p { max-width: 640px; font-size: 15px; line-height: 1.55; color: rgba(216, 241, 248, .72); }
+.a5-grid .feat-icon { width: 54px; height: 54px; font-size: 24px; }
+.a5-grid .feat-tag {
+  position: absolute;
+  right: 26px;
+  bottom: 18px;
+  margin: 0;
+  padding: 0;
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: rgba(206, 238, 245, .42);
+}
+.a5-grid .feat-num { top: 16px; right: 26px; font-size: 10px; color: rgba(255, 255, 255, .28); }
+.a5-grid .feat-ghost { right: 12px; bottom: -20px; width: 140px; height: 140px; opacity: .045; }
+.a5-trust {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 4px 0;
+  margin-top: 2px;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(206, 238, 245, .46);
+  opacity: 0;
+}
+.a5-trust i { display: block; width: 1px; height: 10px; background: rgba(255, 255, 255, .16); }

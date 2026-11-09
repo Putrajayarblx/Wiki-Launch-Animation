@@ -713,14 +713,7 @@ body.show-safe .safe-frame { opacity: 1; }
   transform: translateX(var(--wipe-x, -130%)) skewX(-9deg);
   mix-blend-mode: screen;
 }
-.flash-cut {
-  position: absolute;
-  inset: 0;
-  z-index: 71;
-  background: radial-gradient(1200px 900px at 50% 45%, #f4fffb 0%, #c9f8ea 46%, #a5e8dc 100%);
-  opacity: 0;
-  pointer-events: none;
-}
+
 .global-sweep {
   position: absolute;
   top: -30%;

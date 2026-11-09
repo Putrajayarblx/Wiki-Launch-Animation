@@ -22,7 +22,7 @@ deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki i
 | 02 | **Desktop** | 0:06–0:19 | The real splash homepage and its category artwork rise into frame. A simulated cursor opens Pagefind search, then the *City roles* article, scrolls to the Caution and page footer, and switches to dark mode through the real Appearance panel. |
 | 03 | **Mobile** | 0:19–0:27 | The real mobile splash: the category art stack, hero copy and buttons, the wiki menu drawer, and the same article with Navigation / On this page bars, Caution, Edit page and pagination. |
 | 04 | **Tablet** | 0:27–0:34 | The real 1024 article layout with sidebar, then the interactive map page with search, category filters and place pins. The act closes on a device-family hero shot — laptop, tablet and phone, all running the real interface. |
-| 05 | **Features** | 0:34–0:37 | Six capabilities presented as glass cards: Pagefind search, dark mode, English + Bahasa Melayu, the interactive map, open source, and community accuracy. |
+| 05 | **Features** | 0:34–0:37 | Three wide cards carry the core capabilities — Pagefind search, readable dark/light modes in English and Bahasa Melayu, and the 67-place interactive map — followed by a quiet trust line: open source, reviewed on GitHub, community maintained. |
 | 06 | **Launch** | 0:37–0:42 | The launch card: logo, **Now available**, live URL, device line and the final light sweep. |
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.

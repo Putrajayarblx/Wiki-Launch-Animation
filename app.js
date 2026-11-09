@@ -227,8 +227,8 @@
   track("#act2", [
     { t: 6.35, opacity: 0 },
     { t: 6.95, opacity: 1 },
-    { t: 23.45, opacity: 1 },
-    { t: 24.15, opacity: 0 },
+    { t: 23.3, opacity: 1 },
+    { t: 23.76, opacity: 0, ease: "inOut" },
   ]);
   track("#a2World", [
     { t: 7.0, scale: 0.995, y: 8 },
@@ -445,19 +445,18 @@
   ]);
   track("[data-theme-ripple] span", [
     { t: 20.98, opacity: 0, scale: 0 },
-    { t: 21.08, opacity: 0.65, scale: 0.5, ease: "out" },
-    { t: 21.75, opacity: 0, scale: 24, ease: "inOut" },
+    { t: 21.08, opacity: 0.38, scale: 0.4, ease: "out" },
+    { t: 21.65, opacity: 0, scale: 16, ease: "inOut" },
   ]);
 
   /* ============================================================
      ACT 3 — MOBILE
      ============================================================ */
   track("#act3", [
-    { t: 23.4, opacity: 0 },
-    { t: 24.0, opacity: 1 },
-    { t: 33.25, opacity: 1 },
-    { t: 33.45, opacity: 1 },
-    { t: 34.05, opacity: 0 },
+    { t: 23.86, opacity: 0 },
+    { t: 24.42, opacity: 1, ease: "out" },
+    { t: 33.3, opacity: 1 },
+    { t: 33.68, opacity: 0, ease: "inOut" },
   ]);
   track("#a3Copy", [
     { t: 23.7, opacity: 0, y: 30 },
@@ -618,10 +617,10 @@
      ACT 4 — TABLET + FAMILY
      ============================================================ */
   track("#act4", [
-    { t: 33.3, opacity: 0 },
-    { t: 33.9, opacity: 1 },
-    { t: 42.95, opacity: 1 },
-    { t: 43.45, opacity: 0 },
+    { t: 33.76, opacity: 0 },
+    { t: 34.32, opacity: 1, ease: "out" },
+    { t: 42.9, opacity: 1 },
+    { t: 43.22, opacity: 0, ease: "inOut" },
   ]);
   track("#a4Copy", [
     { t: 33.6, opacity: 0, y: 26 },
@@ -749,8 +748,8 @@
      ACT 5 — FEATURES
      ============================================================ */
   track("#act5", [
-    { t: 42.75, opacity: 0 },
-    { t: 43.2, opacity: 1 },
+    { t: 43.3, opacity: 0 },
+    { t: 43.85, opacity: 1, ease: "out" },
   ]);
   track("#a5Features", [
     { t: 42.9, opacity: 0, y: 24 },
@@ -774,7 +773,11 @@
     { t: 43.9, opacity: 0, y: 14 },
     { t: 44.45, opacity: 1, y: 0, ease: "expo" },
   ]);
-  stagger(".feat", 43.6, 0.075, { y: 42, dur: 0.7, scale: 0.97, rotateX: 8 });
+  stagger(".feat", 43.7, 0.12, { y: 26, dur: 0.65, scale: 0.98 });
+  track("#a5Trust", [
+    { t: 44.1, opacity: 0, y: 8 },
+    { t: 44.55, opacity: 1, y: 0, ease: "expo" },
+  ]);
 
   /* ============================================================
      OUTRO
@@ -921,28 +924,7 @@
   flareAt(42.8, 0.2, 3.6);
   flareAt(47.05, 0.24, 4.2);
 
-  track("#flashCut", [
-    { t: 6.62, opacity: 0 },
-    { t: 6.76, opacity: 0.4, ease: "out" },
-    { t: 6.84, opacity: 0.4 },
-    { t: 7.18, opacity: 0, ease: "inOut" },
-    { t: 23.48, opacity: 0 },
-    { t: 23.6, opacity: 0.32, ease: "out" },
-    { t: 23.68, opacity: 0.32 },
-    { t: 24.02, opacity: 0, ease: "inOut" },
-    { t: 33.4, opacity: 0 },
-    { t: 33.52, opacity: 0.32, ease: "out" },
-    { t: 33.6, opacity: 0.32 },
-    { t: 33.94, opacity: 0, ease: "inOut" },
-    { t: 42.86, opacity: 0 },
-    { t: 42.98, opacity: 0.3, ease: "out" },
-    { t: 43.06, opacity: 0.3 },
-    { t: 43.4, opacity: 0, ease: "inOut" },
-    { t: 47.1, opacity: 0 },
-    { t: 47.22, opacity: 0.36, ease: "out" },
-    { t: 47.3, opacity: 0.36 },
-    { t: 47.64, opacity: 0, ease: "inOut" },
-  ]);
+
 
   track("#wipe", [
     { t: 6.6, opacity: 0, "--wipe-x": -130 },
@@ -1032,13 +1014,13 @@
   const a1Env = [[0, 0], [1.2, 0.7], [5.6, 0.7], [7.0, 0], [54, 0]];
   const outroEnv = [[0, 0], [47.5, 0], [48.4, 0.8], [54, 0.8]];
 
-  buildParticles($("#particles"), 34, {
+  buildParticles($("#particles"), 18, {
     x: [-40, 1960], y: [-60, 1140], speed: [6, 18], env: globalEnv,
   });
-  buildParticles($("#a1Particles"), 18, {
+  buildParticles($("#a1Particles"), 12, {
     x: [700, 1220], y: [280, 850], speed: [8, 22], env: a1Env,
   });
-  buildParticles($("#outroParticles"), 22, {
+  buildParticles($("#outroParticles"), 16, {
     x: [520, 1400], y: [200, 940], speed: [5, 14], env: outroEnv,
   });
 
