@@ -881,6 +881,10 @@
   function fit() {
     const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     document.documentElement.style.setProperty("--stage-scale", String(s));
+    const stageEl = document.getElementById("stage");
+    if (stageEl) {
+      stageEl.style.transform = `translate(-50%, -50%) scale(${s})`;
+    }
   }
   window.addEventListener("resize", fit);
   window.addEventListener("load", fit);
