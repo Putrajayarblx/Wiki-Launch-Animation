@@ -21,15 +21,17 @@ article, the map and every screen — ending on a clean launch card and CTA.
 
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
-| 01 | **Logo** | 0:00–0:02 | A clean brand resolve on a deep teal field with a brighter mint glow — no hero copy, navigation or floating cards behind it. The product is revealed at 0:02. |
-| 02 | **Search** | 0:02–0:08 | The real wiki opens. Pagefind search types `city roles`, the matching article appears as the first result, and the result opens the article. |
-| 03 | **Article** | 0:08–0:22 | The real *City roles and departments* article fills the frame at a readable scale. It scrolls to the Caution, the Appearance panel highlights **Dark**, and the page switches themes. |
-| 04 | **Map** | 0:22–0:35 | The real 67-place interactive map on tablet. The map search types `bridge`; the two bridge pins stay prominent while the rest recede. The search clears and the full map returns. |
-| 05 | **Mobile** | 0:35–0:47 | The complete phone frame shows the same article, scrolls to the Caution, then a touch opens the real menu drawer. The footer keeps **Auto** and **English** visible. |
-| 06 | **Every screen** | 0:47–0:52 | A device-family hero — laptop, tablet and phone running the real interface — with the audience line: *For new citizens, department staff and longtime residents.* |
-| 07 | **Visit** | 0:52–1:00 | A restrained brand close: **The official wiki**, **Now available**, the benefit line, the live URL and a high-contrast **Visit the wiki** CTA. |
+| 01 | **Logo** | 0:00–0:02 | A short brand resolve on a deep teal field — the product arrives before the two-second mark. |
+| 02 | **Search** | 0:02–0:09 | The real wiki opens. Pagefind search types `city roles`, the matching article lands as the first result, and the cursor opens it on the drop. |
+| 03 | **Article** | 0:09–0:19 | The real *City roles and departments* article fills the frame at a readable scale. It scrolls through the roles and Caution, the Appearance panel selects **Dark**, and the page switches themes. |
+| 04 | **Map** | 0:19–0:31 | The 67-place interactive map on tablet. Search types `bridge`, the bridge pins take focus, then the **Landmarks** filter narrows the map and the two bridge pins stay lit. |
+| 05 | **Mobile** | 0:31–0:43 | The real splash, a touch on **Start reading**, the same article on a phone, then the menu drawer. The footer keeps **Auto** and **English** visible. |
+| 06 | **Every screen** | 0:43–0:52 | A one-device-at-a-time montage: **Every page.** on desktop, **Every place.** on tablet, **Every answer.** on mobile, resolving to **Every screen.** |
+| 07 | **Visit** | 0:52–1:00 | A clear brand close: **The official wiki**, **Now available**, the benefit line, the live URL and a high-contrast **Visit the wiki** CTA. |
 
-The animation is **cut to an original 120 BPM score**: section changes and key UI hits land on the beat, with short drum fills leading into the map, mobile, device-family and launch cards. The reference video was used as a tempo and pacing guide only — no audio, branding or interface is copied.
+The film is cut to the **uploaded `AudioTrack.mp3`**, using the 6–66 second section of the 86.7-second track. The article reveal lands on the main drop (film 0:09), the one-device montage opens on the breakdown (0:43), and the CTA builds with the final section (0:53). The reference video was a pacing guide only — no audio, branding or interface is copied.
+
+Each scene has a deliberate camera move — a slow push-in on the desktop, map and phone, layered background planes at different speeds, directional device shadows and brief perspective settles on entry — while the interfaces stay front-facing and readable. Captions sit in the negative space beside the UI, never on top of the screen they describe.
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
@@ -67,9 +69,10 @@ No install, build step or framework required.
 The player auto-hides while playing and returns on mouse movement. The film starts automatically
 unless the visitor prefers reduced motion, in which case it waits on the first frame.
 
-**Sound** starts on the first click or tap anywhere in the player — browsers block audio before a
-gesture. A **Tap for sound** prompt appears on load, and the player always has a visible
-**Sound off / Sound on** control.
+**Sound** is the uploaded `AudioTrack.mp3`, starting at track time `6.0s` so the film’s cuts line up
+with the music. Browsers block audio before a gesture, so it starts on the first click or tap
+anywhere in the player. A **Tap for sound** prompt appears on load, and the player always has a
+visible **Sound off / Sound on** control.
 
 ### Preview and capture modes
 
@@ -103,9 +106,9 @@ The wiki interface is **not a screenshot**. It is rebuilt in HTML/CSS from the l
 No invented categories, stats, infoboxes or article sections were added to the wiki screens. If it is
 not on the live site, it is not in the mockup.
 
-The device-family shot at the end is generated by cloning the actual desktop, mobile and tablet
-interfaces, stripping their animation state and scaling them into miniature devices. That means the
-tiny screens are the same wiki, not mockups.
+The device-family montage is generated by cloning the actual desktop, mobile and tablet interfaces,
+stripping their animation state and scaling them into miniature devices. That means each screen in
+the montage is the same wiki, not a mockup.
 
 ---
 
@@ -119,7 +122,8 @@ tiny screens are the same wiki, not mockups.
 ├── ui-mobile.css       Phone interface
 ├── ui-tablet.css       Tablet interface
 ├── scenes.css          Act compositions, device family, story captions, outro
-├── app.js              Timeline engine, 60-second score, player, audio
+├── app.js              Timeline engine, soundtrack sync, player
+├── AudioTrack.mp3       Uploaded soundtrack; the film uses 6–66s
 ├── vercel.json         Static hosting config
 ├── .nojekyll           GitHub Pages support
 └── README.md
@@ -132,8 +136,8 @@ tiny screens are the same wiki, not mockups.
 - Absolute-time tracks with per-segment easing (`expo`, `inOut`, `quint`, …)
 - Transform, opacity, blur, filter and CSS custom-property interpolation
 - Full scrubbing: every visual is a pure function of `t`
-- Deliberate cuts, short crossfades and light wipes — key changes land on a 120 BPM beat grid
-- Procedural grain and a synthesised soundtrack — a chord bed, kick, clap, hats, bass, arpeggio, whooshes, impacts and UI ticks, all synced to the timeline
+- Deliberate cuts, short crossfades and UI-led wipes — key changes follow the uploaded track
+- Procedural grain and a single audio source: `AudioTrack.mp3`, started at track time 6s and faded over the last second
 
 This keeps the film reproducible for captures and allows the player to seek instantly.
 
@@ -190,6 +194,7 @@ command or output directory is required.
 - **Wiki**: Putrajaya.rblx community · developer-approved
 - **Platform**: [Astro](https://astro.build) + [Starlight](https://starlight.astro.build), Pagefind
 - **Type**: Plus Jakarta Sans, Public Sans
+- **Music**: uploaded `AudioTrack.mp3` (6–66s section)
 - **Film**: original motion design, direction and build for the Putrajaya.rblx Wiki launch
 
 The wiki's content and marks belong to the Putrajaya.rblx community. The film code is provided for

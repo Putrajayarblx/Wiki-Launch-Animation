@@ -98,6 +98,14 @@
       <div class="bg bg--warm" data-bg></div>
       <div class="bg bg--features" data-bg></div>
       <div class="bg bg--outro" data-bg></div>
+
+      <div class="depth-field" aria-hidden="true">
+        <span class="depth-plane depth-plane--a"></span>
+        <span class="depth-plane depth-plane--b"></span>
+        <span class="depth-plane depth-plane--c"></span>
+        <span class="depth-ring"></span>
+      </div>
+
       <div class="bg-plus bg-plus--intro" data-plus></div>
       <div class="bg-plus bg-plus--bright" data-plus></div>
       <div class="bg-plus bg-plus--dark" data-plus></div>
@@ -327,7 +335,6 @@
                       </div>
                     </div>
                   </div>
-                </div>
                 <div class="laptop-base"><span></span></div>
                 <div class="device-shadow laptop-shadow"></div>
               </div>
@@ -552,15 +559,15 @@
         </div>
         <div class="t-map-canvas">
           <img class="t-map-img" src="https://raw.githubusercontent.com/Putrajayarblx/Putrajayarblx-Wiki/main/public/minimap.svg" alt="Interactive map of Putrajaya" />
-          <span class="t-map-pin t-pin--a" data-pin="other"><i></i><em>Putrajaya Temporary Bus Terminal</em></span>
-          <span class="t-map-pin t-pin--b" data-pin="other"><i></i><em>Federal Court of Malaysia</em></span>
-          <span class="t-map-pin t-pin--c" data-pin="other"><i></i><em>Putrajaya Development Office HQ</em></span>
-          <span class="t-map-pin t-pin--d" data-pin="bridge"><i></i><em>Seri Wawasan Bridge</em></span>
-          <span class="t-map-pin t-pin--e" data-pin="bridge"><i></i><em>Seri Saujana Bridge</em></span>
-          <span class="t-map-pin t-pin--f" data-pin="other"><i></i><em>Putrajaya Airstrip</em></span>
-          <span class="t-map-pin t-pin--g" data-pin="other"><i></i><em>HCC Putra Autos</em></span>
-          <span class="t-map-pin t-pin--h" data-pin="other"><i></i><em>Perdana Putra</em></span>
-          <span class="t-map-pin t-pin--i" data-pin="other"><i></i><em>Precinct 7 Fire Station</em></span>
+          <span class="t-map-pin t-pin--a" data-pin="other" data-cat="transport"><i></i><em>Putrajaya Temporary Bus Terminal</em></span>
+          <span class="t-map-pin t-pin--b" data-pin="other" data-cat="government"><i></i><em>Federal Court of Malaysia</em></span>
+          <span class="t-map-pin t-pin--c" data-pin="other" data-cat="government"><i></i><em>Putrajaya Development Office HQ</em></span>
+          <span class="t-map-pin t-pin--d" data-pin="bridge" data-cat="landmark"><i></i><em>Seri Wawasan Bridge</em></span>
+          <span class="t-map-pin t-pin--e" data-pin="bridge" data-cat="landmark"><i></i><em>Seri Saujana Bridge</em></span>
+          <span class="t-map-pin t-pin--f" data-pin="other" data-cat="transport"><i></i><em>Putrajaya Airstrip</em></span>
+          <span class="t-map-pin t-pin--g" data-pin="other" data-cat="services"><i></i><em>HCC Putra Autos</em></span>
+          <span class="t-map-pin t-pin--h" data-pin="other" data-cat="government"><i></i><em>Perdana Putra</em></span>
+          <span class="t-map-pin t-pin--i" data-pin="other" data-cat="emergency"><i></i><em>Precinct 7 Fire Station</em></span>
           <div class="t-map-tools">
             <span><svg class="i"><use href="#i-pencil"/></svg></span>
             <span><svg class="i"><use href="#i-star"/></svg></span>
@@ -584,7 +591,6 @@
                     <div class="screen-flash" data-t-flash></div>
                   </div>
                 </div>
-              </div>
               <div class="tablet-cam"></div>
               <div class="device-shadow tablet-shadow"></div>
             </div>
@@ -592,9 +598,27 @@
         </div>
 
         <div class="a4-family" id="a4Family">
-          <h2 class="display display--dark display--center" id="a4FamilyTitle"><span class="mask"><span>One wiki. <span class="display-accent">Every screen.</span></span></span></h2>
-          <p class="a4-family-sub" id="a4FamilySub">For new citizens, department staff and longtime residents.</p>
-          <div class="device-row" id="deviceRow">
+          <p class="family-kicker" id="familyKicker"><span>One wiki.</span> Every screen.</p>
+
+          <div class="family-copy">
+            <div class="family-beat" id="familyBeatDesktop">
+              <p class="family-index"><span>01</span> Desktop</p>
+              <h2><span class="mask"><span>Every page<span class="family-accent">.</span></span></span></h2>
+              <p class="family-line">The complete reference, at your desk. Search it, read it, keep it open.</p>
+            </div>
+            <div class="family-beat" id="familyBeatTablet">
+              <p class="family-index"><span>02</span> Tablet</p>
+              <h2><span class="mask"><span>Every place<span class="family-accent">.</span></span></span></h2>
+              <p class="family-line">The map, filters and world coordinates — made for a screen you can hold.</p>
+            </div>
+            <div class="family-beat" id="familyBeatMobile">
+              <p class="family-index"><span>03</span> Mobile</p>
+              <h2><span class="mask"><span>Every answer<span class="family-accent">.</span></span></span></h2>
+              <p class="family-line">The same wiki, one tap away. Built for the phone in your pocket.</p>
+            </div>
+          </div>
+
+          <div class="family-stage" id="deviceRow" aria-hidden="true">
             <div class="mini-device mini-laptop" id="miniLaptop">
               <div class="mini-lid">
                 <div class="mini-screen">
@@ -623,6 +647,12 @@
               </div>
             </div>
           </div>
+
+          <div class="family-final" id="familyFinal">
+            <p class="family-final-kicker" id="familyFinalKicker">Desktop · Tablet · Mobile</p>
+            <h2><span class="mask"><span>Every screen<span class="family-accent">.</span></span></span></h2>
+            <p class="family-final-line" id="familyFinalLine">Same answers. Same city. Wherever you are.</p>
+          </div>
         </div>
       </section>
 
@@ -643,7 +673,10 @@
       </section>
 
       <div class="film-caption" id="filmCaption" aria-hidden="true">
-        <span class="film-caption-kicker" id="filmCaptionKicker"></span>
+        <div class="film-caption-top">
+          <span class="film-caption-index" id="filmCaptionIndex">01</span>
+          <span class="film-caption-kicker" id="filmCaptionKicker"></span>
+        </div>
         <p class="film-caption-title" id="filmCaptionTitle"></p>
       </div>
 
@@ -657,6 +690,8 @@
   </div>
 
   <!-- ================= PLAYER CHROME ================= -->
+  <audio id="soundtrack" src="AudioTrack.mp3" preload="auto" playsinline></audio>
+
   <header class="chrome chrome--top" id="chromeTop">
     <div class="chrome-brand">
       <img src="https://raw.githubusercontent.com/Putrajayarblx/Putrajayarblx-Wiki/main/public/favicon.svg" alt="" />

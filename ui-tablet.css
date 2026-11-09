@@ -109,12 +109,16 @@
 .t-map-filters span { display: flex; align-items: center; gap: 4px; height: 32px; padding: 0 9px; border-radius: 999px; background: rgba(255, 255, 255, .18); color: #173a24; font-size: 9.5px; font-weight: 600; white-space: nowrap; }
 .t-map-filters span.is-active { background: #2f7fb8; color: #fff; }
 .t-map-filters b { font-size: 8.5px; opacity: .68; }
-.t-map-canvas { position: relative; flex: 1; min-height: 0; overflow: hidden; }
-.t-map-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; transform: scale(1.06); transform-origin: 50% 50%; }
+.t-map-canvas { position: relative; flex: 1; min-height: 0; overflow: hidden; background: #8fc47d; }
+.t-map-img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 50%; transform: scale(1); transform-origin: 50% 50%; background: #8fc47d; }
 .t-map-canvas::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(700px 360px at 50% 48%, transparent 55%, rgba(9, 42, 24, .12)); }
-.t-map-pin { position: absolute; z-index: 2; display: flex; align-items: center; gap: 4px; }
-.t-map-pin i { display: block; width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50% 50% 50% 0; background: #2f7fb8; transform: rotate(-45deg); box-shadow: 0 3px 7px rgba(7, 38, 24, .28); }
+.t-map-pin { position: absolute; z-index: 2; display: flex; align-items: center; gap: 4px; transition: opacity .4s ease; }
+.t-map-pin i { display: block; width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50% 50% 50% 0; background: #2f7fb8; transform: rotate(-45deg); box-shadow: 0 3px 7px rgba(7, 38, 24, .28); transition: transform .3s ease, box-shadow .3s ease; }
 .t-map-pin em { font-style: normal; padding: 3px 6px; border-radius: 4px; background: rgba(255, 255, 255, .92); color: #173a24; font-size: 8px; font-weight: 650; white-space: nowrap; box-shadow: 0 2px 5px rgba(8, 34, 24, .12); }
+#tabletUI.is-map-filter .t-map-pin:not([data-cat="landmark"]) { opacity: .18; }
+#tabletUI.is-map-filter .t-map-pin[data-cat="landmark"] { z-index: 6; }
+#tabletUI.is-map-pin .t-map-pin[data-pin="bridge"] i { transform: rotate(-45deg) scale(1.16); box-shadow: 0 0 0 5px rgba(47, 127, 184, .18), 0 4px 9px rgba(7, 38, 24, .3); }
+#tabletUI.is-map-pin .t-map-pin[data-pin="bridge"] em { background: #2f7fb8; color: #fff; }
 .t-pin--a { left: 16%; top: 36%; }
 .t-pin--b { left: 38%; top: 28%; }
 .t-pin--c { left: 66%; top: 25%; }

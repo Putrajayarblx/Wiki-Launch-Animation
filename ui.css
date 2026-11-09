@@ -384,7 +384,7 @@
 
 /* ================= SEARCH ================= */
 .d-search-modal { position: absolute; inset: 0; z-index: 32; opacity: 0; pointer-events: none; }
-.d-search-scrim { position: absolute; inset: 0; background: rgba(5, 18, 28, .74); -webkit-backdrop-filter: blur(12px) saturate(.82); backdrop-filter: blur(12px) saturate(.82); }
+.d-search-scrim { position: absolute; inset: 0; background: rgba(5, 18, 28, .3); -webkit-backdrop-filter: blur(3px) saturate(.96); backdrop-filter: blur(3px) saturate(.96); }
 .d-search-panel {
   position: relative;
   width: 680px;
