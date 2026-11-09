@@ -134,10 +134,47 @@
           <div class="a1-rule" id="a1Rule"></div>
           <p class="a1-kicker" id="a1Kicker">The city, documented.</p>
         </div>
+
+        <div class="a1-promise" id="a1Promise">
+          <p class="type-kicker" id="a1PromiseKicker"><span>The official wiki</span></p>
+          <h2 class="type-title type-title--light" id="a1PromiseTitle">
+            <span class="mask"><span>Every answer.</span></span>
+            <span class="mask"><span><em>One place.</em></span></span>
+          </h2>
+          <p class="type-sub" id="a1PromiseSub">The city, documented. Search it, read it, explore it.</p>
+        </div>
       </section>
 
       <!-- ================= ACT 2 — DESKTOP ================= -->
       <section class="act act2" id="act2" aria-label="Desktop experience">
+        <div class="a2-type" aria-hidden="true">
+          <div class="type-block type-block--search" id="a2TypeSearch">
+            <p class="type-kicker"><span>01</span> Search the wiki</p>
+            <h2 class="type-title">
+              <span class="mask"><span>Find it</span></span>
+              <span class="mask"><span><em>fast.</em></span></span>
+            </h2>
+            <p class="type-sub">Type a question. Get the page.</p>
+          </div>
+          <div class="type-block type-block--roles" id="a2TypeRoles">
+            <p class="type-kicker"><span>02</span> City roles</p>
+            <h2 class="type-title">
+              <span class="mask"><span>Every</span></span>
+              <span class="mask"><span>role,</span></span>
+              <span class="mask"><span><em>explained.</em></span></span>
+            </h2>
+            <p class="type-sub">The people, departments and duties that run the city.</p>
+          </div>
+          <div class="type-block type-block--current" id="a2TypeCurrent">
+            <p class="type-kicker"><span>02</span> Community maintained</p>
+            <h2 class="type-title">
+              <span class="mask"><span>Kept</span></span>
+              <span class="mask"><span><em>current.</em></span></span>
+            </h2>
+            <p class="type-sub">The city changes. The wiki keeps up.</p>
+          </div>
+        </div>
+
         <div class="a2-world" id="a2World">
           <div class="device-stage a2-device" id="a2DeviceStage">
             <div class="laptop-float">
@@ -346,6 +383,17 @@
 
       <!-- ================= ACT 3 — MOBILE ================= -->
       <section class="act act3" id="act3" aria-label="Mobile experience">
+        <div class="a3-type" aria-hidden="true">
+          <div class="type-block" id="a3Type">
+            <p class="type-kicker"><span>04</span> Every screen</p>
+            <h2 class="type-title">
+              <span class="mask"><span>One wiki.</span></span>
+              <span class="mask"><span><em>Anywhere.</em></span></span>
+            </h2>
+            <p class="type-sub">The same answers, in your hand.</p>
+          </div>
+        </div>
+
         <div class="device-stage a3-device" id="a3DeviceStage">
           <div class="phone-float">
             <div class="phone" id="phone">
@@ -475,6 +523,18 @@
 
       <!-- ================= ACT 4 — TABLET + FAMILY ================= -->
       <section class="act act4" id="act4" aria-label="Tablet and device family">
+        <div class="a4-type" aria-hidden="true">
+          <div class="type-block type-block--map" id="a4Type">
+            <p class="type-kicker"><span>03</span> Interactive map</p>
+            <h2 class="type-title">
+              <span class="mask"><span>The whole</span></span>
+              <span class="mask"><span>city,</span></span>
+              <span class="mask"><span><em>mapped.</em></span></span>
+            </h2>
+            <p class="type-sub">Every named place. Search it, filter it, pin it.</p>
+          </div>
+        </div>
+
         <div class="device-stage a4-device" id="a4DeviceStage">
           <div class="tablet-float">
             <div class="tablet" id="tablet">
@@ -598,24 +658,10 @@
         </div>
 
         <div class="a4-family" id="a4Family">
-          <p class="family-kicker" id="familyKicker"><span>One wiki.</span> Every screen.</p>
-
-          <div class="family-copy">
-            <div class="family-beat" id="familyBeatDesktop">
-              <p class="family-index"><span>01</span> Desktop</p>
-              <h2><span class="mask"><span>Every page<span class="family-accent">.</span></span></span></h2>
-              <p class="family-line">The complete reference, at your desk. Search it, read it, keep it open.</p>
-            </div>
-            <div class="family-beat" id="familyBeatTablet">
-              <p class="family-index"><span>02</span> Tablet</p>
-              <h2><span class="mask"><span>Every place<span class="family-accent">.</span></span></span></h2>
-              <p class="family-line">The map, filters and world coordinates — made for a screen you can hold.</p>
-            </div>
-            <div class="family-beat" id="familyBeatMobile">
-              <p class="family-index"><span>03</span> Mobile</p>
-              <h2><span class="mask"><span>Every answer<span class="family-accent">.</span></span></span></h2>
-              <p class="family-line">The same wiki, one tap away. Built for the phone in your pocket.</p>
-            </div>
+          <div class="family-final" id="familyFinal">
+            <p class="type-kicker family-final-kicker" id="familyFinalKicker"><span>One wiki</span></p>
+            <h2 class="type-title type-title--center"><span class="mask"><span>Every screen.</span></span></h2>
+            <p class="type-sub family-final-line" id="familyFinalLine">Same answers. Same city. Wherever you are.</p>
           </div>
 
           <div class="family-stage" id="deviceRow" aria-hidden="true">
@@ -648,11 +694,6 @@
             </div>
           </div>
 
-          <div class="family-final" id="familyFinal">
-            <p class="family-final-kicker" id="familyFinalKicker">Desktop · Tablet · Mobile</p>
-            <h2><span class="mask"><span>Every screen<span class="family-accent">.</span></span></span></h2>
-            <p class="family-final-line" id="familyFinalLine">Same answers. Same city. Wherever you are.</p>
-          </div>
         </div>
       </section>
 

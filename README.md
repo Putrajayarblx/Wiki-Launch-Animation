@@ -4,8 +4,9 @@ A 60-second cinematic motion-design film introducing the **official Putrajaya.rb
 Built as a single, dependency-free web experience: vanilla HTML, CSS and JavaScript, a custom
 deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki itself.
 
-The film opens on the product, not the logo: a real Pagefind search, a real answer, then the
-article, the map and every screen — ending on a clean launch card and CTA.
+The film is built around typography first: a short brand promise, then four benefit-led feature
+beats — search, roles, map and every screen — each followed by a real interface action as proof.
+Devices support the words, then step back for the launch card and CTA.
 
 > **One wiki. Every screen.**
 
@@ -21,17 +22,16 @@ article, the map and every screen — ending on a clean launch card and CTA.
 
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
-| 01 | **Logo** | 0:00–0:02 | A short brand resolve on a deep teal field — the product arrives before the two-second mark. |
-| 02 | **Search** | 0:02–0:09 | The real wiki opens. Pagefind search types `city roles`, the matching article lands as the first result, and the cursor opens it on the drop. |
-| 03 | **Article** | 0:09–0:19 | The real *City roles and departments* article fills the frame at a readable scale. It scrolls through the roles and Caution, the Appearance panel selects **Dark**, and the page switches themes. |
-| 04 | **Map** | 0:19–0:31 | The 67-place interactive map on tablet. Search types `bridge`, the bridge pins take focus, then the **Landmarks** filter narrows the map and the two bridge pins stay lit. |
-| 05 | **Mobile** | 0:31–0:43 | The real splash, a touch on **Start reading**, the same article on a phone, then the menu drawer. The footer keeps **Auto** and **English** visible. |
-| 06 | **Every screen** | 0:43–0:52 | A one-device-at-a-time montage: **Every page.** on desktop, **Every place.** on tablet, **Every answer.** on mobile, resolving to **Every screen.** |
-| 07 | **Visit** | 0:52–1:00 | A clear brand close: **The official wiki**, **Now available**, the benefit line, the live URL and a high-contrast **Visit the wiki** CTA. |
+| 01 | **Brand** | 0:00–0:05 | A short brand resolve, then the promise: **EVERY ANSWER. ONE PLACE.** |
+| 02 | **Search** | 0:05–0:17 | **FIND IT FAST.** The real wiki opens, Pagefind types `city roles`, the result lands, and a close-up reads the result before the cursor opens the article. |
+| 03 | **Article** | 0:17–0:29 | **EVERY ROLE, EXPLAINED.** The article close-up shows the role list; the type then hands over to **KEPT CURRENT.** as the page switches to dark and the updated date comes into view. |
+| 04 | **Map** | 0:29–0:41 | **THE WHOLE CITY, MAPPED.** An overhead tablet angle introduces the map, then search types `bridge`, the **Landmarks** filter narrows it, and the bridge pins stay lit. |
+| 05 | **Every screen** | 0:41–0:51 | **ONE WIKI. ANYWHERE.** on the phone, then a wide **EVERY SCREEN.** shot with the laptop and phone as supporting proof. |
+| 06 | **Visit** | 0:51–1:00 | A clean brand close: **The official wiki**, **Now available**, the live URL and a high-contrast **Visit the wiki** CTA. |
 
-The film is cut to the **uploaded `AudioTrack.mp3`**, using the 6–66 second section of the 86.7-second track. The article reveal lands on the main drop (film 0:09), the one-device montage opens on the breakdown (0:43), and the CTA builds with the final section (0:53). The reference video was a pacing guide only — no audio, branding or interface is copied.
+The film is cut to the **uploaded `AudioTrack.mp3`**, using the 6–66 second section of the 86.7-second track. The title/result beats land on the main drop, the map opens on the build into the breakdown, the every-screen section uses the breakdown, and the CTA reacts to the final section at 0:53.
 
-Each scene has a deliberate camera move — a slow push-in on the desktop, map and phone, layered background planes at different speeds, directional device shadows and brief perspective settles on entry — while the interfaces stay front-facing and readable. Captions sit in the negative space beside the UI, never on top of the screen they describe.
+Typography is the primary layer. Each feature has one short benefit phrase, animated as a mask reveal and allowed to land before the interface action takes over. Devices are framed as supporting evidence — an angled entry, a close-up when a detail matters, then a return to a readable front-facing view. The typed search and map queries are placed on the track’s typewriter-like passages, so the picture stays typing-or-text whenever the audio is clicking.
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
@@ -106,9 +106,9 @@ The wiki interface is **not a screenshot**. It is rebuilt in HTML/CSS from the l
 No invented categories, stats, infoboxes or article sections were added to the wiki screens. If it is
 not on the live site, it is not in the mockup.
 
-The device-family montage is generated by cloning the actual desktop, mobile and tablet interfaces,
-stripping their animation state and scaling them into miniature devices. That means each screen in
-the montage is the same wiki, not a mockup.
+The “Every screen” proof shot is generated by cloning the actual desktop and mobile interfaces,
+stripping their animation state and scaling them into supporting devices. That means each screen in
+the shot is the same wiki, not a mockup.
 
 ---
 
@@ -121,7 +121,7 @@ the montage is the same wiki, not a mockup.
 ├── ui.css              Desktop wiki interface and shared design tokens
 ├── ui-mobile.css       Phone interface
 ├── ui-tablet.css       Tablet interface
-├── scenes.css          Act compositions, device family, story captions, outro
+├── scenes.css          Act compositions, kinetic feature typography, device frames, outro
 ├── app.js              Timeline engine, soundtrack sync, player
 ├── AudioTrack.mp3       Uploaded soundtrack; the film uses 6–66s
 ├── vercel.json         Static hosting config
@@ -137,6 +137,8 @@ the montage is the same wiki, not a mockup.
 - Transform, opacity, blur, filter and CSS custom-property interpolation
 - Full scrubbing: every visual is a pure function of `t`
 - Deliberate cuts, short crossfades and UI-led wipes — key changes follow the uploaded track
+- Feature headlines lead each beat, then hand off to a proof action and a close-up
+- Typed queries are timed to the track’s typewriter-like passages; type stays on screen through every click passage
 - Procedural grain and a single audio source: `AudioTrack.mp3`, started at track time 6s and faded over the last second
 
 This keeps the film reproducible for captures and allows the player to seek instantly.

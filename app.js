@@ -162,61 +162,158 @@
      ============================================================ */
   track("#act1", [
     { t: 0, opacity: 1 },
-    { t: 1.42, opacity: 1 },
-    { t: 1.8, opacity: 0, ease: "inOut" },
+    { t: 4.82, opacity: 1 },
+    { t: 5.0, opacity: 0, ease: "inOut" },
   ]);
   track("#a1Lockup", [
     { t: 0.02, opacity: 0, y: 14, scale: 0.985 },
     { t: 0.58, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 1.42, opacity: 1, y: 0, scale: 1.006 },
-    { t: 1.74, opacity: 0, y: -6, scale: 0.996, ease: "inOut" },
+    { t: 1.5, opacity: 1, y: 0, scale: 1.006 },
+    { t: 1.74, opacity: 0, y: -8, scale: 0.99, ease: "inOut" },
   ]);
   track(".a1-mark", [
     { t: 0.04, opacity: 0, y: 12, scale: 0.94 },
     { t: 0.5, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 1.5, opacity: 1, y: 0, scale: 1 },
+    { t: 1.74, opacity: 0, y: -6, scale: 0.96, ease: "inOut" },
   ]);
   const a1Lines = $$(".a1-word .mask > span");
   a1Lines.forEach((el, i) => {
     track(el, [
       { t: 0.12 + i * 0.055, y: 64 },
       { t: 0.62 + i * 0.055, y: 0, ease: "expo" },
+      { t: 1.46, y: 0 },
+      { t: 1.7, y: -40, ease: "inOut" },
     ]);
   });
   track("#a1Rule", [
     { t: 0.5, scaleX: 0, opacity: 0 },
     { t: 0.8, scaleX: 1, opacity: 1, ease: "inOut" },
+    { t: 1.46, opacity: 1 },
+    { t: 1.7, opacity: 0 },
   ]);
   track("#a1Kicker", [
     { t: 0.62, opacity: 0, y: 8 },
     { t: 0.96, opacity: 1, y: 0, ease: "expo" },
+    { t: 1.46, opacity: 1, y: 0 },
+    { t: 1.7, opacity: 0, y: -6, ease: "inOut" },
+  ]);
+
+  /* promise takes over the opening */
+  track("#a1Promise", [
+    { t: 1.74, opacity: 0, y: 30, scale: 1 },
+    { t: 2.1, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 4.75, opacity: 1, y: 0, scale: 1.012, ease: "inOut" },
+    { t: 4.98, opacity: 0, y: -18, scale: 1.02, ease: "inOut" },
+  ]);
+  const a1PromiseLines = $$("#a1PromiseTitle .mask > span");
+  a1PromiseLines.forEach((el, i) => {
+    track(el, [
+      { t: 1.82 + i * 0.08, y: 100 },
+      { t: 2.44 + i * 0.08, y: 0, ease: "expo" },
+    ]);
+  });
+  track("#a1PromiseKicker", [
+    { t: 1.86, opacity: 0, y: 10 },
+    { t: 2.18, opacity: 1, y: 0, ease: "expo" },
+  ]);
+  track("#a1PromiseSub", [
+    { t: 2.24, opacity: 0, y: 12 },
+    { t: 2.6, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
      ACT 2 — SEARCH + ARTICLE
      ============================================================ */
   track("#act2", [
-    { t: 0, opacity: 1 },
-    { t: 18.9, opacity: 1 },
-    { t: 19.05, opacity: 0, ease: "inOut" },
+    { t: 4.95, opacity: 0 },
+    { t: 5.0, opacity: 1, ease: "out" },
+    { t: 28.9, opacity: 1 },
+    { t: 29.05, opacity: 0, ease: "inOut" },
   ]);
   track("#a2World", [
-    { t: 0, scale: 1, y: 0 },
-    { t: 1.55, scale: 1, y: 0 },
-    { t: 18.7, scale: 1.035, y: -4, ease: "inOut" },
+    { t: 5, scale: 1, y: 0 },
+    { t: 28.7, scale: 1.02, y: -4, ease: "inOut" },
   ]);
   track("#a2DeviceStage", [
-    { t: 0, x: 0, y: 0 },
-    { t: 1.55, y: 14 },
-    { t: 2.1, y: 0, ease: "expo" },
-    { t: 18.8, y: -4, ease: "inOut" },
+    { t: 5, x: 140, y: 0 },
+    { t: 5.7, x: 0, y: 0, ease: "expo" },
+    { t: 8.8, x: 0, y: 0 },
+    { t: 9.3, x: -60, y: -8, ease: "inOut" },
+    { t: 13.2, x: -80, y: -8 },
+    { t: 16.5, x: 0, y: 0, ease: "inOut" },
+    { t: 17.2, x: 0, y: 0 },
+    { t: 20.8, x: -55, y: -6, ease: "inOut" },
+    { t: 23.2, x: -85, y: -6 },
+    { t: 27.6, x: 0, y: 0, ease: "inOut" },
+    { t: 28.9, x: 0, y: 0 },
   ]);
   track("#laptop", [
-    { t: 0, opacity: 1, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.015 },
-    { t: 1.55, y: 0, rotateX: 0, rotateY: 4, rotateZ: 0, scale: 1.015 },
-    { t: 2.15, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.95, ease: "expo" },
-    { t: 13.55, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.95 },
-    { t: 18.8, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.962, ease: "inOut" },
+    { t: 5, opacity: 1, y: 0, rotateX: 0, rotateY: -12, rotateZ: 0, scale: 0.78 },
+    { t: 5.8, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.8, ease: "expo" },
+    { t: 8.8, scale: 0.8 },
+    { t: 9.3, scale: 0.84, y: -8, rotateY: 0 },
+    { t: 13.2, scale: 0.86, y: -8 },
+    { t: 16.5, scale: 0.8, y: 0, ease: "inOut" },
+    { t: 17.2, scale: 0.8, rotateY: -6 },
+    { t: 17.8, rotateY: 0, scale: 0.8, ease: "expo" },
+    { t: 20.8, scale: 0.84, y: -6 },
+    { t: 23.2, scale: 0.86, rotateY: -4, y: -6 },
+    { t: 23.8, rotateY: 0, scale: 0.86 },
+    { t: 27.6, scale: 0.8, y: 0, ease: "inOut" },
+    { t: 28.9, scale: 0.8 },
   ]);
+
+  /* headline: FIND IT FAST */
+  track("#a2TypeSearch", [
+    { t: 5.0, opacity: 0, y: 34, scale: 1 },
+    { t: 5.2, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 8.85, opacity: 1, y: 0, scale: 1 },
+    { t: 9.25, opacity: 0.72, y: -128, scale: 0.52, ease: "inOut" },
+    { t: 16.2, opacity: 0.72, y: -128, scale: 0.52 },
+    { t: 16.55, opacity: 0, y: -150, scale: 0.5, ease: "inOut" },
+  ]);
+  const searchTypeLines = $$("#a2TypeSearch .mask > span");
+  searchTypeLines.forEach((el, i) => {
+    track(el, [
+      { t: 5.04 + i * 0.07, y: 92 },
+      { t: 5.58 + i * 0.07, y: 0, ease: "expo" },
+    ]);
+  });
+
+  /* headline: EVERY ROLE, EXPLAINED */
+  track("#a2TypeRoles", [
+    { t: 16.72, opacity: 0, y: 34, scale: 1 },
+    { t: 17.08, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 20.55, opacity: 1, y: 0, scale: 1 },
+    { t: 20.95, opacity: 0.6, y: -118, scale: 0.52, ease: "inOut" },
+    { t: 22.8, opacity: 0.6, y: -118, scale: 0.52 },
+    { t: 23.1, opacity: 0, y: -138, scale: 0.5, ease: "inOut" },
+  ]);
+  const rolesTypeLines = $$("#a2TypeRoles .mask > span");
+  rolesTypeLines.forEach((el, i) => {
+    track(el, [
+      { t: 16.82 + i * 0.065, y: 100 },
+      { t: 17.44 + i * 0.065, y: 0, ease: "expo" },
+    ]);
+  });
+
+  /* headline: KEPT CURRENT */
+  track("#a2TypeCurrent", [
+    { t: 23.0, opacity: 0, y: 34, scale: 1 },
+    { t: 23.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 26.4, opacity: 1, y: 0, scale: 1 },
+    { t: 26.9, opacity: 0.6, y: -118, scale: 0.55, ease: "inOut" },
+    { t: 28.4, opacity: 0.6, y: -118, scale: 0.55 },
+    { t: 28.8, opacity: 0, y: -138, scale: 0.52, ease: "inOut" },
+  ]);
+  const currentTypeLines = $$("#a2TypeCurrent .mask > span");
+  currentTypeLines.forEach((el, i) => {
+    track(el, [
+      { t: 23.08 + i * 0.07, y: 100 },
+      { t: 23.7 + i * 0.07, y: 0, ease: "expo" },
+    ]);
+  });
   track(".laptop-base, .laptop-shadow", [{ t: 0, opacity: 0 }]);
   track("[data-d-boot], .screen--desktop [data-d-flash], .screen--desktop [data-d-sweep]", [{ t: 0, opacity: 0 }]);
   track("[data-d-cursor], [data-d-ripple]", [{ t: 0, opacity: 0 }]);
@@ -230,57 +327,61 @@
 
   /* real Pagefind search */
   track("[data-d-modal]", [
-    { t: 1.6, opacity: 0 },
-    { t: 1.72, opacity: 1, ease: "out" },
-    { t: 8.45, opacity: 1 },
-    { t: 8.6, opacity: 0, ease: "inOut" },
+    { t: 6.0, opacity: 0 },
+    { t: 6.15, opacity: 1, ease: "out" },
+    { t: 15.95, opacity: 1 },
+    { t: 16.2, opacity: 0, ease: "inOut" },
   ]);
   track("[data-d-panel]", [
-    { t: 1.6, y: 12, scale: 0.988 },
-    { t: 1.84, y: 0, scale: 1, ease: "expo" },
+    { t: 6.0, y: 12, scale: 0.988 },
+    { t: 6.28, y: 0, scale: 1, ease: "expo" },
   ]);
   track("[data-d-result]", [
-    { t: 3.55, opacity: 0.06, y: 10, scale: 1 },
-    { t: 3.68, opacity: 0.3, y: 8, scale: 1 },
-    { t: 3.82, opacity: 1, y: 0, scale: 1.014, ease: "expo" },
-    { t: 4.1, opacity: 1, y: 0, scale: 1 },
-    { t: 8.45, opacity: 1, y: 0, scale: 1 },
-    { t: 8.58, opacity: 0, y: 0, scale: 1 },
+    { t: 8.55, opacity: 0.06, y: 10, scale: 1 },
+    { t: 8.68, opacity: 0.3, y: 8, scale: 1 },
+    { t: 8.82, opacity: 1, y: 0, scale: 1.014, ease: "expo" },
+    { t: 9.1, opacity: 1, y: 0, scale: 1 },
+    { t: 11.8, scale: 1.006, ease: "inOut" },
+    { t: 12.1, scale: 1 },
+    { t: 14.2, scale: 1.006, ease: "inOut" },
+    { t: 14.5, scale: 1 },
+    { t: 15.95, opacity: 1, y: 0, scale: 1 },
+    { t: 16.1, opacity: 0, y: 0, scale: 1 },
   ]);
   track(".d-search-result--dim", [
-    { t: 3.55, opacity: 0.03, y: 8 },
-    { t: 3.68, opacity: 0.1, y: 8 },
-    { t: 3.95, opacity: 0.85, y: 0, ease: "expo" },
-    { t: 8.5, opacity: 0, y: 0 },
+    { t: 8.55, opacity: 0.03, y: 8 },
+    { t: 8.68, opacity: 0.1, y: 8 },
+    { t: 8.95, opacity: 0.85, y: 0, ease: "expo" },
+    { t: 16.0, opacity: 0, y: 0 },
   ]);
   track(".d-search-foot", [
-    { t: 3.9, opacity: 0 },
-    { t: 4.2, opacity: 1, ease: "out" },
+    { t: 8.9, opacity: 0 },
+    { t: 9.2, opacity: 1, ease: "out" },
   ]);
 
   /* search result becomes the article */
   track(".d-page--home", [
     { t: 0, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 8.8, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 9.0, opacity: 0, x: -22, blur: 4, scale: 1.006, ease: "inOut" },
+    { t: 16.84, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 16.86, opacity: 0, x: 0, blur: 0, scale: 1 },
   ]);
   track(".d-page--article", [
-    { t: 0, opacity: 0, x: 24, blur: 4, scale: 1.006 },
-    { t: 8.82, opacity: 0, x: 24, blur: 4, scale: 1.006 },
-    { t: 9.02, opacity: 1, x: 0, blur: 0, scale: 1.014, ease: "expo" },
-    { t: 9.3, opacity: 1, x: 0, blur: 0, scale: 1, ease: "out" },
+    { t: 0, opacity: 0, x: 0, blur: 0, scale: 1.01 },
+    { t: 16.84, opacity: 0, x: 0, blur: 0, scale: 1.01 },
+    { t: 16.86, opacity: 1, x: 0, blur: 0, scale: 1, ease: "out" },
+    { t: 17.05, opacity: 1, x: 0, blur: 0, scale: 1 },
   ]);
 
   track(".d-side", [{ t: 0, opacity: 1, x: 0 }]);
   track(".d-rail", [{ t: 0, opacity: 1, x: 0 }]);
   track(".d-toc", [{ t: 0, opacity: 1 }]);
   track(".d-progress", [
-    { t: 8.9, opacity: 0 },
-    { t: 9.2, opacity: 1 },
+    { t: 16.8, opacity: 0 },
+    { t: 17.1, opacity: 1 },
   ]);
   track("[data-d-progress]", [
-    { t: 9.0, scaleX: 0 },
-    { t: 18.8, scaleX: 0.82, ease: "inOut" },
+    { t: 17.0, scaleX: 0 },
+    { t: 28.8, scaleX: 0.86, ease: "inOut" },
   ]);
   track(".d-article-head", [{ t: 0, opacity: 1, y: 0 }]);
   $$(".d-article-body > *").forEach((el) => track(el, [{ t: 0, opacity: 1, y: 0 }]));
@@ -288,66 +389,72 @@
   /* read the article, then switch to dark */
   track("[data-d-article-scroll]", [
     { t: 0, y: 0 },
-    { t: 9.4, y: 0 },
-    { t: 11.1, y: -225, ease: "inOut" },
-    { t: 12.4, y: -225 },
-    { t: 13.15, y: -300, ease: "inOut" },
-    { t: 15.2, y: -300 },
-    { t: 17.1, y: -470, ease: "inOut" },
-    { t: 18.8, y: -470 },
+    { t: 17.4, y: 0 },
+    { t: 19.0, y: -180, ease: "inOut" },
+    { t: 20.4, y: -180 },
+    { t: 21.6, y: -300, ease: "inOut" },
+    { t: 23.0, y: -300 },
+    { t: 24.0, y: -470, ease: "inOut" },
+    { t: 26.8, y: -470 },
+    { t: 28.6, y: -540, ease: "inOut" },
   ]);
   track("#desktopUI", [
     { t: 0, "--dark": 0 },
-    { t: 13.52, "--dark": 0 },
-    { t: 13.62, "--dark": 1, ease: "inOut" },
+    { t: 23.5, "--dark": 0 },
+    { t: 23.6, "--dark": 1, ease: "inOut" },
   ]);
   track("[data-theme-ripple] span", [
-    { t: 13.46, opacity: 0, scale: 0 },
-    { t: 13.53, opacity: 0.22, scale: 0.3, ease: "out" },
-    { t: 13.78, opacity: 0, scale: 9, ease: "inOut" },
+    { t: 23.44, opacity: 0, scale: 0 },
+    { t: 23.51, opacity: 0.22, scale: 0.3, ease: "out" },
+    { t: 23.76, opacity: 0, scale: 9, ease: "inOut" },
   ]);
 
   /* cursor: open the first result */
   track("[data-d-cursor]", [
-    { t: 7.05, opacity: 0, x: 840, y: 560, scale: 1 },
-    { t: 7.25, opacity: 1, x: 790, y: 505, ease: "out" },
-    { t: 7.55, x: 720, y: 410, ease: "inOut" },
-    { t: 7.88, x: 655, y: 312, ease: "out" },
-    { t: 7.98, scale: 0.86 },
-    { t: 8.08, scale: 1 },
-    { t: 8.3, opacity: 0, x: 655, y: 312 },
+    { t: 14.9, opacity: 0, x: 840, y: 560, scale: 1 },
+    { t: 15.1, opacity: 1, x: 790, y: 505, ease: "out" },
+    { t: 15.35, x: 720, y: 410, ease: "inOut" },
+    { t: 15.68, x: 655, y: 312, ease: "out" },
+    { t: 15.78, scale: 0.86 },
+    { t: 15.88, scale: 1 },
+    { t: 16.1, opacity: 0, x: 655, y: 312 },
   ]);
   track("[data-d-ripple]", [
-    { t: 7.9, opacity: 0, x: 655, y: 312, scale: 0.2 },
-    { t: 7.96, opacity: 0.75, x: 655, y: 312, scale: 0.7, ease: "out" },
-    { t: 8.28, opacity: 0, x: 655, y: 312, scale: 1.8, ease: "out" },
+    { t: 15.7, opacity: 0, x: 655, y: 312, scale: 0.2 },
+    { t: 15.76, opacity: 0.75, x: 655, y: 312, scale: 0.7, ease: "out" },
+    { t: 16.08, opacity: 0, x: 655, y: 312, scale: 1.8, ease: "out" },
   ]);
 
   /* ============================================================
      ACT 4 — MAP + FAMILY
      ============================================================ */
   track("#act4", [
-    { t: 18.99, opacity: 0 },
-    { t: 19.02, opacity: 1, ease: "out" },
-    { t: 31.35, opacity: 1 },
-    { t: 31.5, opacity: 0, ease: "inOut" },
-    { t: 42.9, opacity: 0 },
-    { t: 43.0, opacity: 1, ease: "out" },
-    { t: 52.35, opacity: 1 },
-    { t: 52.55, opacity: 0, ease: "inOut" },
+    { t: 28.99, opacity: 0 },
+    { t: 29.02, opacity: 1, ease: "out" },
+    { t: 40.9, opacity: 1 },
+    { t: 41.05, opacity: 0, ease: "inOut" },
+    { t: 45.85, opacity: 0 },
+    { t: 45.95, opacity: 1, ease: "out" },
+    { t: 50.9, opacity: 1 },
+    { t: 51.05, opacity: 0, ease: "inOut" },
   ]);
   track("#a4DeviceStage", [
-    { t: 18.99, opacity: 0, y: 18, scale: 1 },
-    { t: 19.08, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 31.3, opacity: 1, y: -4, scale: 1 },
-    { t: 31.46, opacity: 0, y: -12, scale: 1.004, ease: "inOut" },
-    { t: 42.9, opacity: 0 },
+    { t: 28.99, opacity: 0, y: 40, x: 100, scale: 1 },
+    { t: 29.35, opacity: 1, y: 0, x: 0, scale: 1, ease: "expo" },
+    { t: 33.6, opacity: 1, y: 0, x: 0, scale: 1 },
+    { t: 34.6, x: -40, y: -4, scale: 1 },
+    { t: 38.0, x: -70, y: -6, scale: 1 },
+    { t: 40.7, x: 0, y: 0, scale: 1 },
+    { t: 40.9, opacity: 0, y: -12, scale: 1.004, ease: "inOut" },
   ]);
   track("#tablet", [
-    { t: 19.0, y: 0, rotateX: 0, rotateY: 3, rotateZ: 0, scale: 1 },
-    { t: 19.5, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.005, ease: "expo" },
-    { t: 31.3, y: -4, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.035, ease: "inOut" },
-    { t: 31.46, scale: 1.04 },
+    { t: 29.0, y: 0, rotateX: 12, rotateY: 0, rotateZ: -4, scale: 0.95 },
+    { t: 30.2, y: 0, rotateX: 10, rotateY: 0, rotateZ: -3, scale: 0.95 },
+    { t: 31.4, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 0.95, ease: "expo" },
+    { t: 32.8, scale: 0.96 },
+    { t: 34.6, scale: 0.98 },
+    { t: 38.0, scale: 1.02 },
+    { t: 40.8, scale: 0.95 },
   ]);
   track("[data-t-boot], .screen--tablet [data-t-flash]", [{ t: 0, opacity: 0 }]);
   track(".t-header", [{ t: 0, opacity: 1, y: 0 }]);
@@ -356,107 +463,93 @@
   track(".t-map-scroll h1, .t-map-desc, .t-map-card, .t-map-filters span, .t-map-tools", [{ t: 0, opacity: 1, y: 0 }]);
   track(".t-map-img", [{ t: 0, scale: 1 }]);
 
-  /* family — one device at a time, on the breakdown */
-  track("#a4Family", [
-    { t: 42.95, opacity: 0 },
-    { t: 43.15, opacity: 1, ease: "out" },
-    { t: 52.22, opacity: 1 },
-    { t: 52.45, opacity: 0, ease: "inOut" },
+  /* THE WHOLE CITY, MAPPED */
+  track("#a4Type", [
+    { t: 29.0, opacity: 0, y: 34, scale: 1 },
+    { t: 29.4, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 32.8, opacity: 1, y: 0, scale: 1.01 },
+    { t: 33.2, opacity: 0.6, y: -95, scale: 0.55, ease: "inOut" },
+    { t: 37.4, opacity: 0.6, y: -95, scale: 0.55 },
+    { t: 38.2, opacity: 0, y: -115, scale: 0.5, ease: "inOut" },
   ]);
-  track("#familyKicker", [
-    { t: 42.98, opacity: 0, y: -10 },
-    { t: 43.3, opacity: 1, y: 0, ease: "expo" },
-    { t: 50.9, opacity: 1, y: 0 },
-    { t: 51.15, opacity: 0, y: -8, ease: "inOut" },
-  ]);
-  const familyBeats = [
-    { id: "#familyBeatDesktop", t: 43.05, out: 45.5 },
-    { id: "#familyBeatTablet", t: 45.5, out: 47.9 },
-    { id: "#familyBeatMobile", t: 47.9, out: 50.85 },
-  ];
-  familyBeats.forEach((b) => {
-    track(b.id, [
-      { t: b.t, opacity: 0, y: 36 },
-      { t: b.t + 0.32, opacity: 1, y: 0, ease: "expo" },
-      { t: b.out - 0.24, opacity: 1, y: 0 },
-      { t: b.out, opacity: 0, y: -26, ease: "inOut" },
+  const mapTypeLines = $$("#a4Type .mask > span");
+  mapTypeLines.forEach((el, i) => {
+    track(el, [
+      { t: 29.1 + i * 0.07, y: 100 },
+      { t: 29.72 + i * 0.07, y: 0, ease: "expo" },
     ]);
-    const line = $(`${b.id} .mask > span`);
-    if (line) {
-      track(line, [
-        { t: b.t + 0.04, y: 96 },
-        { t: b.t + 0.58, y: 0, ease: "expo" },
-      ]);
-    }
   });
-  track("#miniLaptop", [
-    { t: 42.98, opacity: 0, x: 230, y: 10, scale: 0.94 },
-    { t: 43.36, opacity: 1, x: 0, y: 0, scale: 1, ease: "expo" },
-    { t: 45.16, opacity: 1, x: 0, y: 0, scale: 1 },
-    { t: 45.52, opacity: 0, x: -100, y: -12, scale: 1.02, ease: "inOut" },
-  ]);
-  track("#miniTablet", [
-    { t: 45.46, opacity: 0, x: 240, y: 8, rotateZ: 0, scale: 1.36 },
-    { t: 45.84, opacity: 1, x: 0, y: 0, rotateZ: 0, scale: 1.45, ease: "expo" },
-    { t: 47.55, opacity: 1, x: 0, y: 0, rotateZ: 0, scale: 1.45 },
-    { t: 47.92, opacity: 0, x: -100, y: -12, rotateZ: 0, scale: 1.5, ease: "inOut" },
-  ]);
-  track("#miniPhone", [
-    { t: 47.82, opacity: 0, x: 240, y: 8, rotateZ: 0, scale: 1.36 },
-    { t: 48.18, opacity: 1, x: 0, y: 0, rotateZ: 0, scale: 1.45, ease: "expo" },
-    { t: 50.4, opacity: 1, x: 0, y: 0, rotateZ: 0, scale: 1.45 },
-    { t: 50.82, opacity: 0, x: -100, y: -12, rotateZ: 0, scale: 1.5, ease: "inOut" },
+
+  /* ONE WIKI. EVERY SCREEN. on the breakdown */
+  track("#a4Family", [
+    { t: 45.85, opacity: 0 },
+    { t: 46.0, opacity: 1, ease: "out" },
+    { t: 50.8, opacity: 1 },
+    { t: 51.0, opacity: 0, ease: "inOut" },
   ]);
   track("#familyFinal", [
-    { t: 51.02, opacity: 0, y: 24 },
-    { t: 51.34, opacity: 1, y: 0, ease: "out" },
-    { t: 52.28, opacity: 1, y: 0 },
-    { t: 52.5, opacity: 0, y: -16, ease: "inOut" },
+    { t: 45.9, opacity: 0, y: 30, scale: 1 },
+    { t: 46.15, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 50.5, opacity: 1, y: 0, scale: 1.012, ease: "inOut" },
+    { t: 50.9, opacity: 0, y: -18, scale: 1.01, ease: "inOut" },
   ]);
   track("#familyFinal h2 .mask > span", [
-    { t: 51.08, y: 110 },
-    { t: 51.68, y: 0, ease: "expo" },
+    { t: 45.98, y: 120 },
+    { t: 46.6, y: 0, ease: "expo" },
   ]);
   track("#familyFinalKicker", [
-    { t: 51.18, opacity: 0, y: 10 },
-    { t: 51.52, opacity: 1, y: 0, ease: "expo" },
+    { t: 46.02, opacity: 0, y: 10 },
+    { t: 46.35, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#familyFinalLine", [
-    { t: 51.28, opacity: 0, y: 12 },
-    { t: 51.66, opacity: 1, y: 0, ease: "expo" },
+    { t: 46.2, opacity: 0, y: 12 },
+    { t: 46.55, opacity: 1, y: 0, ease: "expo" },
   ]);
+  track("#miniLaptop", [
+    { t: 46.1, opacity: 0, x: -160, y: 10, scale: 0.92 },
+    { t: 46.55, opacity: 1, x: 0, y: 0, scale: 1, ease: "expo" },
+    { t: 50.5, opacity: 1, x: 0, y: 0, scale: 1.015, ease: "inOut" },
+    { t: 50.9, opacity: 0, x: -80, y: -10, scale: 1.02, ease: "inOut" },
+  ]);
+  track("#miniPhone", [
+    { t: 46.2, opacity: 0, x: 160, y: 10, scale: 1.1 },
+    { t: 46.65, opacity: 1, x: 0, y: 0, scale: 1.2, ease: "expo" },
+    { t: 50.5, opacity: 1, x: 0, y: 0, scale: 1.22, ease: "inOut" },
+    { t: 50.9, opacity: 0, x: 80, y: -10, scale: 1.25, ease: "inOut" },
+  ]);
+  track("#miniTablet", [{ t: 0, opacity: 0 }]);
 
   /* ============================================================
      ACT 3 — MOBILE
      ============================================================ */
   track("#act3", [
-    { t: 31.45, opacity: 0 },
-    { t: 31.5, opacity: 1, ease: "out" },
-    { t: 42.85, opacity: 1 },
-    { t: 43.0, opacity: 0, ease: "inOut" },
+    { t: 40.95, opacity: 0 },
+    { t: 41.0, opacity: 1, ease: "out" },
+    { t: 45.85, opacity: 1 },
+    { t: 46.0, opacity: 0, ease: "inOut" },
   ]);
   track("#a3DeviceStage", [
-    { t: 31.45, opacity: 0, y: 18, x: 0, scale: 1 },
-    { t: 31.55, opacity: 1, y: 0, x: 0, scale: 1, ease: "expo" },
-    { t: 42.8, opacity: 1, y: -6, x: 0, scale: 1 },
-    { t: 42.98, opacity: 0, y: -14, x: 0, scale: 1.005, ease: "inOut" },
+    { t: 40.95, opacity: 0, y: 40, x: 80, scale: 1 },
+    { t: 41.4, opacity: 1, y: 0, x: 0, scale: 1, ease: "expo" },
+    { t: 45.6, opacity: 1, y: -6, x: 0, scale: 1 },
+    { t: 45.9, opacity: 0, y: -14, x: 0, scale: 1.005, ease: "inOut" },
   ]);
   track("#phone", [
-    { t: 31.5, y: 0, rotateX: 0, rotateY: 4, rotateZ: 0, scale: 1 },
-    { t: 32.1, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.005, ease: "expo" },
-    { t: 42.8, y: -4, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.045, ease: "inOut" },
+    { t: 41.2, y: 0, rotateX: 0, rotateY: 8, rotateZ: 0, scale: 1 },
+    { t: 41.9, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.01, ease: "expo" },
+    { t: 45.6, y: -4, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.04, ease: "inOut" },
   ]);
   track("[data-p-boot], .screen--phone [data-p-flash]", [{ t: 0, opacity: 0 }]);
   track(".p-header", [{ t: 0, opacity: 1, y: 0 }]);
   track(".p-page--home", [
     { t: 0, opacity: 1, x: 0, blur: 0 },
-    { t: 33.92, opacity: 1, x: 0, blur: 0 },
-    { t: 34.14, opacity: 0, x: -18, blur: 3, ease: "inOut" },
+    { t: 41.92, opacity: 1, x: 0, blur: 0 },
+    { t: 42.14, opacity: 0, x: -18, blur: 3, ease: "inOut" },
   ]);
   track(".p-page--article", [
     { t: 0, opacity: 0, x: 18, blur: 3 },
-    { t: 33.96, opacity: 0, x: 18, blur: 3 },
-    { t: 34.18, opacity: 1, x: 0, blur: 0, ease: "expo" },
+    { t: 41.96, opacity: 0, x: 18, blur: 3 },
+    { t: 42.18, opacity: 1, x: 0, blur: 0, ease: "expo" },
   ]);
   track(".p-mobilebars", [{ t: 0, opacity: 1 }]);
   track(".p-article-title", [{ t: 0, opacity: 1, y: 0 }]);
@@ -464,74 +557,74 @@
   track(".p-appearance-pill", [{ t: 0, opacity: 1, y: 0 }]);
   track("[data-p-article-scroll]", [
     { t: 0, y: 0 },
-    { t: 34.4, y: 0 },
-    { t: 36.9, y: -178, ease: "inOut" },
-    { t: 40.35, y: -178 },
-    { t: 42.5, y: -330, ease: "inOut" },
+    { t: 42.5, y: 0 },
+    { t: 45.0, y: -235, ease: "inOut" },
   ]);
-  track(".p-drawer-scrim", [
-    { t: 37.35, opacity: 0 },
-    { t: 37.62, opacity: 0.45, ease: "out" },
-    { t: 40.05, opacity: 0.45 },
-    { t: 40.4, opacity: 0, ease: "inOut" },
-  ]);
-  track(".p-drawer-panel", [
-    { t: 37.35, x: -340 },
-    { t: 37.82, x: 0, ease: "expo" },
-    { t: 40.05, x: 0 },
-    { t: 40.48, x: -340, ease: "inOut" },
-  ]);
+  track(".p-drawer-scrim", [{ t: 0, opacity: 0 }]);
+  track(".p-drawer-panel", [{ t: 0, x: -340 }]);
   track(".p-drawer-link, .p-drawer-search, .p-drawer-foot", [{ t: 0, opacity: 1, y: 0 }]);
   track("[data-p-touch]", [
-    { t: 33.15, opacity: 0, x: 112, y: 612, scale: 0.6 },
-    { t: 33.3, opacity: 1, x: 112, y: 612, scale: 1, ease: "out" },
-    { t: 33.45, scale: 0.8 },
-    { t: 33.6, scale: 1 },
-    { t: 33.8, opacity: 0, x: 112, y: 612 },
-    { t: 36.95, opacity: 0, x: 352, y: 78, scale: 0.6 },
-    { t: 37.1, opacity: 1, x: 352, y: 78, scale: 1, ease: "out" },
-    { t: 37.25, scale: 0.8 },
-    { t: 37.4, scale: 1 },
-    { t: 37.6, opacity: 0, x: 352, y: 78 },
+    { t: 41.68, opacity: 0, x: 112, y: 612, scale: 0.6 },
+    { t: 41.83, opacity: 1, x: 112, y: 612, scale: 1, ease: "out" },
+    { t: 41.96, scale: 0.8 },
+    { t: 42.08, scale: 1 },
+    { t: 42.25, opacity: 0, x: 112, y: 612 },
   ]);
+
+  /* ONE WIKI. ANYWHERE. */
+  track("#a3Type", [
+    { t: 41.0, opacity: 0, y: 34, scale: 1 },
+    { t: 41.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 44.35, opacity: 1, y: 0, scale: 1 },
+    { t: 44.8, opacity: 0.6, y: -118, scale: 0.58, ease: "inOut" },
+    { t: 45.55, opacity: 0, y: -138, scale: 0.55, ease: "inOut" },
+  ]);
+  const mobileTypeLines = $$("#a3Type .mask > span");
+  mobileTypeLines.forEach((el, i) => {
+    track(el, [
+      { t: 41.08 + i * 0.07, y: 100 },
+      { t: 41.7 + i * 0.07, y: 0, ease: "expo" },
+    ]);
+  });
 
   /* ============================================================
      ACT 5 — VISIT
      ============================================================ */
   track("#act5", [
-    { t: 52.35, opacity: 0 },
-    { t: 52.55, opacity: 1, ease: "out" },
+    { t: 50.85, opacity: 0 },
+    { t: 50.95, opacity: 1, ease: "out" },
   ]);
   track("#a5Outro", [
-    { t: 52.35, opacity: 0, scale: 1 },
-    { t: 52.68, opacity: 1, scale: 1, ease: "out" },
+    { t: 50.85, opacity: 0, scale: 1 },
+    { t: 51.15, opacity: 1, scale: 1, ease: "out" },
     { t: 60, opacity: 1, scale: 1.028, ease: "inOut" },
   ]);
   track("#outroMark", [
-    { t: 52.4, opacity: 0, y: 18, scale: 0.92 },
-    { t: 52.92, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 50.95, opacity: 0, y: 18, scale: 0.92 },
+    { t: 51.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroEyebrow", [
-    { t: 52.66, opacity: 0, y: 8 },
-    { t: 52.98, opacity: 1, y: 0, ease: "expo" },
+    { t: 51.15, opacity: 0, y: 8 },
+    { t: 51.45, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroTitle .mask > span", [
-    { t: 52.44, y: 96 },
-    { t: 53.04, y: 0, ease: "expo" },
+    { t: 50.85, y: 96 },
+    { t: 51.45, y: 0, ease: "expo" },
   ]);
   track("#outroSub", [
-    { t: 52.98, opacity: 0, y: 12 },
-    { t: 53.34, opacity: 1, y: 0, ease: "expo" },
+    { t: 51.45, opacity: 0, y: 12 },
+    { t: 51.82, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroUrl", [
-    { t: 53.02, opacity: 0, y: 18, scale: 0.98 },
-    { t: 53.52, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 55.0, scale: 1 },
+    { t: 52.25, opacity: 0, y: 18, scale: 0.98 },
+    { t: 52.75, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 53.0, scale: 1.018, ease: "out" },
+    { t: 53.35, scale: 1, ease: "inOut" },
     { t: 58.5, scale: 1.012, ease: "inOut" },
   ]);
   track("#outroNote", [
-    { t: 53.36, opacity: 0, y: 8 },
-    { t: 53.72, opacity: 1, y: 0, ease: "expo" },
+    { t: 52.8, opacity: 0, y: 8 },
+    { t: 53.15, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
@@ -540,28 +633,28 @@
   track(".bg--intro, .bg--features", [{ t: 0, opacity: 0 }]);
   track(".bg--bright", [
     { t: 0, opacity: 1 },
-    { t: 18.9, opacity: 1 },
-    { t: 19.2, opacity: 0 },
+    { t: 28.9, opacity: 1 },
+    { t: 29.2, opacity: 0 },
   ]);
   track(".bg--warm", [
-    { t: 18.9, opacity: 0 },
-    { t: 19.2, opacity: 1 },
-    { t: 31.35, opacity: 1 },
-    { t: 31.6, opacity: 0 },
-    { t: 42.85, opacity: 0 },
-    { t: 43.1, opacity: 1 },
-    { t: 52.45, opacity: 1 },
-    { t: 52.8, opacity: 0, ease: "inOut" },
+    { t: 28.9, opacity: 0 },
+    { t: 29.2, opacity: 1 },
+    { t: 40.9, opacity: 1 },
+    { t: 41.2, opacity: 0 },
+    { t: 45.9, opacity: 0 },
+    { t: 46.2, opacity: 1 },
+    { t: 50.55, opacity: 1 },
+    { t: 50.9, opacity: 0, ease: "inOut" },
   ]);
   track(".bg--night", [
-    { t: 31.45, opacity: 0 },
-    { t: 31.65, opacity: 1 },
-    { t: 42.85, opacity: 1 },
-    { t: 43.1, opacity: 0 },
+    { t: 40.9, opacity: 0 },
+    { t: 41.2, opacity: 1 },
+    { t: 45.9, opacity: 1 },
+    { t: 46.2, opacity: 0 },
   ]);
   track(".bg--outro", [
-    { t: 52.2, opacity: 0 },
-    { t: 52.55, opacity: 1, ease: "inOut" },
+    { t: 50.45, opacity: 0 },
+    { t: 50.85, opacity: 1, ease: "inOut" },
   ]);
 
   /* parallax depth planes */
@@ -586,18 +679,18 @@
      TRANSITIONS
      ============================================================ */
   track("#wipe", [
-    { t: 18.8, opacity: 0, "--wipe-x": -140 },
-    { t: 19.0, opacity: 0.26, "--wipe-x": -60, ease: "out" },
-    { t: 19.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 31.3, opacity: 0, "--wipe-x": -140 },
-    { t: 31.5, opacity: 0.24, "--wipe-x": -60, ease: "out" },
-    { t: 32.05, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 42.75, opacity: 0, "--wipe-x": -140 },
-    { t: 42.95, opacity: 0.24, "--wipe-x": -60, ease: "out" },
-    { t: 43.5, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 52.2, opacity: 0, "--wipe-x": -140 },
-    { t: 52.4, opacity: 0.26, "--wipe-x": -60, ease: "out" },
-    { t: 52.95, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 28.8, opacity: 0, "--wipe-x": -140 },
+    { t: 29.0, opacity: 0.26, "--wipe-x": -60, ease: "out" },
+    { t: 29.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 40.8, opacity: 0, "--wipe-x": -140 },
+    { t: 41.0, opacity: 0.24, "--wipe-x": -60, ease: "out" },
+    { t: 41.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 45.8, opacity: 0, "--wipe-x": -140 },
+    { t: 46.0, opacity: 0.24, "--wipe-x": -60, ease: "out" },
+    { t: 46.55, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 50.65, opacity: 0, "--wipe-x": -140 },
+    { t: 50.85, opacity: 0.26, "--wipe-x": -60, ease: "out" },
+    { t: 51.4, opacity: 0, "--wipe-x": 170, ease: "inOut" },
   ]);
 
   /* ============================================================
@@ -707,32 +800,24 @@
   let lastMapTyped = null;
   let lastCaption = null;
 
-  const captionCues = [
-    { from: 1.9, to: 8.5, index: "01", kicker: "Search the wiki", title: "Ask. Get the answer." },
-    { from: 9.35, to: 12.9, index: "02", kicker: "City roles and departments", title: "Every role, explained." },
-    { from: 13.4, to: 16.55, index: "02", kicker: "Appearance", title: "Read it your way." },
-    { from: 17.0, to: 18.65, index: "02", kicker: "Community maintained", title: "Kept current." },
-    { from: 19.35, to: 23.0, index: "03", kicker: "Interactive map", title: "The whole city, mapped.", side: "right" },
-    { from: 23.55, to: 30.2, index: "03", kicker: "Find any place", title: "Search. Filter. Pin it.", side: "right" },
-    { from: 31.85, to: 35.55, index: "04", kicker: "On mobile", title: "The same answer, in your hand." },
-    { from: 36.55, to: 40.1, index: "04", kicker: "Navigation", title: "Everything within reach." },
-  ];
+  /* The feature typography inside each act now carries the story. */
+  const captionCues = [];
 
   function setStates(t) {
-    dUI.classList.toggle("is-article", t >= 8.98);
-    pUI.classList.toggle("is-article", t >= 34.0);
-    tUI.classList.toggle("is-map", t >= 19.0);
-    if (a4Family) a4Family.classList.toggle("is-live", t >= 42.95 && t < 52.55);
+    dUI.classList.toggle("is-article", t >= 16.85);
+    pUI.classList.toggle("is-article", t >= 42.15);
+    tUI.classList.toggle("is-map", t >= 29.0);
+    if (a4Family) a4Family.classList.toggle("is-live", t >= 46.0 && t < 51.0);
     stage.classList.toggle("is-ended", t >= 59.7);
     let idx = 0;
-    if (t >= 9.8) idx = 1;
-    if (t >= 12.8) idx = 2;
+    if (t >= 19.0) idx = 1;
+    if (t >= 21.4) idx = 2;
     tocLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
-    const dark = t >= 13.6;
+    const dark = t >= 23.6;
     if (appearanceAuto) appearanceAuto.classList.toggle("is-checked", !dark);
     if (appearanceDark) {
       appearanceDark.classList.toggle("is-checked", dark);
-      appearanceDark.classList.toggle("is-active", t >= 13.4 && t < 14.4);
+      appearanceDark.classList.toggle("is-active", t >= 23.4 && t < 24.4);
     }
   }
 
@@ -761,7 +846,7 @@
   function extras(t) {
     const q = "city roles";
     let n = 0;
-    if (t >= 1.95) n = Math.min(q.length, Math.floor((t - 1.95) * 10.5) + 1);
+    if (t >= 6.1) n = Math.min(q.length, Math.floor((t - 6.1) * 10.5) + 1);
     const typed = q.slice(0, n);
     if (typed !== lastTyped) {
       typeEl.textContent = typed;
@@ -770,17 +855,17 @@
 
     const mq = "bridge";
     let mn = 0;
-    if (t >= 21.5) mn = Math.min(mq.length, Math.floor((t - 21.5) * 8) + 1);
-    const mapTyped = t < 26.0 ? mq.slice(0, mn) : "";
+    if (t >= 31.8) mn = Math.min(mq.length, Math.floor((t - 31.8) * 8) + 1);
+    const mapTyped = t < 34.6 ? mq.slice(0, mn) : "";
     if (mapTyped !== lastMapTyped) {
       if (mapSearchText) mapSearchText.textContent = mapTyped;
       lastMapTyped = mapTyped;
     }
-    tUI.classList.toggle("is-map-search", t >= 21.3 && t < 26.8);
-    const filterOn = t >= 26.95 && t < 30.9;
+    tUI.classList.toggle("is-map-search", t >= 31.6 && t < 35.2);
+    const filterOn = t >= 35.3 && t < 39.6;
     mapFilters.forEach((el, i) => el.classList.toggle("is-active", i === (filterOn ? 5 : 0)));
     tUI.classList.toggle("is-map-filter", filterOn);
-    tUI.classList.toggle("is-map-pin", t >= 28.3 && t < 30.9);
+    tUI.classList.toggle("is-map-pin", t >= 37.1 && t < 39.6);
 
     countEls.forEach((el, i) => {
       const target = Number(el.dataset.count || 0);
@@ -842,13 +927,12 @@
   const chaptersEl = $("#chapters");
 
   const chapters = [
-    { t: 0, label: "Logo" },
-    { t: 1.55, label: "Search" },
-    { t: 9, label: "Article" },
-    { t: 19, label: "Map" },
-    { t: 31.5, label: "Mobile" },
-    { t: 43, label: "Every screen" },
-    { t: 52.4, label: "Visit" },
+    { t: 0, label: "Brand" },
+    { t: 5, label: "Search" },
+    { t: 17, label: "Article" },
+    { t: 29, label: "Map" },
+    { t: 41, label: "Every screen" },
+    { t: 51, label: "Visit" },
   ];
 
   const fmt = (s) => {
