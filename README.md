@@ -29,6 +29,8 @@ article, the map and every screen — ending on a clean launch card and CTA.
 | 06 | **Every screen** | 0:47–0:52 | A device-family hero — laptop, tablet and phone running the real interface — with the audience line: *For new citizens, department staff and longtime residents.* |
 | 07 | **Visit** | 0:52–1:00 | A restrained brand close: **The official wiki**, **Now available**, the benefit line, the live URL and a high-contrast **Visit the wiki** CTA. |
 
+The animation is **cut to an original 120 BPM score**: section changes and key UI hits land on the beat, with short drum fills leading into the map, mobile, device-family and launch cards. The reference video was used as a tempo and pacing guide only — no audio, branding or interface is copied.
+
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
 ---
@@ -130,8 +132,8 @@ tiny screens are the same wiki, not mockups.
 - Absolute-time tracks with per-segment easing (`expo`, `inOut`, `quint`, …)
 - Transform, opacity, blur, filter and CSS custom-property interpolation
 - Full scrubbing: every visual is a pure function of `t`
-- Deliberate cuts, short crossfades and light wipes
-- Procedural grain and a synthesised soundtrack — a chord bed, soft pulse, arpeggio, whooshes, impacts and UI ticks, all synced to the timeline
+- Deliberate cuts, short crossfades and light wipes — key changes land on a 120 BPM beat grid
+- Procedural grain and a synthesised soundtrack — a chord bed, kick, clap, hats, bass, arpeggio, whooshes, impacts and UI ticks, all synced to the timeline
 
 This keeps the film reproducible for captures and allows the player to seek instantly.
 

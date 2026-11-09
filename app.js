@@ -162,33 +162,33 @@
      ============================================================ */
   track("#act1", [
     { t: 0, opacity: 1 },
-    { t: 1.28, opacity: 1 },
-    { t: 1.6, opacity: 0, ease: "inOut" },
+    { t: 1.55, opacity: 1 },
+    { t: 2.0, opacity: 0, ease: "inOut" },
   ]);
   track("#a1Lockup", [
     { t: 0.03, opacity: 0, y: 14, scale: 0.98 },
-    { t: 0.62, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 1.22, opacity: 1, y: 0, scale: 1.005 },
-    { t: 1.5, opacity: 0, y: -6, scale: 0.996, ease: "inOut" },
+    { t: 0.7, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 1.55, opacity: 1, y: 0, scale: 1.005 },
+    { t: 1.9, opacity: 0, y: -6, scale: 0.996, ease: "inOut" },
   ]);
   track(".a1-mark", [
     { t: 0.06, opacity: 0, y: 12, scale: 0.94 },
-    { t: 0.56, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 0.6, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   const a1Lines = $$(".a1-word .mask > span");
   a1Lines.forEach((el, i) => {
     track(el, [
-      { t: 0.16 + i * 0.06, y: 64 },
-      { t: 0.66 + i * 0.06, y: 0, ease: "expo" },
+      { t: 0.18 + i * 0.06, y: 64 },
+      { t: 0.72 + i * 0.06, y: 0, ease: "expo" },
     ]);
   });
   track("#a1Rule", [
-    { t: 0.54, scaleX: 0, opacity: 0 },
-    { t: 0.84, scaleX: 1, opacity: 1, ease: "inOut" },
+    { t: 0.6, scaleX: 0, opacity: 0 },
+    { t: 0.9, scaleX: 1, opacity: 1, ease: "inOut" },
   ]);
   track("#a1Kicker", [
-    { t: 0.7, opacity: 0, y: 8 },
-    { t: 1.0, opacity: 1, y: 0, ease: "expo" },
+    { t: 0.75, opacity: 0, y: 8 },
+    { t: 1.1, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
@@ -202,14 +202,14 @@
   track("#a2World", [{ t: 0, scale: 1, y: 0 }]);
   track("#a2DeviceStage", [
     { t: 0, x: -200, y: 150, scale: 1 },
-    { t: 7.15, x: -200, y: 150, scale: 1 },
-    { t: 7.62, x: -272, y: 120, scale: 1, ease: "inOut" },
+    { t: 7.5, x: -200, y: 150, scale: 1 },
+    { t: 8.0, x: -272, y: 120, scale: 1, ease: "inOut" },
     { t: 21.7, x: -272, y: 120, scale: 1 },
   ]);
   track("#laptop", [
     { t: 0, opacity: 1, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.05 },
-    { t: 7.15, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.08, ease: "inOut" },
-    { t: 7.66, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7, ease: "inOut" },
+    { t: 7.5, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.08, ease: "inOut" },
+    { t: 8.0, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7, ease: "inOut" },
     { t: 21.7, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7 },
   ]);
   track(".laptop-base, .laptop-shadow", [{ t: 0, opacity: 0 }]);
@@ -225,55 +225,55 @@
 
   /* real Pagefind search */
   track("[data-d-modal]", [
-    { t: 1.62, opacity: 0 },
-    { t: 1.72, opacity: 1, ease: "out" },
-    { t: 7.24, opacity: 1 },
-    { t: 7.5, opacity: 0, ease: "inOut" },
+    { t: 2.0, opacity: 0 },
+    { t: 2.1, opacity: 1, ease: "out" },
+    { t: 7.4, opacity: 1 },
+    { t: 7.55, opacity: 0, ease: "inOut" },
   ]);
   track("[data-d-panel]", [
-    { t: 1.62, y: 10, scale: 0.99 },
-    { t: 1.82, y: 0, scale: 1, ease: "out" },
+    { t: 2.0, y: 10, scale: 0.99 },
+    { t: 2.2, y: 0, scale: 1, ease: "out" },
   ]);
   track("[data-d-result]", [
-    { t: 3.1, opacity: 0.08, y: 8, scale: 1 },
-    { t: 3.45, opacity: 0.3, y: 8, scale: 1 },
-    { t: 3.7, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
-    { t: 4.0, opacity: 1, y: 0, scale: 1 },
-    { t: 7.2, opacity: 1, y: 0, scale: 1 },
-    { t: 7.35, opacity: 0, y: 0, scale: 1 },
+    { t: 3.8, opacity: 0.08, y: 8, scale: 1 },
+    { t: 4.0, opacity: 0.3, y: 8, scale: 1 },
+    { t: 4.1, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
+    { t: 4.4, opacity: 1, y: 0, scale: 1 },
+    { t: 7.4, opacity: 1, y: 0, scale: 1 },
+    { t: 7.55, opacity: 0, y: 0, scale: 1 },
   ]);
   track(".d-search-result--dim", [
-    { t: 3.1, opacity: 0.04, y: 8 },
-    { t: 3.45, opacity: 0.1, y: 8 },
-    { t: 3.8, opacity: 0.85, y: 0, ease: "expo" },
-    { t: 7.3, opacity: 0, y: 0 },
+    { t: 3.8, opacity: 0.04, y: 8 },
+    { t: 4.0, opacity: 0.1, y: 8 },
+    { t: 4.2, opacity: 0.85, y: 0, ease: "expo" },
+    { t: 7.5, opacity: 0, y: 0 },
   ]);
   track(".d-search-foot", [
-    { t: 3.9, opacity: 0 },
-    { t: 4.2, opacity: 1, ease: "out" },
+    { t: 4.2, opacity: 0 },
+    { t: 4.5, opacity: 1, ease: "out" },
   ]);
 
   /* search result becomes the article */
   track(".d-page--home", [
     { t: 0, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 7.3, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 7.56, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
+    { t: 7.5, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 7.75, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
   ]);
   track(".d-page--article", [
     { t: 0, opacity: 0, x: 18, blur: 3, scale: 1.005 },
-    { t: 7.34, opacity: 0, x: 18, blur: 3, scale: 1.005 },
-    { t: 7.7, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
+    { t: 7.5, opacity: 0, x: 18, blur: 3, scale: 1.005 },
+    { t: 8.0, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
   ]);
 
   track(".d-side", [{ t: 0, opacity: 1, x: 0 }]);
   track(".d-rail", [{ t: 0, opacity: 1, x: 0 }]);
   track(".d-toc", [{ t: 0, opacity: 1 }]);
   track(".d-progress", [
-    { t: 7.4, opacity: 0 },
-    { t: 7.7, opacity: 1 },
+    { t: 7.6, opacity: 0 },
+    { t: 7.9, opacity: 1 },
   ]);
   track("[data-d-progress]", [
-    { t: 7.8, scaleX: 0 },
+    { t: 8.0, scaleX: 0 },
     { t: 21.5, scaleX: 0.9, ease: "inOut" },
   ]);
   track(".d-article-head", [{ t: 0, opacity: 1, y: 0 }]);
@@ -283,7 +283,7 @@
   track("[data-d-article-scroll]", [
     { t: 0, y: 0 },
     { t: 7.7, y: 0 },
-    { t: 10.5, y: 0 },
+    { t: 10.0, y: 0 },
     { t: 12.0, y: -340, ease: "inOut" },
     { t: 14.0, y: -340 },
     { t: 18.0, y: -500, ease: "inOut" },
@@ -291,12 +291,12 @@
   ]);
   track("#desktopUI", [
     { t: 0, "--dark": 0 },
-    { t: 14.35, "--dark": 0 },
-    { t: 14.52, "--dark": 1, ease: "inOut" },
+    { t: 14.4, "--dark": 0 },
+    { t: 14.5, "--dark": 1, ease: "inOut" },
   ]);
   track("[data-theme-ripple] span", [
-    { t: 14.3, opacity: 0, scale: 0 },
-    { t: 14.37, opacity: 0.22, scale: 0.3, ease: "out" },
+    { t: 14.35, opacity: 0, scale: 0 },
+    { t: 14.4, opacity: 0.22, scale: 0.3, ease: "out" },
     { t: 14.6, opacity: 0, scale: 9, ease: "inOut" },
   ]);
 
@@ -385,8 +385,8 @@
   track(".p-appearance-pill", [{ t: 0, opacity: 1, y: 0 }]);
   track("[data-p-article-scroll]", [
     { t: 0, y: 0 },
-    { t: 38.5, y: 0 },
-    { t: 40.0, y: -196, ease: "inOut" },
+    { t: 39.0, y: 0 },
+    { t: 41.0, y: -196, ease: "inOut" },
     { t: 46.8, y: -196 },
   ]);
   track(".p-drawer-scrim", [
@@ -600,7 +600,7 @@
   let lastCaption = null;
 
   const captionCues = [
-    { from: 1.7, to: 7.4, kicker: "Search the wiki", title: "Ask. Get the answer." },
+    { from: 2.1, to: 7.6, kicker: "Search the wiki", title: "Ask. Get the answer." },
     { from: 8.2, to: 11.8, kicker: "City roles and departments", title: "Every role, explained." },
     { from: 13.8, to: 17.2, kicker: "Appearance", title: "Read it your way." },
     { from: 18.2, to: 21.6, kicker: "Community maintained", title: "Kept current." },
@@ -610,7 +610,7 @@
   ];
 
   function setStates(t) {
-    dUI.classList.toggle("is-article", t >= 7.35);
+    dUI.classList.toggle("is-article", t >= 7.75);
     pUI.classList.toggle("is-article", t >= 35.0);
     tUI.classList.toggle("is-map", t >= 22.0);
     if (a4Family) a4Family.classList.toggle("is-live", t >= 46.7);
@@ -619,11 +619,11 @@
     if (t >= 9.5) idx = 1;
     if (t >= 11.2) idx = 2;
     tocLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
-    const dark = t >= 14.3;
+    const dark = t >= 14.5;
     if (appearanceAuto) appearanceAuto.classList.toggle("is-checked", !dark);
     if (appearanceDark) {
       appearanceDark.classList.toggle("is-checked", dark);
-      appearanceDark.classList.toggle("is-active", t >= 14.0 && t < 15.3);
+      appearanceDark.classList.toggle("is-active", t >= 14.0 && t < 15.0);
     }
   }
 
@@ -646,7 +646,7 @@
   function extras(t) {
     const q = "city roles";
     let n = 0;
-    if (t >= 2.0) n = Math.min(q.length, Math.floor((t - 2.0) * 10.5) + 1);
+    if (t >= 2.5) n = Math.min(q.length, Math.floor((t - 2.5) * 10.5) + 1);
     const typed = q.slice(0, n);
     if (typed !== lastTyped) {
       typeEl.textContent = typed;
@@ -655,13 +655,13 @@
 
     const mq = "bridge";
     let mn = 0;
-    if (t >= 24.0) mn = Math.min(mq.length, Math.floor((t - 24.0) * 8) + 1);
-    const mapTyped = t < 29.0 ? mq.slice(0, mn) : "";
+    if (t >= 24.5) mn = Math.min(mq.length, Math.floor((t - 24.5) * 8) + 1);
+    const mapTyped = t < 30.0 ? mq.slice(0, mn) : "";
     if (mapTyped !== lastMapTyped) {
       if (mapSearchText) mapSearchText.textContent = mapTyped;
       lastMapTyped = mapTyped;
     }
-    tUI.classList.toggle("is-map-search", t >= 23.85 && t < 29.4);
+    tUI.classList.toggle("is-map-search", t >= 24.2 && t < 30.2);
 
     countEls.forEach((el, i) => {
       const target = Number(el.dataset.count || 0);
@@ -702,7 +702,7 @@
 
   const chapters = [
     { t: 0, label: "Logo" },
-    { t: 1.6, label: "Search" },
+    { t: 2, label: "Search" },
     { t: 8, label: "Article" },
     { t: 22, label: "Map" },
     { t: 35, label: "Mobile" },
@@ -899,6 +899,14 @@
   let lastTypeTick = -1;
   let lastPulse = -1;
   let lastArp = -1;
+  let lastBeat = -1;
+  let lastEighth = -1;
+  let lastChordIdx = -1;
+  let lastMapTick = -1;
+
+  const BPM = 120;
+  const BEAT = 60 / BPM;
+  const chordForTime = (t) => [0, 1, 2, 3][Math.floor(Math.max(0, t) / 4) % 4];
 
   const CHORDS = [
     [130.81, 196, 261.63, 329.63],
@@ -1034,8 +1042,10 @@
 
   function resetAudioPosition(t) {
     lastTypeTick = Math.floor(t * 8);
-    lastPulse = Math.floor((t - 7) / 1.5);
-    lastArp = Math.floor((t - 7) / 1.8);
+    lastMapTick = Math.floor(t * 8);
+    lastBeat = Math.floor(t / BEAT);
+    lastEighth = Math.floor(t / (BEAT / 2));
+    lastChordIdx = chordForTime(t);
   }
 
   function updateSoundUI() {
@@ -1062,8 +1072,9 @@
     if (a.ctx.state === "suspended") a.ctx.resume();
     audioOn = true;
     audioLevel(state.playing ? MASTER_LEVEL : PAUSED_LEVEL, 0.5);
-    audioChapter = chapterAt(state.t);
-    setChord(audioChapter, true);
+    const ci = chordForTime(state.t);
+    lastChordIdx = ci;
+    setChord(ci, true);
     resetAudioPosition(state.t);
     updateSoundUI();
   }
@@ -1223,7 +1234,7 @@
     o.stop(t + 0.05);
   }
 
-  function sfxPluck(freq) {
+  function sfxPluck(freq, vol = 0.022) {
     if (!audio) return;
     const ctx = audio.ctx;
     const t = ctx.currentTime;
@@ -1233,7 +1244,7 @@
     const lp = ctx.createBiquadFilter();
     lp.type = "lowpass";
     lp.frequency.value = 1800;
-    const g = envGain(0.022, 0.006, 0.38);
+    const g = envGain(vol, 0.006, 0.38);
     o.connect(lp);
     lp.connect(g);
     sendTo(g, 0.35);
@@ -1241,61 +1252,148 @@
     o.stop(t + 0.42);
   }
 
+  function sfxBass(freq = 65, vol = 0.045) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "triangle";
+    o.frequency.value = freq;
+    const lp = ctx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = 420;
+    const g = envGain(vol * SFX_BOOST, 0.005, 0.35);
+    o.connect(lp);
+    lp.connect(g);
+    sendTo(g, 0.05);
+    o.start(t);
+    o.stop(t + 0.4);
+  }
+
+  function sfxKick(vol = 0.05) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const o = ctx.createOscillator();
+    o.type = "sine";
+    o.frequency.setValueAtTime(124, t);
+    o.frequency.exponentialRampToValueAtTime(46, t + 0.13);
+    const g = envGain(vol * SFX_BOOST, 0.002, 0.22);
+    o.connect(g);
+    sendTo(g, 0.08);
+    o.start(t);
+    o.stop(t + 0.26);
+  }
+
+  function sfxClap(vol = 0.022) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = audio.noise;
+    const bp = ctx.createBiquadFilter();
+    bp.type = "bandpass";
+    bp.frequency.value = 1800;
+    bp.Q.value = 0.9;
+    const g = envGain(vol * SFX_BOOST, 0.002, 0.12);
+    src.connect(bp);
+    bp.connect(g);
+    sendTo(g, 0.18);
+    src.start(t);
+    src.stop(t + 0.16);
+  }
+
+  function sfxHat(vol = 0.012) {
+    if (!audio) return;
+    const ctx = audio.ctx;
+    const t = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = audio.noise;
+    const hp = ctx.createBiquadFilter();
+    hp.type = "highpass";
+    hp.frequency.value = 7000;
+    const g = envGain(vol * SFX_BOOST, 0.001, 0.05);
+    src.connect(hp);
+    hp.connect(g);
+    sendTo(g, 0.04);
+    src.start(t);
+    src.stop(t + 0.06);
+  }
+
   const AUDIO_CUES = [
     { t: 0.22, fn: () => sfxBoom(0.14) },
-    { t: 0.66, fn: () => sfxChime(523.25, 0.04) },
-    { t: 1.7, fn: () => sfxClick(0.035) },
-    { t: 3.3, fn: () => sfxChime(659.25, 0.04) },
-    { t: 7.45, fn: () => sfxWhoosh(0.6, 0.055, 300, 1500) },
-    { t: 10.5, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
+    { t: 0.7, fn: () => sfxChime(523.25, 0.04) },
+    { t: 2.0, fn: () => sfxClick(0.035) },
+    { t: 4.0, fn: () => sfxChime(659.25, 0.045) },
+    { t: 7.5, fn: () => sfxWhoosh(0.6, 0.06, 300, 1600) },
+    { t: 10.0, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
     { t: 14.0, fn: () => sfxClick(0.06) },
-    { t: 14.45, fn: () => sfxChime(523.25, 0.03) },
-    { t: 22.0, fn: () => sfxWhoosh(0.9, 0.12, 160, 2400) },
-    { t: 22.3, fn: () => sfxBoom(0.08) },
+    { t: 14.5, fn: () => sfxChime(523.25, 0.035) },
+    { t: 21.5, fn: () => sfxWhoosh(0.7, 0.06, 220, 1900) },
+    { t: 22.0, fn: () => { sfxBoom(0.09); sfxChime(392, 0.025); } },
     { t: 24.0, fn: () => sfxClick(0.045) },
     { t: 25.0, fn: () => sfxChime(659.25, 0.035) },
-    { t: 29.2, fn: () => sfxClick(0.03) },
-    { t: 35.0, fn: () => sfxWhoosh(0.9, 0.11, 180, 2400) },
-    { t: 38.5, fn: () => sfxWhoosh(0.7, 0.05, 240, 1400) },
-    { t: 41.45, fn: () => sfxClick(0.04) },
-    { t: 42.1, fn: () => sfxWhoosh(0.55, 0.06, 300, 1600) },
-    { t: 44.7, fn: () => sfxClick(0.035) },
-    { t: 46.8, fn: () => sfxWhoosh(0.7, 0.07, 240, 1800) },
-    { t: 47.2, fn: () => sfxBoom(0.07) },
-    { t: 52.0, fn: () => sfxWhoosh(1.0, 0.13, 180, 3000) },
-    { t: 52.8, fn: () => sfxBoom(0.13) },
-    { t: 53.5, fn: () => sfxChime(523.25, 0.05) },
-    { t: 56.5, fn: () => sfxChime(659.25, 0.04) },
+    { t: 30.0, fn: () => sfxClick(0.03) },
+    { t: 34.5, fn: () => sfxWhoosh(0.7, 0.06, 240, 2000) },
+    { t: 35.0, fn: () => { sfxBoom(0.08); sfxChime(440, 0.025); } },
+    { t: 39.0, fn: () => sfxWhoosh(0.7, 0.05, 240, 1400) },
+    { t: 41.5, fn: () => sfxClick(0.04) },
+    { t: 42.0, fn: () => sfxWhoosh(0.55, 0.06, 300, 1600) },
+    { t: 45.0, fn: () => sfxClick(0.035) },
+    { t: 46.5, fn: () => sfxWhoosh(0.7, 0.06, 240, 1900) },
+    { t: 47.0, fn: () => { sfxBoom(0.08); sfxChime(523.25, 0.03); } },
+    { t: 51.5, fn: () => sfxWhoosh(0.8, 0.07, 260, 2200) },
+    { t: 52.0, fn: () => { sfxBoom(0.12); sfxChime(392, 0.03); } },
+    { t: 53.0, fn: () => sfxChime(523.25, 0.05) },
+    { t: 56.0, fn: () => { sfxBoom(0.1); sfxChime(659.25, 0.05); } },
+    { t: 58.0, fn: () => sfxChime(783.99, 0.03) },
   ];
 
   function audioFrame(prev, next) {
     if (!audioOn || !audio || next < prev) return;
-    const ci = chapterAt(next);
-    if (ci !== audioChapter) {
-      audioChapter = ci;
-      setChord(ci);
+
+    if (next >= 2 && next < 56) {
+      const beat = Math.floor(next / BEAT);
+      if (beat !== lastBeat) {
+        lastBeat = beat;
+        const inBar = ((beat % 4) + 4) % 4;
+        sfxKick(inBar === 0 ? 0.06 : 0.045);
+        if (inBar === 1 || inBar === 3) sfxClap(0.022);
+        const chord = CHORDS[chordForTime(next)];
+        sfxBass(chord[0] / 2, 0.04);
+      }
+      const eighth = Math.floor(next / (BEAT / 2));
+      if (eighth !== lastEighth) {
+        lastEighth = eighth;
+        if (eighth % 2 === 1) sfxHat(0.012);
+        const chord = CHORDS[chordForTime(next)];
+        const pattern = [1, 2, 3, 2, 1, 3, 2, 1];
+        sfxPluck(chord[pattern[eighth % pattern.length]] * 2, eighth % 2 ? 0.008 : 0.013);
+      }
+      const ci = chordForTime(next);
+      if (ci !== lastChordIdx) {
+        lastChordIdx = ci;
+        setChord(ci);
+      }
+    } else if (next >= 56 && lastChordIdx !== 5) {
+      lastChordIdx = 5;
+      setChord(5);
     }
+
     for (const cue of AUDIO_CUES) {
       if (prev < cue.t && next >= cue.t) cue.fn();
     }
-    if (next >= 7 && next < 57) {
-      const beat = Math.floor((next - 7) / 1.5);
-      if (beat !== lastPulse) {
-        lastPulse = beat;
-        sfxPulse();
-      }
-      const arp = Math.floor((next - 7) / 1.8);
-      if (arp !== lastArp) {
-        lastArp = arp;
-        const chord = CHORDS[clamp(ci, 0, CHORDS.length - 1)];
-        const pattern = [1, 2, 3, 2, 1, 3];
-        sfxPluck(chord[pattern[arp % pattern.length]] * 2);
-      }
-    }
-    if (next >= 2.0 && next <= 3.8) {
+    if (next >= 2.45 && next <= 3.8) {
       const k = Math.floor(next * 8);
       if (k !== lastTypeTick) {
         lastTypeTick = k;
+        sfxTick();
+      }
+    }
+    if (next >= 24.45 && next <= 25.6) {
+      const k = Math.floor(next * 8);
+      if (k !== lastMapTick) {
+        lastMapTick = k;
         sfxTick();
       }
     }
