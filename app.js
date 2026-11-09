@@ -377,14 +377,14 @@
   track(".p-drawer-scrim", [
     { t: 31.9, opacity: 0 },
     { t: 32.2, opacity: 0.45, ease: "out" },
-    { t: 33.75, opacity: 0.45 },
-    { t: 34.15, opacity: 0, ease: "inOut" },
+    { t: 35.5, opacity: 0.45 },
+    { t: 35.95, opacity: 0, ease: "inOut" },
   ]);
   track(".p-drawer-panel", [
     { t: 31.9, x: -340 },
     { t: 32.42, x: 0, ease: "expo" },
-    { t: 33.75, x: 0 },
-    { t: 34.25, x: -340, ease: "inOut" },
+    { t: 35.5, x: 0 },
+    { t: 36.05, x: -340, ease: "inOut" },
   ]);
   track(".p-drawer-link, .p-drawer-search, .p-drawer-foot", [{ t: 0, opacity: 1, y: 0 }]);
 
@@ -662,7 +662,7 @@
     { from: 12.55, to: 16.4, kicker: "Community maintained", title: "Kept current." },
     { from: 16.95, to: 23.8, kicker: "Interactive map", title: "The whole city, mapped.", side: "right" },
     { from: 27.25, to: 31.8, kicker: "On mobile", title: "The same answer, in your hand." },
-    { from: 32.0, to: 34.45, kicker: "Navigation", title: "Everything within reach." },
+    { from: 32.0, to: 35.2, kicker: "Navigation", title: "Everything within reach." },
   ];
 
   function setStates(t) {
