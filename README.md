@@ -4,6 +4,9 @@ A 42-second cinematic motion-design film introducing the **official Putrajaya.rb
 Built as a single, dependency-free web experience: vanilla HTML, CSS and JavaScript, a custom
 deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki itself.
 
+The film opens on the product, not the logo: a real Pagefind search, a real answer, then the
+article, the map and every screen — ending on a clean launch card and CTA.
+
 > **One wiki. Every screen.**
 
 ![Putrajaya.rblx Wiki launch graphic](https://raw.githubusercontent.com/Putrajayarblx/Putrajayarblx-Wiki/main/public/PutrajayaWikiLaunch.png)
@@ -18,12 +21,12 @@ deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki i
 
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
-| 01 | **Brand** | 0:00–0:06 | The official mark and wordmark arrive in a dark teal title sequence, with community and language badges, orbital rings and a light sweep. |
-| 02 | **Desktop** | 0:06–0:19 | The real splash homepage and its category artwork rise into frame. A simulated cursor opens Pagefind search, then the *City roles* article, scrolls to the Caution and page footer, and switches to dark mode through the real Appearance panel. |
-| 03 | **Mobile** | 0:19–0:27 | The real mobile splash: the category art stack, hero copy and buttons, the wiki menu drawer, and the same article with Navigation / On this page bars, Caution, Edit page and pagination. |
-| 04 | **Tablet** | 0:27–0:34 | The real 1024 article layout with sidebar, then the interactive map page with search, category filters and place pins. The act closes on a device-family hero shot — laptop, tablet and phone, all running the real interface. |
-| 05 | **Features** | 0:34–0:37 | Three wide cards carry the core capabilities — Pagefind search, readable dark/light modes in English and Bahasa Melayu, and the 67-place interactive map — followed by a quiet trust line: open source, reviewed on GitHub, community maintained. |
-| 06 | **Launch** | 0:37–0:42 | The launch card: logo, **Now available**, live URL, device line and the final light sweep. |
+| 01 | **Hook** | 0:00–0:03 | Opens on the real wiki. Pagefind search opens, `city roles` is typed, and the matching article appears as the first result. |
+| 02 | **Article** | 0:03–0:13 | The real *City roles and departments* article fills the frame, scrolls to the Caution, and switches to dark mode through the real Appearance panel. A compact brand sting marks the hand-off. |
+| 03 | **Map** | 0:13–0:21 | The real 67-place interactive map on tablet: category filters, place pins and a slow push across Putrajaya. |
+| 04 | **Mobile** | 0:21–0:29 | The same article on the real mobile layout, scrolled to the Caution, then the real menu drawer opens. |
+| 05 | **Every screen** | 0:29–0:34 | A quiet device-family hero — laptop, tablet and phone running the real interface. |
+| 06 | **Visit** | 0:34–0:42 | A restrained brand close: logo, **Now available**, the live URL and a high-contrast **Visit the wiki** CTA. |
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
@@ -112,8 +115,8 @@ tiny screens are the same wiki, not mockups.
 ├── ui.css              Desktop wiki interface and shared design tokens
 ├── ui-mobile.css       Phone interface
 ├── ui-tablet.css       Tablet interface
-├── scenes.css          Act compositions, device family, features, outro
-├── app.js              Timeline engine, 42-second score, particles, player, audio
+├── scenes.css          Act compositions, device family, story captions, outro
+├── app.js              Timeline engine, 42-second score, player, audio
 ├── vercel.json         Static hosting config
 ├── .nojekyll           GitHub Pages support
 └── README.md
@@ -126,8 +129,8 @@ tiny screens are the same wiki, not mockups.
 - Absolute-time tracks with per-segment easing (`expo`, `inOut`, `quint`, …)
 - Transform, opacity, blur, filter and CSS custom-property interpolation
 - Full scrubbing: every visual is a pure function of `t`
-- Explicit scene fades, flash cuts, wipes and light sweeps
-- Procedural grain, ambient particles and a synthesised soundtrack — a chord bed, soft pulse, arpeggio, whooshes, impacts and UI ticks, all synced to the timeline
+- Deliberate cuts, short crossfades and light wipes
+- Procedural grain and a synthesised soundtrack — a chord bed, soft pulse, arpeggio, whooshes, impacts and UI ticks, all synced to the timeline
 
 This keeps the film reproducible for captures and allows the player to seek instantly.
 
@@ -143,9 +146,8 @@ logo, favicon, category artwork and minimap are loaded from that repository at r
 The headline type is **Plus Jakarta Sans**; the interface uses **Public Sans** — matching the wiki's
 typography. Both load from Google Fonts.
 
-The closing feature chapter shows the wiki's counts at build time: 6 articles, 4 categories and
-2 languages. The article footer shows the November 2026 update date. Update those values when the
-wiki grows.
+The map beat uses the live 67-place count and category totals from the wiki's map page. The
+article footer shows the November 2026 update date. Update those values when the wiki grows.
 
 ---
 

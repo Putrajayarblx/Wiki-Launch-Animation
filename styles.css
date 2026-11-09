@@ -1054,3 +1054,15 @@ body.is-ready .loader { opacity: 0; visibility: hidden; pointer-events: none; }
   .grain { animation: none; }
   .laptop-float, .phone-float, .tablet-float { animation: none !important; }
 }
+
+/* --- launch-brief re-edit: remove decorative layer --- */
+.bg-plus,
+.bg-aurora,
+.particles,
+.a1-particles,
+.outro-particles,
+.global-sweep,
+.flare,
+.device-caption,
+.safe-frame { display: none; }
+.grain { opacity: .025; }

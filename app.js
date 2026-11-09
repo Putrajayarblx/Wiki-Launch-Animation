@@ -158,795 +158,371 @@
   }
 
   /* ============================================================
-     ACT 1 — BRAND
+     ACT 1 — BRAND STING
      ============================================================ */
-  track("#act1", [{ t: 0, opacity: 1 }, { t: 6.6, opacity: 1 }, { t: 7.1, opacity: 0 }]);
-  track("#a1Orbit", [
-    { t: 0.1, opacity: 0, scale: 0.9, rotate: 0 },
-    { t: 1.8, opacity: 0.85, scale: 1, rotate: 5, ease: "expo" },
-    { t: 6.9, opacity: 0.55, scale: 1.03, rotate: 32, ease: "linear" },
-  ]);
-  track(".a1-mark", [
-    { t: 0.35, opacity: 0, y: 34, scale: 0.82, blur: 12 },
-    { t: 1.6, opacity: 1, y: 0, scale: 1, blur: 0, ease: "expo" },
-    { t: 5.8, opacity: 1, y: 0, scale: 1.01, blur: 0 },
-    { t: 6.7, opacity: 0, y: -10, scale: 0.96, blur: 4 },
-  ]);
-  track(".a1-mark-ring", [
-    { t: 0.5, opacity: 0, scale: 0.55 },
-    { t: 1.9, opacity: 0.55, scale: 1, ease: "expo" },
-    { t: 6.4, opacity: 0.18, scale: 1.04 },
-  ]);
-  track(".a1-mark-glow", [
-    { t: 0.3, opacity: 0, scale: 0.7 },
-    { t: 1.7, opacity: 1, scale: 1, ease: "out" },
-    { t: 6.5, opacity: 0.8, scale: 1.05 },
-  ]);
-  track(".a1-word-main", [
-    { t: 1.05, y: 130 },
-    { t: 2.15, y: 0, ease: "expo" },
-  ]);
-  track(".a1-word-sub", [
-    { t: 1.24, y: 130 },
-    { t: 2.34, y: 0, ease: "expo" },
-  ]);
-  track("#a1Rule", [
-    { t: 2.25, scaleX: 0, opacity: 0 },
-    { t: 3.0, scaleX: 1, opacity: 1, ease: "inOut" },
-  ]);
-  track("#a1Kicker", [
-    { t: 2.5, opacity: 0, y: 14 },
-    { t: 3.25, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  stagger(".a1-badge", 3.0, 0.13, { y: 16, dur: 0.7 });
-  track("#a1Foot", [
-    { t: 3.8, opacity: 0 },
-    { t: 4.6, opacity: 1, ease: "out" },
-    { t: 5.55, opacity: 1 },
-    { t: 6.35, opacity: 0, ease: "inOut" },
-  ]);
-  track(".a1-ghost", [
-    { t: 0.2, opacity: 0, x: -20 },
-    { t: 2.2, opacity: 1, x: 0, ease: "out" },
-    { t: 6.4, opacity: 0, x: 24 },
+  track("#act1", [
+    { t: 4.55, opacity: 0 },
+    { t: 4.72, opacity: 1, ease: "out" },
+    { t: 6.12, opacity: 1 },
+    { t: 6.28, opacity: 0, ease: "inOut" },
   ]);
   track("#a1Lockup", [
-    { t: 2.4, y: 0, scale: 1, opacity: 1 },
-    { t: 5.3, y: -4, scale: 1.012, opacity: 1 },
-    { t: 6.55, y: -60, scale: 0.94, opacity: 0, ease: "inOut" },
+    { t: 4.68, opacity: 0, y: 16, scale: 0.98 },
+    { t: 5.16, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 6.08, opacity: 1, y: 0, scale: 1.006 },
+    { t: 6.24, opacity: 0, y: -8, scale: 0.996, ease: "inOut" },
   ]);
-  track("#a1Sweep", [
-    { t: 3.9, opacity: 0, "--a1-sweep-x": -80 },
-    { t: 4.25, opacity: 0.65, "--a1-sweep-x": -20, ease: "out" },
-    { t: 5.3, opacity: 0, "--a1-sweep-x": 210, ease: "inOut" },
+  track(".a1-mark", [
+    { t: 4.7, opacity: 0, y: 16, scale: 0.94 },
+    { t: 5.2, opacity: 1, y: 0, scale: 1, ease: "expo" },
+  ]);
+  const a1Lines = $$(".a1-word .mask > span");
+  a1Lines.forEach((el, i) => {
+    track(el, [
+      { t: 4.82 + i * 0.09, y: 72 },
+      { t: 5.34 + i * 0.09, y: 0, ease: "expo" },
+    ]);
+  });
+  track("#a1Rule", [
+    { t: 5.12, scaleX: 0, opacity: 0 },
+    { t: 5.52, scaleX: 1, opacity: 1, ease: "inOut" },
+  ]);
+  track("#a1Kicker", [
+    { t: 5.2, opacity: 0, y: 8 },
+    { t: 5.62, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
-     ACT 2 — DESKTOP
+     ACT 2 — FIND INFORMATION
+     Search → article → reading comfort
      ============================================================ */
   track("#act2", [
-    { t: 6.35, opacity: 0 },
-    { t: 6.95, opacity: 1 },
-    { t: 23.3, opacity: 1 },
-    { t: 23.76, opacity: 0, ease: "inOut" },
+    { t: 0, opacity: 1 },
+    { t: 16.5, opacity: 1 },
+    { t: 16.58, opacity: 0, ease: "inOut" },
   ]);
   track("#a2World", [
-    { t: 7.0, scale: 0.995, y: 8 },
-    { t: 17.0, scale: 1.012, y: 0, ease: "linear" },
+    { t: 0, scale: 1, y: 0 },
+    { t: 16.5, scale: 1.008, y: 0, ease: "linear" },
   ]);
-  track("#a2Copy", [
-    { t: 6.5, opacity: 0, y: 20 },
-    { t: 7.25, opacity: 1, y: 0, ease: "expo" },
-    { t: 13.55, opacity: 1, x: 0, blur: 0 },
-    { t: 14.25, opacity: 0, x: -60, blur: 8, ease: "inOut" },
-  ]);
-  track(".a2-copy .eyebrow", [
-    { t: 6.65, opacity: 0, y: 14 },
-    { t: 7.2, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  const a2Lines = $$("#a2Headline .mask > span");
-  a2Lines.forEach((el, i) => {
-    track(el, [
-      { t: 6.85 + i * 0.13, y: 112 },
-      { t: 7.9 + i * 0.13, y: 0, ease: "expo" },
-    ]);
-  });
-  track("#a2Lede", [
-    { t: 7.8, opacity: 0, y: 18 },
-    { t: 8.55, opacity: 1, y: 0, ease: "expo" },
-  ]);
+
+  /* camera: close on the real UI */
   track("#a2DeviceStage", [
-    { t: 6.45, opacity: 0, y: 150, scale: 0.97, x: 0 },
-    { t: 8.0, opacity: 1, y: 0, scale: 1, x: 0, ease: "expo" },
-    { t: 13.4, x: 0, y: 0 },
-    { t: 14.45, x: -295, y: 8, ease: "inOut" },
-    { t: 15.85, x: -295, y: 8 },
-    { t: 17.4, x: -295, y: 70, ease: "inOut" },
-    { t: 22.7, x: -295, y: 70 },
-    { t: 23.9, x: -310, y: 70, ease: "inOut" },
+    { t: 0, x: -200, y: 150, scale: 1 },
+    { t: 2.95, x: -200, y: 150, scale: 1 },
+    { t: 3.35, x: -272, y: 120, scale: 1, ease: "inOut" },
+    { t: 10.9, x: -272, y: 120, scale: 1 },
+    { t: 11.35, x: -276, y: 120, scale: 1, ease: "inOut" },
+    { t: 16.5, x: -280, y: 120, scale: 1, ease: "linear" },
   ]);
   track("#laptop", [
-    { t: 6.45, opacity: 0, y: 60, rotateX: 18, rotateY: -20, rotateZ: -2, scale: 0.96, blur: 8 },
-    { t: 8.4, opacity: 1, y: 0, rotateX: 5, rotateY: -10, rotateZ: -0.5, scale: 1, blur: 0, ease: "expo" },
-    { t: 13.4, rotateX: 5, rotateY: -10, rotateZ: -0.5, scale: 1 },
-    { t: 14.45, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.32, ease: "inOut" },
-    { t: 15.85, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.32 },
-    { t: 17.4, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.71, ease: "inOut" },
-    { t: 22.7, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.71 },
-    { t: 23.9, scale: 1.74, ease: "inOut" },
+    { t: 0, opacity: 1, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.05 },
+    { t: 2.95, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 2.08, ease: "inOut" },
+    { t: 3.35, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7, ease: "inOut" },
+    { t: 10.9, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.7 },
+    { t: 11.35, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.71, ease: "inOut" },
+    { t: 16.5, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.73, ease: "linear" },
   ]);
-  track(".laptop-base, .laptop-shadow", [
-    { t: 15.75, opacity: 1 },
-    { t: 16.2, opacity: 0, ease: "inOut" },
-  ]);
-  track("[data-d-boot]", [
-    { t: 0, opacity: 1 },
-    { t: 8.05, opacity: 1 },
-    { t: 8.5, opacity: 0, ease: "inOut" },
-  ]);
-  track(".screen--desktop [data-d-flash]", [
-    { t: 8.15, opacity: 0 },
-    { t: 8.35, opacity: 0.9 },
-    { t: 8.85, opacity: 0, ease: "out" },
-    { t: 20.95, opacity: 0 },
-    { t: 21.1, opacity: 0.28 },
-    { t: 21.55, opacity: 0, ease: "out" },
-  ]);
-  track(".screen--desktop [data-d-sweep]", [
-    { t: 8.2, opacity: 0, "--screen-sweep-x": -700 },
-    { t: 8.5, opacity: 0.5, "--screen-sweep-x": -200, ease: "out" },
-    { t: 9.5, opacity: 0, "--screen-sweep-x": 1700, ease: "inOut" },
-  ]);
+  track(".laptop-base, .laptop-shadow", [{ t: 0, opacity: 0 }]);
+  track("[data-d-boot], .screen--desktop [data-d-flash], .screen--desktop [data-d-sweep]", [{ t: 0, opacity: 0 }]);
+  track("[data-d-cursor], [data-d-ripple]", [{ t: 0, opacity: 0 }]);
 
-  // desktop UI cascade — faithful to the real splash homepage
-  track(".d-header", [
-    { t: 8.25, opacity: 0, y: -22 },
-    { t: 9.0, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-hero-title", [
-    { t: 9.15, opacity: 0, y: 18 },
-    { t: 9.95, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-hero-tag", [
-    { t: 9.4, opacity: 0, y: 16 },
-    { t: 10.15, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-hero-actions", [
-    { t: 9.65, opacity: 0, y: 14 },
-    { t: 10.35, opacity: 1, y: 0, ease: "expo" },
-  ]);
+  /* home is already loaded under the search */
+  track(".d-header", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".d-hero-title, .d-hero-tag, .d-hero-actions, .d-hero-badges, .d-hero-search", [{ t: 0, opacity: 1, y: 0 }]);
   const deskArtRot = [-7, 6, -4];
   $$(".d-art-card").forEach((el, i) => {
-    const rot = deskArtRot[i] || 0;
-    const s = 9.25 + i * 0.15;
-    track(el, [
-      { t: s, opacity: 0, y: 22, rotateZ: rot },
-      { t: s + 0.85, opacity: 1, y: 0, rotateZ: rot, ease: "expo" },
-    ]);
+    track(el, [{ t: 0, opacity: 1, y: 0, rotateZ: deskArtRot[i] || 0 }]);
   });
-  track(".d-hero-badges", [
-    { t: 10.15, opacity: 0, y: 14 },
-    { t: 10.8, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".d-hero-search", [
-    { t: 10.35, opacity: 0, y: 14 },
-    { t: 11.0, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#a2Caption", [
-    { t: 10.8, opacity: 0, y: 8 },
-    { t: 11.5, opacity: 1, y: 0, ease: "expo" },
-    { t: 12.7, opacity: 1 },
-    { t: 13.25, opacity: 0, ease: "inOut" },
-  ]);
 
-  // cursor + search
-  track("[data-d-cursor]", [
-    { t: 12.1, opacity: 0, x: 1120, y: 760, scale: 1 },
-    { t: 12.45, opacity: 1 },
-    { t: 13.35, x: 500, y: 36, ease: "inOut" },
-    { t: 13.45, scale: 0.82, ease: "out" },
-    { t: 13.6, scale: 1, ease: "out" },
-    { t: 15.05, x: 520, y: 36, ease: "inOut" },
-    { t: 15.45, x: 620, y: 205, ease: "inOut" },
-    { t: 15.52, scale: 0.82 },
-    { t: 15.66, scale: 1 },
-    { t: 15.8, opacity: 0, x: 620, y: 205 },
-    { t: 20.45, opacity: 0, x: 1240, y: 300 },
-    { t: 20.7, opacity: 1 },
-    { t: 21.0, x: 1352, y: 418, ease: "inOut" },
-    { t: 21.08, scale: 0.82 },
-    { t: 21.22, scale: 1 },
-    { t: 21.5, opacity: 0 },
-  ]);
-  track("[data-d-ripple]", [
-    { t: 13.42, opacity: 0, scale: 0.3, x: 500, y: 36 },
-    { t: 13.48, opacity: 0.9, scale: 0.6, x: 500, y: 36 },
-    { t: 13.9, opacity: 0, scale: 1.7, x: 500, y: 36, ease: "out" },
-    { t: 14.0, opacity: 0, scale: 1.7, x: 500, y: 36 },
-    { t: 15.4, opacity: 0, scale: 0.4, x: 620, y: 205 },
-    { t: 15.48, opacity: 0.9, scale: 0.6, x: 620, y: 205 },
-    { t: 15.9, opacity: 0, scale: 1.7, x: 620, y: 205, ease: "out" },
-    { t: 16.0, opacity: 0, scale: 1.7, x: 620, y: 205 },
-    { t: 20.95, opacity: 0, scale: 0.4, x: 1352, y: 418 },
-    { t: 21.03, opacity: 0.9, scale: 0.6, x: 1352, y: 418 },
-    { t: 21.45, opacity: 0, scale: 1.7, x: 1352, y: 418, ease: "out" },
-  ]);
+  /* search payoff */
   track("[data-d-modal]", [
-    { t: 13.45, opacity: 0 },
-    { t: 13.65, opacity: 1, ease: "out" },
-    { t: 15.68, opacity: 1 },
-    { t: 15.92, opacity: 0, ease: "inOut" },
+    { t: 0.08, opacity: 0 },
+    { t: 0.34, opacity: 1, ease: "out" },
+    { t: 2.82, opacity: 1 },
+    { t: 2.98, opacity: 0, ease: "inOut" },
   ]);
   track("[data-d-panel]", [
-    { t: 13.45, y: 16, scale: 0.975 },
-    { t: 13.9, y: 0, scale: 1, ease: "expo" },
+    { t: 0.08, y: 16, scale: 0.975 },
+    { t: 0.52, y: 0, scale: 1, ease: "expo" },
   ]);
   track("[data-d-result]", [
-    { t: 13.7, opacity: 0.1, y: 8 },
-    { t: 14.55, opacity: 0.35, y: 8 },
-    { t: 14.95, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 15.35, opacity: 1, y: 0, scale: 1.012, ease: "out" },
-    { t: 15.6, opacity: 1, y: 0, scale: 1 },
-    { t: 15.7, opacity: 0 },
+    { t: 0.85, opacity: 0.1, y: 8, scale: 1 },
+    { t: 1.35, opacity: 0.32, y: 8, scale: 1 },
+    { t: 1.78, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
+    { t: 2.12, opacity: 1, y: 0, scale: 1 },
+    { t: 2.7, opacity: 1, y: 0, scale: 1 },
+    { t: 2.82, opacity: 0, y: 0, scale: 1 },
   ]);
   track(".d-search-result--dim", [
-    { t: 13.7, opacity: 0.05, y: 8 },
-    { t: 14.55, opacity: 0.12, y: 8 },
-    { t: 15.2, opacity: 0.9, y: 0, ease: "expo" },
-    { t: 15.7, opacity: 0 },
+    { t: 0.85, opacity: 0.04, y: 8 },
+    { t: 1.35, opacity: 0.1, y: 8 },
+    { t: 2.05, opacity: 0.85, y: 0, ease: "expo" },
+    { t: 2.8, opacity: 0, y: 0 },
   ]);
   track(".d-search-foot", [
-    { t: 15.0, opacity: 0 },
-    { t: 15.3, opacity: 1, ease: "out" },
+    { t: 1.9, opacity: 0 },
+    { t: 2.25, opacity: 1, ease: "out" },
   ]);
 
-  // page transition
+  /* page change: search result → article */
   track(".d-page--home", [
-    { t: 15.7, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 16.12, opacity: 0, x: -55, blur: 8, scale: 1.015, ease: "inOut" },
+    { t: 0, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 2.98, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 3.08, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
   ]);
   track(".d-page--article", [
-    { t: 15.85, opacity: 0, x: 45, blur: 8, scale: 1.015 },
-    { t: 16.35, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
+    { t: 0, opacity: 0, x: 18, blur: 3, scale: 1.005 },
+    { t: 3.06, opacity: 0, x: 18, blur: 3, scale: 1.005 },
+    { t: 3.32, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
   ]);
-  track(".d-side", [
-    { t: 16.1, opacity: 0, x: -12 },
-    { t: 16.65, opacity: 1, x: 0, ease: "expo" },
-  ]);
-  track(".d-rail", [
-    { t: 16.1, opacity: 0, x: 12 },
-    { t: 16.65, opacity: 1, x: 0, ease: "expo" },
-  ]);
-  track(".d-toc", [
-    { t: 16.2, opacity: 0 },
-    { t: 16.7, opacity: 1, ease: "expo" },
-  ]);
+
+  /* article content is fully rendered, never clipped mid-change */
+  track(".d-side", [{ t: 0, opacity: 1, x: 0 }]);
+  track(".d-rail", [{ t: 0, opacity: 1, x: 0 }]);
+  track(".d-toc", [{ t: 0, opacity: 1 }]);
   track(".d-progress", [
-    { t: 16.0, opacity: 0 },
-    { t: 16.3, opacity: 1 },
+    { t: 3.0, opacity: 0 },
+    { t: 3.3, opacity: 1 },
   ]);
   track("[data-d-progress]", [
-    { t: 18.2, scaleX: 0 },
-    { t: 20.5, scaleX: 0.82, ease: "inOut" },
+    { t: 3.4, scaleX: 0 },
+    { t: 14.4, scaleX: 0.84, ease: "inOut" },
   ]);
-  track(".d-article-head", [
-    { t: 15.95, opacity: 0, y: 22 },
-    { t: 16.55, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  stagger(".d-article-body > *", 16.1, 0.055, { y: 16, dur: 0.65 });
+  track(".d-article-head", [{ t: 0, opacity: 1, y: 0 }]);
+  $$(".d-article-body > *").forEach((el) => track(el, [{ t: 0, opacity: 1, y: 0 }]));
+
   track("[data-d-article-scroll]", [
-    { t: 18.2, y: 0 },
-    { t: 20.6, y: -170, ease: "inOut" },
-    { t: 23.7, y: -170 },
+    { t: 0, y: 0 },
+    { t: 9.45, y: 0 },
+    { t: 10.65, y: -340, ease: "inOut" },
+    { t: 12.55, y: -340 },
+    { t: 13.85, y: -500, ease: "inOut" },
+    { t: 16.5, y: -500 },
   ]);
+
+  /* reading comfort */
   track("#desktopUI", [
-    { t: 20.9, "--dark": 0 },
-    { t: 21.75, "--dark": 1, ease: "inOut" },
+    { t: 0, "--dark": 0 },
+    { t: 11.08, "--dark": 0 },
+    { t: 11.72, "--dark": 1, ease: "inOut" },
   ]);
   track("[data-theme-ripple] span", [
-    { t: 20.98, opacity: 0, scale: 0 },
-    { t: 21.08, opacity: 0.38, scale: 0.4, ease: "out" },
-    { t: 21.65, opacity: 0, scale: 16, ease: "inOut" },
+    { t: 11.05, opacity: 0, scale: 0 },
+    { t: 11.14, opacity: 0.24, scale: 0.3, ease: "out" },
+    { t: 11.66, opacity: 0, scale: 10, ease: "inOut" },
   ]);
 
   /* ============================================================
      ACT 3 — MOBILE
+     One answer, in your hand
      ============================================================ */
   track("#act3", [
-    { t: 23.86, opacity: 0 },
-    { t: 24.42, opacity: 1, ease: "out" },
-    { t: 33.3, opacity: 1 },
-    { t: 33.68, opacity: 0, ease: "inOut" },
-  ]);
-  track("#a3Copy", [
-    { t: 23.7, opacity: 0, y: 30 },
-    { t: 24.5, opacity: 1, y: 0, ease: "expo" },
-    { t: 32.9, opacity: 1, y: 0 },
-    { t: 33.45, opacity: 0, y: -20, ease: "inOut" },
-  ]);
-  const a3Lines = $$("#a3Headline .mask > span");
-  a3Lines.forEach((el, i) =>
-    track(el, [
-      { t: 23.9 + i * 0.13, y: 100 },
-      { t: 24.8 + i * 0.13, y: 0, ease: "expo" },
-    ])
-  );
-  track("#a3Lede", [
-    { t: 24.5, opacity: 0, y: 18 },
-    { t: 25.15, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".a3-ghost", [
-    { t: 23.9, opacity: 0, x: 40 },
-    { t: 25.0, opacity: 1, x: 0, ease: "out" },
-    { t: 33.0, opacity: 0.6, x: -90, ease: "linear" },
+    { t: 26.9, opacity: 0 },
+    { t: 26.98, opacity: 1, ease: "out" },
+    { t: 36.9, opacity: 1 },
+    { t: 37.35, opacity: 0, ease: "inOut" },
   ]);
   track("#a3DeviceStage", [
-    { t: 23.55, opacity: 0, y: 160, scale: 0.96 },
-    { t: 24.9, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 31.2, y: 0 },
-    { t: 32.2, y: -20, ease: "inOut" },
+    { t: 26.9, opacity: 0, y: 34, x: 18, scale: 0.985 },
+    { t: 27.0, opacity: 1, y: 0, x: 0, scale: 1, ease: "out" },
+    { t: 36.9, opacity: 1, y: 0, x: 0, scale: 1 },
+    { t: 37.3, opacity: 0, y: -18, x: 0, scale: 1.008, ease: "inOut" },
   ]);
   track("#phone", [
-    { t: 23.7, y: 120, rotateX: 10, rotateY: -28, rotateZ: 3, scale: 0.94 },
-    { t: 25.2, y: 0, rotateX: 4, rotateY: -16, rotateZ: 0, scale: 1, ease: "expo" },
-    { t: 31.2, y: 0, rotateX: 1, rotateY: -7, rotateZ: 0, scale: 1.04, ease: "inOut" },
-    { t: 33.0, y: -8, rotateX: 1, rotateY: -7, rotateZ: 0, scale: 1.07 },
+    { t: 26.9, y: 50, rotateX: 0, rotateY: -8, rotateZ: 0, scale: 0.99 },
+    { t: 27.6, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, ease: "expo" },
+    { t: 36.9, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.008, ease: "linear" },
   ]);
-  track("[data-p-boot]", [
-    { t: 0, opacity: 1 },
-    { t: 24.8, opacity: 1 },
-    { t: 25.2, opacity: 0, ease: "inOut" },
-  ]);
-  track(".screen--phone [data-p-flash]", [
-    { t: 24.85, opacity: 0 },
-    { t: 25.0, opacity: 0.92 },
-    { t: 25.45, opacity: 0, ease: "out" },
-  ]);
-  track(".p-header", [
-    { t: 24.95, opacity: 0, y: -14 },
-    { t: 25.45, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  const phoneArtRot = [-7, 6, -4];
-  $$(".p-art-card").forEach((el, i) => {
-    const rot = phoneArtRot[i] || 0;
-    const s = 25.0 + i * 0.13;
-    track(el, [
-      { t: s, opacity: 0, y: 22, rotateZ: rot },
-      { t: s + 0.85, opacity: 1, y: 0, rotateZ: rot, ease: "expo" },
-    ]);
-  });
-  track(".p-hero-title", [
-    { t: 25.15, opacity: 0, y: 14 },
-    { t: 25.72, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-hero-tag", [
-    { t: 25.3, opacity: 0, y: 12 },
-    { t: 25.85, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-actions", [
-    { t: 25.45, opacity: 0, y: 10 },
-    { t: 26.0, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-badges", [
-    { t: 25.6, opacity: 0, y: 10 },
-    { t: 26.1, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-search", [
-    { t: 25.75, opacity: 0, y: 10 },
-    { t: 26.2, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("[data-p-home-scroll]", [
-    { t: 26.35, y: 0 },
-    { t: 27.0, y: -46, ease: "inOut" },
-    { t: 29.2, y: -46 },
-  ]);
-  // drawer
-  track(".p-drawer-scrim", [
-    { t: 27.2, opacity: 0 },
-    { t: 27.55, opacity: 1, ease: "out" },
-    { t: 28.95, opacity: 0, ease: "inOut" },
-  ]);
-  track(".p-drawer-panel", [
-    { t: 27.2, x: -340 },
-    { t: 27.85, x: 0, ease: "expo" },
-    { t: 28.3, x: 0 },
-    { t: 28.95, x: -340, ease: "inOut" },
-  ]);
-  stagger(".p-drawer-link", 27.4, 0.055, { y: 10, dur: 0.55 });
-  track(".p-drawer-search", [
-    { t: 27.35, opacity: 0, y: 10 },
-    { t: 27.8, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".p-drawer-foot", [
-    { t: 27.6, opacity: 0 },
-    { t: 28.0, opacity: 1 },
-  ]);
-  // touch
-  track("[data-p-touch]", [
-    { t: 27.0, opacity: 0, scale: 0.6, x: 352, y: 58 },
-    { t: 27.15, opacity: 1, scale: 1, x: 352, y: 58, ease: "out" },
-    { t: 27.25, scale: 0.78 },
-    { t: 27.4, scale: 1 },
-    { t: 27.62, opacity: 0, x: 352, y: 58 },
-    { t: 28.22, opacity: 0, x: 300, y: 30 },
-    { t: 28.32, opacity: 1, scale: 1, x: 300, y: 30 },
-    { t: 28.4, scale: 0.78 },
-    { t: 28.55, scale: 1 },
-    { t: 28.72, opacity: 0, x: 300, y: 30 },
-    { t: 28.98, opacity: 0, x: 160, y: 450 },
-    { t: 29.08, opacity: 1, scale: 1, x: 160, y: 450 },
-    { t: 29.16, scale: 0.78 },
-    { t: 29.3, scale: 1 },
-    { t: 29.5, opacity: 0, x: 160, y: 450 },
-  ]);
-  // mobile article
-  track(".p-page--home", [
-    { t: 29.0, opacity: 1, x: 0, blur: 0 },
-    { t: 29.45, opacity: 0, x: -46, blur: 5, ease: "inOut" },
-  ]);
-  track(".p-page--article", [
-    { t: 29.05, opacity: 0, x: 46, blur: 5 },
-    { t: 29.6, opacity: 1, x: 0, blur: 0, ease: "expo" },
-  ]);
-  track(".p-mobilebars", [
-    { t: 29.1, opacity: 0 },
-    { t: 29.55, opacity: 1, ease: "out" },
-  ]);
-  track(".p-article-title", [
-    { t: 29.15, opacity: 0, y: 16 },
-    { t: 29.75, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  stagger(".p-article-scroll > *:not(.p-article-title)", 29.3, 0.05, { y: 14, dur: 0.6 });
+  track("[data-p-boot], .screen--phone [data-p-flash]", [{ t: 0, opacity: 0 }]);
+  track("[data-p-touch]", [{ t: 0, opacity: 0 }]);
+
+  /* the article is already open — real reading, no empty app state */
+  track(".p-header", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".p-page--home", [{ t: 0, opacity: 0, x: 0, blur: 0 }]);
+  track(".p-page--article", [{ t: 0, opacity: 1, x: 0, blur: 0 }]);
+  track(".p-mobilebars", [{ t: 0, opacity: 1 }]);
+  track(".p-article-title", [{ t: 0, opacity: 1, y: 0 }]);
+  $$(".p-article-scroll > *:not(.p-article-title)").forEach((el) => track(el, [{ t: 0, opacity: 1, y: 0 }]));
+  track(".p-appearance-pill", [{ t: 0, opacity: 1, y: 0 }]);
   track("[data-p-article-scroll]", [
-    { t: 30.35, y: 0 },
-    { t: 31.45, y: -196, ease: "inOut" },
-    { t: 33.2, y: -196 },
-  ]);
-  track(".p-appearance-pill", [
-    { t: 29.7, opacity: 0, y: 10 },
-    { t: 30.2, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#a3Caption", [
-    { t: 25.1, opacity: 0, y: 8 },
-    { t: 25.7, opacity: 1, y: 0, ease: "expo" },
-    { t: 31.6, opacity: 1 },
-    { t: 32.25, opacity: 0, ease: "inOut" },
+    { t: 0, y: 0 },
+    { t: 29.75, y: 0 },
+    { t: 31.15, y: -196, ease: "inOut" },
+    { t: 36.9, y: -196 },
   ]);
 
+  /* mobile navigation is a real interaction */
+  track(".p-drawer-scrim", [
+    { t: 31.9, opacity: 0 },
+    { t: 32.2, opacity: 0.45, ease: "out" },
+    { t: 33.75, opacity: 0.45 },
+    { t: 34.15, opacity: 0, ease: "inOut" },
+  ]);
+  track(".p-drawer-panel", [
+    { t: 31.9, x: -340 },
+    { t: 32.42, x: 0, ease: "expo" },
+    { t: 33.75, x: 0 },
+    { t: 34.25, x: -340, ease: "inOut" },
+  ]);
+  track(".p-drawer-link, .p-drawer-search, .p-drawer-foot", [{ t: 0, opacity: 1, y: 0 }]);
+
   /* ============================================================
-     ACT 4 — TABLET + FAMILY
+     ACT 4 — MAP + FAMILY
+     Explore the city, then see it on every screen
      ============================================================ */
   track("#act4", [
-    { t: 33.76, opacity: 0 },
-    { t: 34.32, opacity: 1, ease: "out" },
-    { t: 42.9, opacity: 1 },
-    { t: 43.22, opacity: 0, ease: "inOut" },
-  ]);
-  track("#a4Copy", [
-    { t: 33.6, opacity: 0, y: 26 },
-    { t: 34.4, opacity: 1, y: 0, ease: "expo" },
-    { t: 37.85, opacity: 1, y: 0 },
-    { t: 38.4, opacity: 0, y: -20, ease: "inOut" },
-  ]);
-  const a4Lines = $$("#a4Headline .mask > span");
-  a4Lines.forEach((el, i) =>
-    track(el, [
-      { t: 33.85 + i * 0.13, y: 100 },
-      { t: 34.8 + i * 0.13, y: 0, ease: "expo" },
-    ])
-  );
-  track("#a4Lede", [
-    { t: 34.5, opacity: 0, y: 16 },
-    { t: 35.15, opacity: 1, y: 0, ease: "expo" },
+    { t: 16.5, opacity: 0 },
+    { t: 16.62, opacity: 1, ease: "out" },
+    { t: 26.95, opacity: 1 },
+    { t: 27.02, opacity: 0, ease: "inOut" },
+    { t: 37.32, opacity: 0 },
+    { t: 37.5, opacity: 1, ease: "out" },
+    { t: 42.7, opacity: 1 },
+    { t: 43.15, opacity: 0, ease: "inOut" },
   ]);
   track("#a4DeviceStage", [
-    { t: 33.45, opacity: 0, x: -120, y: 40, scale: 0.98 },
-    { t: 34.5, opacity: 1, x: 0, y: 0, scale: 1, ease: "expo" },
-    { t: 37.9, opacity: 1, x: 0, y: -4, scale: 1.015 },
-    { t: 38.45, opacity: 0, x: 0, y: -20, scale: 1.015, ease: "inOut" },
+    { t: 16.5, opacity: 0, y: 24, scale: 0.99 },
+    { t: 16.64, opacity: 1, y: 0, scale: 1, ease: "out" },
+    { t: 26.8, opacity: 1, y: 0, scale: 1.008, ease: "linear" },
+    { t: 27.0, opacity: 0, y: -14, scale: 1.008, ease: "inOut" },
+    { t: 37.3, opacity: 0 },
   ]);
   track("#tablet", [
-    { t: 33.6, y: 50, rotateX: 6, rotateY: 20, rotateZ: 1, scale: 0.95 },
-    { t: 35.1, y: 0, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1, ease: "expo" },
-    { t: 37.8, y: 0, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1 },
-    { t: 38.4, y: -10, rotateX: 3, rotateY: -9, rotateZ: 0, scale: 1.02, ease: "inOut" },
+    { t: 16.5, y: 20, rotateX: 0, rotateY: -6, rotateZ: 0, scale: 0.99 },
+    { t: 17.2, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, ease: "expo" },
+    { t: 26.8, y: 0, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1.008, ease: "linear" },
   ]);
-  track("[data-t-boot]", [
-    { t: 0, opacity: 1 },
-    { t: 34.55, opacity: 1 },
-    { t: 35.0, opacity: 0, ease: "inOut" },
-  ]);
-  track(".screen--tablet [data-t-flash]", [
-    { t: 34.6, opacity: 0 },
-    { t: 34.78, opacity: 0.8 },
-    { t: 35.2, opacity: 0, ease: "out" },
-  ]);
-  track(".t-header", [
-    { t: 34.7, opacity: 0, y: -14 },
-    { t: 35.2, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".t-side a", [
-    { t: 34.85, opacity: 0, y: 10 },
-    { t: 35.4, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  stagger(".t-article-scroll > *", 34.95, 0.06, { y: 16, dur: 0.65 });
-  track(".t-page--article", [
-    { t: 36.1, opacity: 1, x: 0 },
-    { t: 36.55, opacity: 0, x: -40, ease: "inOut" },
-  ]);
+  track("[data-t-boot], .screen--tablet [data-t-flash]", [{ t: 0, opacity: 0 }]);
+  track(".t-header", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".t-page--article", [{ t: 0, opacity: 0 }]);
   track(".t-map-page", [
-    { t: 36.45, opacity: 0, y: 18, scale: 0.985 },
-    { t: 36.98, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 16.5, opacity: 0, y: 0, scale: 1 },
+    { t: 16.6, opacity: 1, y: 0, scale: 1, ease: "out" },
   ]);
-  track(".t-map-scroll h1", [
-    { t: 36.55, opacity: 0, y: 14 },
-    { t: 37.05, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".t-map-desc", [
-    { t: 36.65, opacity: 0, y: 10 },
-    { t: 37.1, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".t-map-card", [
-    { t: 36.7, opacity: 0, y: 18 },
-    { t: 37.25, opacity: 1, y: 0, ease: "expo" },
-  ]);
+  track(".t-map-scroll h1", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".t-map-desc", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".t-map-card", [{ t: 0, opacity: 1, y: 0 }]);
   track(".t-map-img", [
-    { t: 36.7, scale: 1.04 },
-    { t: 38.3, scale: 1.08, ease: "inOut" },
+    { t: 16.6, scale: 1.02 },
+    { t: 26.6, scale: 1.08, ease: "inOut" },
   ]);
-  stagger(".t-map-filters span", 36.95, 0.045, { y: 8, dur: 0.45 });
-  stagger(".t-map-pin", 37.05, 0.075, { y: 0, scale: 0.4, dur: 0.55 });
-  track(".t-map-tools", [
-    { t: 37.3, opacity: 0, x: 8 },
-    { t: 37.75, opacity: 1, x: 0, ease: "expo" },
-  ]);
-  track("#a4Caption", [
-    { t: 35.2, opacity: 0, y: 8 },
-    { t: 35.8, opacity: 1, y: 0, ease: "expo" },
-    { t: 37.8, opacity: 0 },
-  ]);
-  // family
+  track(".t-map-filters span", [{ t: 0, opacity: 1, y: 0 }]);
+  track(".t-map-pin", [{ t: 0, opacity: 1, y: 0, scale: 1 }]);
+  track(".t-map-tools", [{ t: 0, opacity: 1, x: 0 }]);
+
+  /* family — one wiki, every screen */
   track("#a4Family", [
-    { t: 38.0, opacity: 0, y: 20 },
-    { t: 38.75, opacity: 1, y: 0, ease: "expo" },
-    { t: 42.55, opacity: 1, y: 0, scale: 1 },
-    { t: 43.15, opacity: 0, y: -20, scale: 1.03, ease: "inOut" },
+    { t: 37.35, opacity: 0, y: 16 },
+    { t: 37.7, opacity: 1, y: 0, ease: "out" },
+    { t: 42.5, opacity: 1, y: 0, scale: 1 },
+    { t: 43.0, opacity: 0, y: -16, scale: 1.015, ease: "inOut" },
   ]);
   const famLines = $$("#a4FamilyTitle .mask > span");
-  track("#a4Family .eyebrow", [
-    { t: 38.15, opacity: 0, y: 12 },
-    { t: 38.7, opacity: 1, y: 0, ease: "expo" },
-  ]);
   famLines.forEach((el) =>
     track(el, [
-      { t: 38.3, y: 90 },
-      { t: 39.15, y: 0, ease: "expo" },
+      { t: 37.45, y: 64 },
+      { t: 38.2, y: 0, ease: "expo" },
     ])
   );
   track("#miniLaptop", [
-    { t: 38.3, opacity: 0, y: 90, scale: 0.96 },
-    { t: 39.1, opacity: 1, y: 0, scale: 1, ease: "expo" },
-    { t: 41.9, y: -7, scale: 1 },
+    { t: 37.4, opacity: 0, y: 60, scale: 0.97 },
+    { t: 38.15, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 41.9, y: -6, scale: 1.01 },
   ]);
   track("#miniTablet", [
-    { t: 38.4, opacity: 0, x: -170, y: 30, rotateZ: -12, scale: 0.95 },
-    { t: 39.25, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
-    { t: 41.9, y: 6, rotateZ: -6 },
+    { t: 37.5, opacity: 0, x: -120, y: 24, rotateZ: -10, scale: 0.96 },
+    { t: 38.3, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
+    { t: 41.9, y: 5, rotateZ: -6, scale: 1 },
   ]);
   track("#miniPhone", [
-    { t: 38.5, opacity: 0, x: 170, y: 40, rotateZ: 11, scale: 0.95 },
-    { t: 39.35, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
-    { t: 41.9, y: -5, rotateZ: 5 },
-  ]);
-  stagger(".a4-labels span", 39.45, 0.1, { y: 12, dur: 0.6 });
-  track("#a4Stackline", [
-    { t: 39.8, opacity: 0, y: 10 },
-    { t: 40.35, opacity: 1, y: 0, ease: "expo" },
+    { t: 37.6, opacity: 0, x: 120, y: 30, rotateZ: 9, scale: 0.96 },
+    { t: 38.4, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
+    { t: 41.9, y: -4, rotateZ: 5, scale: 1 },
   ]);
 
   /* ============================================================
-     ACT 5 — FEATURES
+     ACT 5 — VISIT
      ============================================================ */
   track("#act5", [
-    { t: 43.3, opacity: 0 },
-    { t: 43.85, opacity: 1, ease: "out" },
+    { t: 43.0, opacity: 0 },
+    { t: 43.3, opacity: 1, ease: "out" },
   ]);
-  track("#a5Features", [
-    { t: 42.9, opacity: 0, y: 24 },
-    { t: 43.55, opacity: 1, y: 0, ease: "expo" },
-    { t: 46.65, opacity: 1, y: 0 },
-    { t: 47.2, opacity: 0, y: -26, ease: "inOut" },
-  ]);
-  track("#a5Headline .mask > span", [
-    { t: 43.1, y: 90 },
-    { t: 43.95, y: 0, ease: "expo" },
-  ]);
-  track(".a5-copy .eyebrow", [
-    { t: 43.0, opacity: 0, y: 12 },
-    { t: 43.55, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".a5-copy .lede", [
-    { t: 43.45, opacity: 0, y: 14 },
-    { t: 44.0, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#a5Stats", [
-    { t: 43.9, opacity: 0, y: 14 },
-    { t: 44.45, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  stagger(".feat", 43.7, 0.12, { y: 26, dur: 0.65, scale: 0.98 });
-  track("#a5Trust", [
-    { t: 44.1, opacity: 0, y: 8 },
-    { t: 44.55, opacity: 1, y: 0, ease: "expo" },
-  ]);
-
-  /* ============================================================
-     OUTRO
-     ============================================================ */
   track("#a5Outro", [
-    { t: 47.1, opacity: 0 },
-    { t: 47.75, opacity: 1, ease: "out" },
+    { t: 43.15, opacity: 0 },
+    { t: 43.5, opacity: 1, ease: "out" },
   ]);
   track("#outroMark", [
-    { t: 47.25, opacity: 0, y: 24, scale: 0.88 },
-    { t: 48.0, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 43.2, opacity: 0, y: 18, scale: 0.92 },
+    { t: 43.7, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroEyebrow", [
-    { t: 47.75, opacity: 0, y: 10 },
-    { t: 48.25, opacity: 1, y: 0, ease: "expo" },
+    { t: 43.5, opacity: 0, y: 8 },
+    { t: 43.8, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroTitle .mask > span", [
-    { t: 47.8, y: 130 },
-    { t: 48.75, y: 0, ease: "expo" },
+    { t: 43.35, y: 80 },
+    { t: 44.05, y: 0, ease: "expo" },
   ]);
   track("#outroSub", [
-    { t: 48.35, opacity: 0, y: 14 },
-    { t: 48.95, opacity: 1, y: 0, ease: "expo" },
+    { t: 43.8, opacity: 0, y: 12 },
+    { t: 44.25, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroUrl", [
-    { t: 48.6, opacity: 0, y: 18, scale: 0.97 },
-    { t: 49.25, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 44.0, opacity: 0, y: 16, scale: 0.98 },
+    { t: 44.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroNote", [
-    { t: 49.15, opacity: 0, y: 10 },
-    { t: 49.65, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track(".outro-foot", [
-    { t: 49.35, opacity: 0 },
-    { t: 49.9, opacity: 1, ease: "out" },
-  ]);
-  track("#outroDevices", [
-    { t: 50.05, opacity: 0, y: 14 },
-    { t: 50.65, opacity: 1, y: 0, ease: "expo" },
-  ]);
-  track("#outroSweep", [
-    { t: 50.2, opacity: 0, "--sweep-x": -120 },
-    { t: 50.6, opacity: 0.8, "--sweep-x": -10, ease: "out" },
-    { t: 51.6, opacity: 0, "--sweep-x": 290, ease: "inOut" },
-    { t: 52.2, opacity: 0, "--sweep-x": -120 },
-    { t: 52.6, opacity: 0.5, "--sweep-x": -10, ease: "out" },
-    { t: 53.5, opacity: 0, "--sweep-x": 290, ease: "inOut" },
-  ]);
-  track(".a5-outro", [
-    { t: 52.5, scale: 1, y: 0 },
-    { t: 54, scale: 1.014, y: -6, ease: "linear" },
+    { t: 44.35, opacity: 0, y: 8 },
+    { t: 44.75, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
      BACKGROUNDS
      ============================================================ */
-  track(".bg--intro", [{ t: 0, opacity: 1 }, { t: 6.7, opacity: 1 }, { t: 7.6, opacity: 0 }]);
+  track(".bg--intro, .bg--features", [{ t: 0, opacity: 0 }]);
   track(".bg--bright", [
-    { t: 6.6, opacity: 0 },
-    { t: 7.5, opacity: 1 },
-    { t: 23.2, opacity: 1 },
-    { t: 24.0, opacity: 0 },
-  ]);
-  track(".bg--night", [
-    { t: 23.3, opacity: 0 },
-    { t: 24.1, opacity: 1 },
-    { t: 33.1, opacity: 1 },
-    { t: 33.9, opacity: 0 },
+    { t: 0, opacity: 1 },
+    { t: 16.9, opacity: 1 },
+    { t: 17.55, opacity: 0 },
   ]);
   track(".bg--warm", [
-    { t: 33.2, opacity: 0 },
-    { t: 34.0, opacity: 1 },
-    { t: 42.7, opacity: 1 },
-    { t: 43.5, opacity: 0 },
+    { t: 16.9, opacity: 0 },
+    { t: 17.45, opacity: 1 },
+    { t: 26.95, opacity: 1 },
+    { t: 27.45, opacity: 0 },
+    { t: 37.35, opacity: 0 },
+    { t: 37.9, opacity: 1 },
+    { t: 42.8, opacity: 1 },
+    { t: 43.6, opacity: 0 },
   ]);
-  track(".bg--features", [
-    { t: 42.8, opacity: 0 },
-    { t: 43.6, opacity: 1 },
-    { t: 47.1, opacity: 1 },
-    { t: 47.9, opacity: 0 },
+  track(".bg--night", [
+    { t: 26.95, opacity: 0 },
+    { t: 27.45, opacity: 1 },
+    { t: 37.25, opacity: 1 },
+    { t: 37.85, opacity: 0 },
   ]);
-  track(".bg--outro", [{ t: 47.2, opacity: 0 }, { t: 48.0, opacity: 1 }]);
-  track(".bg-plus--intro", [
-    { t: 0.3, opacity: 0 },
-    { t: 1.4, opacity: 0.24 },
-    { t: 6.4, opacity: 0.24 },
-    { t: 7.2, opacity: 0 },
-  ]);
-  track(".bg-plus--bright", [
-    { t: 6.8, opacity: 0 },
-    { t: 7.6, opacity: 0.34 },
-    { t: 23.2, opacity: 0.34 },
-    { t: 23.9, opacity: 0 },
-    { t: 33.7, opacity: 0 },
-    { t: 34.4, opacity: 0.3 },
-    { t: 42.8, opacity: 0.3 },
-    { t: 43.4, opacity: 0 },
-  ]);
-  track(".bg-plus--dark", [
-    { t: 23.6, opacity: 0 },
-    { t: 24.3, opacity: 0.26 },
-    { t: 33.1, opacity: 0.26 },
-    { t: 33.8, opacity: 0 },
-    { t: 43.0, opacity: 0 },
-    { t: 43.6, opacity: 0.24 },
-    { t: 47.3, opacity: 0.24 },
-    { t: 48.0, opacity: 0 },
-  ]);
-  track(".aurora--a", [
-    { t: 0, x: -40, y: 0, scale: 1 },
-    { t: 18, x: 90, y: 40, scale: 1.15, ease: "inOut" },
-    { t: 36, x: -20, y: 10, scale: 1.05, ease: "inOut" },
-    { t: 54, x: 60, y: -30, scale: 1.2, ease: "inOut" },
-  ]);
-  track(".aurora--b", [
-    { t: 0, x: 30, y: 0, scale: 1 },
-    { t: 22, x: -80, y: 30, scale: 1.1, ease: "inOut" },
-    { t: 44, x: 40, y: -20, scale: 1.2, ease: "inOut" },
-    { t: 54, x: -40, y: 20, scale: 1.05, ease: "inOut" },
-  ]);
-  track(".aurora--c", [
-    { t: 0, x: 0, y: 20, scale: 1 },
-    { t: 26, x: -60, y: -20, scale: 1.15, ease: "inOut" },
-    { t: 54, x: 40, y: 0, scale: 1.05, ease: "inOut" },
+  track(".bg--outro", [
+    { t: 43.1, opacity: 0 },
+    { t: 43.7, opacity: 1 },
   ]);
 
   /* ============================================================
      TRANSITIONS
      ============================================================ */
-  const flareAt = (t0, peak, scale) => {
-    track("#flare", [
-      { t: t0, opacity: 0 },
-      { t: t0 + (peak || 0.25), opacity: 1, ease: "out" },
-      { t: t0 + 0.95, opacity: 0, ease: "inOut" },
-    ]);
-    track("#flare span", [
-      { t: t0, scale: 0.2 },
-      { t: t0 + 0.9, scale: scale || 3.4, ease: "inOut" },
-    ]);
-  };
-  flareAt(6.55, 0.22, 4.4);
-  flareAt(23.35, 0.2, 3.4);
-  flareAt(33.25, 0.22, 3.8);
-  flareAt(42.8, 0.2, 3.6);
-  flareAt(47.05, 0.24, 4.2);
-
-
-
   track("#wipe", [
-    { t: 6.6, opacity: 0, "--wipe-x": -130 },
-    { t: 6.78, opacity: 0.9, "--wipe-x": -30, ease: "out" },
-    { t: 7.45, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 23.3, opacity: 0, "--wipe-x": -130 },
-    { t: 23.5, opacity: 0.75, "--wipe-x": -60, ease: "out" },
-    { t: 24.25, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-    { t: 33.2, opacity: 0, "--wipe-x": -130 },
-    { t: 33.4, opacity: 0.55, "--wipe-x": -40, ease: "out" },
-    { t: 34.1, opacity: 0, "--wipe-x": 170, ease: "inOut" },
-  ]);
-  track("#globalSweep", [
-    { t: 11.5, opacity: 0, "--sweep-x": -100 },
-    { t: 12.0, opacity: 0.34, "--sweep-x": -20, ease: "out" },
-    { t: 13.2, opacity: 0, "--sweep-x": 270, ease: "inOut" },
-    { t: 26.0, opacity: 0, "--sweep-x": -100 },
-    { t: 26.5, opacity: 0.22, "--sweep-x": -20, ease: "out" },
-    { t: 27.8, opacity: 0, "--sweep-x": 270, ease: "inOut" },
-    { t: 38.6, opacity: 0, "--sweep-x": -100 },
-    { t: 39.1, opacity: 0.28, "--sweep-x": -20, ease: "out" },
-    { t: 40.4, opacity: 0, "--sweep-x": 270, ease: "inOut" },
+    { t: 16.4, opacity: 0, "--wipe-x": -140 },
+    { t: 16.62, opacity: 0.3, "--wipe-x": -60, ease: "out" },
+    { t: 17.2, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 26.9, opacity: 0, "--wipe-x": -140 },
+    { t: 27.12, opacity: 0.28, "--wipe-x": -60, ease: "out" },
+    { t: 27.7, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 37.25, opacity: 0, "--wipe-x": -140 },
+    { t: 37.47, opacity: 0.26, "--wipe-x": -60, ease: "out" },
+    { t: 38.05, opacity: 0, "--wipe-x": 170, ease: "inOut" },
+    { t: 42.9, opacity: 0, "--wipe-x": -140 },
+    { t: 43.12, opacity: 0.3, "--wipe-x": -60, ease: "out" },
+    { t: 43.7, opacity: 0, "--wipe-x": 170, ease: "inOut" },
   ]);
 
   /* ============================================================
@@ -1014,15 +590,7 @@
   const a1Env = [[0, 0], [1.2, 0.7], [5.6, 0.7], [7.0, 0], [54, 0]];
   const outroEnv = [[0, 0], [47.5, 0], [48.4, 0.8], [54, 0.8]];
 
-  buildParticles($("#particles"), 18, {
-    x: [-40, 1960], y: [-60, 1140], speed: [6, 18], env: globalEnv,
-  });
-  buildParticles($("#a1Particles"), 12, {
-    x: [700, 1220], y: [280, 850], speed: [8, 22], env: a1Env,
-  });
-  buildParticles($("#outroParticles"), 16, {
-    x: [520, 1400], y: [200, 940], speed: [5, 14], env: outroEnv,
-  });
+  /* Decorative particles are intentionally disabled in the launch-brief edit. */
 
   function drawParticles(t) {
     for (const { set, env } of particleSets) {
@@ -1054,27 +622,56 @@
   const appearanceDark = $('[data-appearance="dark"]');
   const countEls = $$(".a5-stats strong[data-count]");
   const stage = $("#stage");
+  const captionEl = $("#filmCaption");
+  const captionKickerEl = $("#filmCaptionKicker");
+  const captionTitleEl = $("#filmCaptionTitle");
   let lastTyped = null;
+  let lastCaption = null;
+
+  const captionCues = [
+    { from: 0.32, to: 3.05, kicker: "Search the wiki", title: "Ask. Get the answer." },
+    { from: 6.55, to: 9.35, kicker: "City roles and departments", title: "Every role, explained." },
+    { from: 9.55, to: 12.45, kicker: "Appearance", title: "Read it your way." },
+    { from: 16.95, to: 23.8, kicker: "Interactive map", title: "The whole city, mapped.", side: "right" },
+    { from: 27.25, to: 31.8, kicker: "On mobile", title: "The same answer, in your hand." },
+    { from: 32.0, to: 34.45, kicker: "Navigation", title: "Everything within reach." },
+  ];
 
   function setStates(t) {
-    dUI.classList.toggle("is-article", t >= 16.15);
-    pUI.classList.toggle("is-article", t >= 29.1);
-    tUI.classList.toggle("is-map", t >= 36.3);
-    if (a4Family) a4Family.classList.toggle("is-live", t >= 37.9);
+    dUI.classList.toggle("is-article", t >= 3.06);
+    pUI.classList.toggle("is-article", t >= 26.8);
+    tUI.classList.toggle("is-map", t >= 16.5);
+    if (a4Family) a4Family.classList.toggle("is-live", t >= 37.3);
     stage.classList.toggle("is-ended", t >= 53.75);
     let idx = 0;
-    if (t >= 18.9) idx = 1;
-    if (t >= 19.8) idx = 2;
+    if (t >= 9.5) idx = 1;
+    if (t >= 10.7) idx = 2;
     tocLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
-    const dark = t >= 20.98;
+    const dark = t >= 11.08;
     if (appearanceAuto) appearanceAuto.classList.toggle("is-checked", !dark);
     if (appearanceDark) appearanceDark.classList.toggle("is-checked", dark);
+  }
+
+  function setCaption(t) {
+    if (!captionEl) return;
+    const cue = captionCues.find((c) => t >= c.from && t < c.to);
+    const key = cue ? `${cue.kicker}|${cue.title}|${cue.side || "left"}` : "";
+    if (key === lastCaption) return;
+    lastCaption = key;
+    if (!cue) {
+      captionEl.classList.remove("is-visible");
+      return;
+    }
+    captionKickerEl.textContent = cue.kicker;
+    captionTitleEl.textContent = cue.title;
+    captionEl.classList.toggle("film-caption--right", cue.side === "right");
+    captionEl.classList.add("is-visible");
   }
 
   function extras(t) {
     const q = "city roles";
     let n = 0;
-    if (t >= 14.2) n = Math.min(q.length, Math.floor((t - 14.2) * 10.5) + 1);
+    if (t >= 0.55) n = Math.min(q.length, Math.floor((t - 0.55) * 10.5) + 1);
     const typed = q.slice(0, n);
     if (typed !== lastTyped) {
       typeEl.textContent = typed;
@@ -1093,6 +690,7 @@
     applyTimeline(t);
     setStates(t);
     extras(t);
+    setCaption(t);
     drawParticles(t);
     updatePlayerUI(t);
   }
@@ -1117,12 +715,12 @@
   const chaptersEl = $("#chapters");
 
   const chapters = [
-    { t: 0, label: "Brand" },
-    { t: 7, label: "Desktop" },
-    { t: 23.6, label: "Mobile" },
-    { t: 33.6, label: "Devices" },
-    { t: 43, label: "Features" },
-    { t: 47.2, label: "Launch" },
+    { t: 0, label: "Search" },
+    { t: 3.4, label: "Article" },
+    { t: 16.5, label: "Map" },
+    { t: 27, label: "Mobile" },
+    { t: 37.5, label: "Every screen" },
+    { t: 43, label: "Visit" },
   ];
 
   const fmt = (s) => {
@@ -1651,27 +1249,26 @@
   }
 
   const AUDIO_CUES = [
-    { t: 0.45, fn: () => sfxBoom(0.25) },
-    { t: 6.72, fn: () => sfxWhoosh(1.1, 0.14, 180, 2800) },
-    { t: 7.25, fn: () => sfxBoom(0.12) },
-    { t: 13.46, fn: () => sfxClick(0.07) },
-    { t: 15.5, fn: () => sfxClick(0.06) },
-    { t: 16.45, fn: () => sfxChime(523.25, 0.045) },
-    { t: 20.99, fn: () => sfxClick(0.065) },
-    { t: 21.18, fn: () => sfxChime(659.25, 0.03) },
-    { t: 23.5, fn: () => sfxWhoosh(0.95, 0.13, 160, 2400) },
-    { t: 25.55, fn: () => sfxBoom(0.07) },
-    { t: 27.15, fn: () => sfxClick(0.045) },
-    { t: 28.3, fn: () => sfxClick(0.04) },
-    { t: 29.06, fn: () => sfxClick(0.05) },
-    { t: 33.42, fn: () => sfxWhoosh(0.95, 0.13, 180, 2600) },
-    { t: 35.45, fn: () => sfxBoom(0.07) },
-    { t: 36.5, fn: () => sfxWhoosh(0.7, 0.06, 300, 1800) },
-    { t: 39.15, fn: () => sfxChime(392, 0.032) },
-    { t: 42.9, fn: () => sfxWhoosh(0.9, 0.13, 160, 2400) },
-    { t: 47.18, fn: () => sfxWhoosh(1.0, 0.14, 200, 3200) },
-    { t: 48.1, fn: () => { sfxBoom(0.15); sfxChime(523.25, 0.055); } },
-    { t: 50.1, fn: () => sfxChime(659.25, 0.045) },
+    { t: 0.34, fn: () => sfxClick(0.035) },
+    { t: 1.95, fn: () => sfxChime(523.25, 0.04) },
+    { t: 3.12, fn: () => sfxWhoosh(0.6, 0.055, 300, 1500) },
+    { t: 4.72, fn: () => sfxBoom(0.12) },
+    { t: 5.05, fn: () => sfxChime(659.25, 0.035) },
+    { t: 6.3, fn: () => sfxWhoosh(0.5, 0.045, 300, 1400) },
+    { t: 9.5, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
+    { t: 11.08, fn: () => sfxClick(0.06) },
+    { t: 11.32, fn: () => sfxChime(659.25, 0.03) },
+    { t: 16.6, fn: () => sfxWhoosh(0.9, 0.12, 160, 2400) },
+    { t: 16.95, fn: () => sfxBoom(0.08) },
+    { t: 27.0, fn: () => sfxWhoosh(0.9, 0.11, 180, 2400) },
+    { t: 32.0, fn: () => sfxClick(0.045) },
+    { t: 34.2, fn: () => sfxClick(0.035) },
+    { t: 37.45, fn: () => sfxWhoosh(0.7, 0.07, 240, 1800) },
+    { t: 37.85, fn: () => sfxBoom(0.07) },
+    { t: 43.05, fn: () => sfxWhoosh(1.0, 0.13, 180, 3000) },
+    { t: 43.8, fn: () => sfxBoom(0.13) },
+    { t: 44.7, fn: () => sfxChime(523.25, 0.05) },
+    { t: 47.8, fn: () => sfxChime(659.25, 0.04) },
   ];
 
   function audioFrame(prev, next) {
@@ -1775,11 +1372,11 @@
         loader.style.opacity = "0";
         loader.style.visibility = "hidden";
         loader.style.pointerEvents = "none";
-      }, 650);
-      setTimeout(() => loader.remove(), 1500);
+      }, 250);
+      setTimeout(() => loader.remove(), 900);
     }
     if (!previewPaused && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setTimeout(() => play(), 550);
+      setTimeout(() => play(), 150);
     } else {
       pause();
       if (previewT === null) render(0);
