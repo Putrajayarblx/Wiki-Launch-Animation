@@ -5,9 +5,35 @@
 (() => {
   "use strict";
 
-  const DURATION = 54;
-  const SPEED = 1.28;
+  const DURATION = 38;
+  const SPEED = 1.3;
   const PLAYBACK = DURATION / SPEED;
+
+  /* Compress the old atmospheric timeline between the informative beats.
+     The hook is given a little more room; the article, map, mobile, family
+     and outro lose only holds, not product detail. */
+  const TIME_WARP = [
+    [0, 4.0, 0, 3.05],
+    [4.0, 13.0, 3.05, 16.5],
+    [13.0, 20.0, 16.5, 27.0],
+    [20.0, 28.0, 27.0, 37.35],
+    [28.0, 32.0, 37.35, 43.15],
+    [32.0, 38.0, 43.15, 54.0],
+  ];
+  function warpTime(t) {
+    if (t <= 0) return 0;
+    for (const [n0, n1, o0, o1] of TIME_WARP) {
+      if (t <= n1) return o0 + ((t - n0) * (o1 - o0)) / (n1 - n0);
+    }
+    return 54;
+  }
+  function unwarpTime(t) {
+    if (t <= 0) return 0;
+    for (const [n0, n1, o0, o1] of TIME_WARP) {
+      if (t <= o1) return n0 + ((t - o0) * (n1 - n0)) / (o1 - o0);
+    }
+    return 38;
+  }
   const MASTER_LEVEL = 2.2;
   const PAUSED_LEVEL = 0.18;
   const SFX_BOOST = 1.25;
@@ -160,12 +186,7 @@
   /* ============================================================
      ACT 1 — BRAND STING
      ============================================================ */
-  track("#act1", [
-    { t: 4.55, opacity: 0 },
-    { t: 4.72, opacity: 1, ease: "out" },
-    { t: 6.12, opacity: 1 },
-    { t: 6.28, opacity: 0, ease: "inOut" },
-  ]);
+  track("#act1", [{ t: 0, opacity: 0 }]);
   track("#a1Lockup", [
     { t: 4.68, opacity: 0, y: 16, scale: 0.98 },
     { t: 5.16, opacity: 1, y: 0, scale: 1, ease: "expo" },
@@ -239,8 +260,8 @@
   track("[data-d-modal]", [
     { t: 0.08, opacity: 0 },
     { t: 0.34, opacity: 1, ease: "out" },
-    { t: 2.82, opacity: 1 },
-    { t: 2.98, opacity: 0, ease: "inOut" },
+    { t: 2.9, opacity: 1 },
+    { t: 3.08, opacity: 0, ease: "inOut" },
   ]);
   track("[data-d-panel]", [
     { t: 0.08, y: 16, scale: 0.975 },
@@ -252,7 +273,7 @@
     { t: 1.78, opacity: 1, y: 0, scale: 1.012, ease: "expo" },
     { t: 2.12, opacity: 1, y: 0, scale: 1 },
     { t: 2.7, opacity: 1, y: 0, scale: 1 },
-    { t: 2.82, opacity: 0, y: 0, scale: 1 },
+    { t: 3.04, opacity: 0, y: 0, scale: 1 },
   ]);
   track(".d-search-result--dim", [
     { t: 0.85, opacity: 0.04, y: 8 },
@@ -268,13 +289,13 @@
   /* page change: search result → article */
   track(".d-page--home", [
     { t: 0, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 2.98, opacity: 1, x: 0, blur: 0, scale: 1 },
-    { t: 3.08, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
+    { t: 3.02, opacity: 1, x: 0, blur: 0, scale: 1 },
+    { t: 3.18, opacity: 0, x: -20, blur: 3, scale: 1.005, ease: "inOut" },
   ]);
   track(".d-page--article", [
     { t: 0, opacity: 0, x: 18, blur: 3, scale: 1.005 },
-    { t: 3.06, opacity: 0, x: 18, blur: 3, scale: 1.005 },
-    { t: 3.32, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
+    { t: 3.02, opacity: 0, x: 18, blur: 3, scale: 1.005 },
+    { t: 3.28, opacity: 1, x: 0, blur: 0, scale: 1, ease: "expo" },
   ]);
 
   /* article content is fully rendered, never clipped mid-change */
@@ -376,8 +397,10 @@
     { t: 16.62, opacity: 1, ease: "out" },
     { t: 26.95, opacity: 1 },
     { t: 27.02, opacity: 0, ease: "inOut" },
-    { t: 37.32, opacity: 0 },
-    { t: 37.5, opacity: 1, ease: "out" },
+    { t: 28.0, opacity: 0 },
+    { t: 32.0, opacity: 0 },
+    { t: 37.0, opacity: 0 },
+    { t: 37.2, opacity: 1, ease: "out" },
     { t: 42.7, opacity: 1 },
     { t: 43.15, opacity: 0, ease: "inOut" },
   ]);
@@ -413,31 +436,35 @@
 
   /* family — one wiki, every screen */
   track("#a4Family", [
-    { t: 37.35, opacity: 0, y: 16 },
-    { t: 37.7, opacity: 1, y: 0, ease: "out" },
+    { t: 37.0, opacity: 0, y: 16 },
+    { t: 37.4, opacity: 1, y: 0, ease: "out" },
     { t: 42.5, opacity: 1, y: 0, scale: 1 },
     { t: 43.0, opacity: 0, y: -16, scale: 1.015, ease: "inOut" },
   ]);
   const famLines = $$("#a4FamilyTitle .mask > span");
   famLines.forEach((el) =>
     track(el, [
-      { t: 37.45, y: 64 },
-      { t: 38.2, y: 0, ease: "expo" },
+      { t: 37.15, y: 64 },
+      { t: 37.9, y: 0, ease: "expo" },
     ])
   );
+  track("#a4FamilySub", [
+    { t: 37.3, opacity: 0, y: 8 },
+    { t: 37.95, opacity: 1, y: 0, ease: "expo" },
+  ]);
   track("#miniLaptop", [
-    { t: 37.4, opacity: 0, y: 60, scale: 0.97 },
-    { t: 38.15, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 37.1, opacity: 0, y: 60, scale: 0.97 },
+    { t: 37.85, opacity: 1, y: 0, scale: 1, ease: "expo" },
     { t: 41.9, y: -6, scale: 1.01 },
   ]);
   track("#miniTablet", [
-    { t: 37.5, opacity: 0, x: -120, y: 24, rotateZ: -10, scale: 0.96 },
-    { t: 38.3, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
+    { t: 37.2, opacity: 0, x: -120, y: 24, rotateZ: -10, scale: 0.96 },
+    { t: 37.95, opacity: 1, x: 0, y: 0, rotateZ: -6, scale: 1, ease: "expo" },
     { t: 41.9, y: 5, rotateZ: -6, scale: 1 },
   ]);
   track("#miniPhone", [
-    { t: 37.6, opacity: 0, x: 120, y: 30, rotateZ: 9, scale: 0.96 },
-    { t: 38.4, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
+    { t: 37.3, opacity: 0, x: 120, y: 30, rotateZ: 9, scale: 0.96 },
+    { t: 38.05, opacity: 1, x: 0, y: 0, rotateZ: 5, scale: 1, ease: "expo" },
     { t: 41.9, y: -4, rotateZ: 5, scale: 1 },
   ]);
 
@@ -453,28 +480,28 @@
     { t: 43.5, opacity: 1, ease: "out" },
   ]);
   track("#outroMark", [
-    { t: 43.2, opacity: 0, y: 18, scale: 0.92 },
-    { t: 43.7, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 43.05, opacity: 0, y: 18, scale: 0.92 },
+    { t: 43.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroEyebrow", [
-    { t: 43.5, opacity: 0, y: 8 },
-    { t: 43.8, opacity: 1, y: 0, ease: "expo" },
+    { t: 43.3, opacity: 0, y: 8 },
+    { t: 43.6, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroTitle .mask > span", [
-    { t: 43.35, y: 80 },
-    { t: 44.05, y: 0, ease: "expo" },
+    { t: 43.15, y: 80 },
+    { t: 43.8, y: 0, ease: "expo" },
   ]);
   track("#outroSub", [
-    { t: 43.8, opacity: 0, y: 12 },
-    { t: 44.25, opacity: 1, y: 0, ease: "expo" },
+    { t: 43.6, opacity: 0, y: 12 },
+    { t: 44.05, opacity: 1, y: 0, ease: "expo" },
   ]);
   track("#outroUrl", [
-    { t: 44.0, opacity: 0, y: 16, scale: 0.98 },
-    { t: 44.55, opacity: 1, y: 0, scale: 1, ease: "expo" },
+    { t: 43.8, opacity: 0, y: 16, scale: 0.98 },
+    { t: 44.35, opacity: 1, y: 0, scale: 1, ease: "expo" },
   ]);
   track("#outroNote", [
-    { t: 44.35, opacity: 0, y: 8 },
-    { t: 44.75, opacity: 1, y: 0, ease: "expo" },
+    { t: 44.15, opacity: 0, y: 8 },
+    { t: 44.55, opacity: 1, y: 0, ease: "expo" },
   ]);
 
   /* ============================================================
@@ -491,20 +518,20 @@
     { t: 17.45, opacity: 1 },
     { t: 26.95, opacity: 1 },
     { t: 27.45, opacity: 0 },
-    { t: 37.35, opacity: 0 },
-    { t: 37.9, opacity: 1 },
+    { t: 37.0, opacity: 0 },
+    { t: 37.55, opacity: 1 },
     { t: 42.8, opacity: 1 },
-    { t: 43.6, opacity: 0 },
+    { t: 43.3, opacity: 0 },
   ]);
   track(".bg--night", [
     { t: 26.95, opacity: 0 },
     { t: 27.45, opacity: 1 },
-    { t: 37.25, opacity: 1 },
-    { t: 37.85, opacity: 0 },
+    { t: 37.0, opacity: 1 },
+    { t: 37.55, opacity: 0 },
   ]);
   track(".bg--outro", [
-    { t: 43.1, opacity: 0 },
-    { t: 43.7, opacity: 1 },
+    { t: 43.0, opacity: 0 },
+    { t: 43.55, opacity: 1 },
   ]);
 
   /* ============================================================
@@ -632,16 +659,17 @@
     { from: 0.32, to: 3.05, kicker: "Search the wiki", title: "Ask. Get the answer." },
     { from: 6.55, to: 9.35, kicker: "City roles and departments", title: "Every role, explained." },
     { from: 9.55, to: 12.45, kicker: "Appearance", title: "Read it your way." },
+    { from: 12.55, to: 16.4, kicker: "Community maintained", title: "Kept current." },
     { from: 16.95, to: 23.8, kicker: "Interactive map", title: "The whole city, mapped.", side: "right" },
     { from: 27.25, to: 31.8, kicker: "On mobile", title: "The same answer, in your hand." },
     { from: 32.0, to: 34.45, kicker: "Navigation", title: "Everything within reach." },
   ];
 
   function setStates(t) {
-    dUI.classList.toggle("is-article", t >= 3.06);
+    dUI.classList.toggle("is-article", t >= 3.02);
     pUI.classList.toggle("is-article", t >= 26.8);
     tUI.classList.toggle("is-map", t >= 16.5);
-    if (a4Family) a4Family.classList.toggle("is-live", t >= 37.3);
+    if (a4Family) a4Family.classList.toggle("is-live", t >= 37.0);
     stage.classList.toggle("is-ended", t >= 53.75);
     let idx = 0;
     if (t >= 9.5) idx = 1;
@@ -687,11 +715,12 @@
   }
 
   function render(t) {
-    applyTimeline(t);
-    setStates(t);
-    extras(t);
-    setCaption(t);
-    drawParticles(t);
+    const ot = warpTime(t);
+    applyTimeline(ot);
+    setStates(ot);
+    extras(ot);
+    setCaption(ot);
+    drawParticles(ot);
     updatePlayerUI(t);
   }
 
@@ -716,11 +745,11 @@
 
   const chapters = [
     { t: 0, label: "Search" },
-    { t: 3.4, label: "Article" },
-    { t: 16.5, label: "Map" },
-    { t: 27, label: "Mobile" },
-    { t: 37.5, label: "Every screen" },
-    { t: 43, label: "Visit" },
+    { t: 4, label: "Article" },
+    { t: 13, label: "Map" },
+    { t: 20, label: "Mobile" },
+    { t: 28, label: "Every screen" },
+    { t: 32, label: "Visit" },
   ];
 
   const fmt = (s) => {
@@ -1040,9 +1069,9 @@
   }
 
   function resetAudioPosition(t) {
-    lastTypeTick = Math.floor(t * 11);
-    lastPulse = Math.floor((t - 7) / 1.5);
-    lastArp = Math.floor((t - 7) / 1.8);
+    lastTypeTick = Math.floor(t * 9);
+    lastPulse = Math.floor((t - 5.5) / 1.5);
+    lastArp = Math.floor((t - 5.5) / 1.8);
   }
 
   function updateSoundUI() {
@@ -1252,9 +1281,6 @@
     { t: 0.34, fn: () => sfxClick(0.035) },
     { t: 1.95, fn: () => sfxChime(523.25, 0.04) },
     { t: 3.12, fn: () => sfxWhoosh(0.6, 0.055, 300, 1500) },
-    { t: 4.72, fn: () => sfxBoom(0.12) },
-    { t: 5.05, fn: () => sfxChime(659.25, 0.035) },
-    { t: 6.3, fn: () => sfxWhoosh(0.5, 0.045, 300, 1400) },
     { t: 9.5, fn: () => sfxWhoosh(0.7, 0.05, 220, 1200) },
     { t: 11.08, fn: () => sfxClick(0.06) },
     { t: 11.32, fn: () => sfxChime(659.25, 0.03) },
@@ -1279,15 +1305,16 @@
       setChord(ci);
     }
     for (const cue of AUDIO_CUES) {
-      if (prev < cue.t && next >= cue.t) cue.fn();
+      const ct = unwarpTime(cue.t);
+      if (prev < ct && next >= ct) cue.fn();
     }
-    if (next >= 7 && next < 47.2) {
-      const beat = Math.floor((next - 7) / 1.5);
+    if (next >= 5.5 && next < 35.5) {
+      const beat = Math.floor((next - 5.5) / 1.5);
       if (beat !== lastPulse) {
         lastPulse = beat;
         sfxPulse();
       }
-      const arp = Math.floor((next - 7) / 1.8);
+      const arp = Math.floor((next - 5.5) / 1.8);
       if (arp !== lastArp) {
         lastArp = arp;
         const chord = CHORDS[clamp(ci, 0, CHORDS.length - 1)];
@@ -1295,8 +1322,8 @@
         sfxPluck(chord[pattern[arp % pattern.length]] * 2);
       }
     }
-    if (next >= 14.15 && next <= 15.15) {
-      const k = Math.floor(next * 11);
+    if (next >= 0.45 && next <= 2.2) {
+      const k = Math.floor(next * 9);
       if (k !== lastTypeTick) {
         lastTypeTick = k;
         sfxTick();

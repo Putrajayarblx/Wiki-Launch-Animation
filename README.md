@@ -1,6 +1,6 @@
 # Putrajaya.rblx Wiki — Official Launch Film
 
-A 42-second cinematic motion-design film introducing the **official Putrajaya.rblx Wiki**.
+A 29-second cinematic motion-design film introducing the **official Putrajaya.rblx Wiki**.
 Built as a single, dependency-free web experience: vanilla HTML, CSS and JavaScript, a custom
 deterministic timeline engine, and a pixel-faithful CSS recreation of the wiki itself.
 
@@ -22,11 +22,11 @@ article, the map and every screen — ending on a clean launch card and CTA.
 | # | Chapter | Time | What happens |
 |---|---------|------|--------------|
 | 01 | **Hook** | 0:00–0:03 | Opens on the real wiki. Pagefind search opens, `city roles` is typed, and the matching article appears as the first result. |
-| 02 | **Article** | 0:03–0:13 | The real *City roles and departments* article fills the frame, scrolls to the Caution, and switches to dark mode through the real Appearance panel. A compact brand sting marks the hand-off. |
-| 03 | **Map** | 0:13–0:21 | The real 67-place interactive map on tablet: category filters, place pins and a slow push across Putrajaya. |
-| 04 | **Mobile** | 0:21–0:29 | The same article on the real mobile layout, scrolled to the Caution, then the real menu drawer opens. |
-| 05 | **Every screen** | 0:29–0:34 | A quiet device-family hero — laptop, tablet and phone running the real interface. |
-| 06 | **Visit** | 0:34–0:42 | A restrained brand close: logo, **Now available**, the live URL and a high-contrast **Visit the wiki** CTA. |
+| 02 | **Article** | 0:03–0:10 | The real *City roles and departments* article fills the frame, scrolls to the Caution, and switches to dark mode through the real Appearance panel. |
+| 03 | **Map** | 0:10–0:15 | The real 67-place interactive map on tablet: category filters, place pins and a slow push across Putrajaya. |
+| 04 | **Mobile** | 0:15–0:22 | The same article on the real mobile layout, scrolled to the Caution, then the real menu drawer opens with its theme and language controls visible. |
+| 05 | **Every screen** | 0:22–0:25 | A device-family hero — laptop, tablet and phone running the real interface — with a one-line statement of who the wiki is for. |
+| 06 | **Visit** | 0:25–0:29 | A restrained brand close: logo, **Now available**, the live URL and a high-contrast **Visit the wiki** CTA. |
 
 The animation is designed for **1920 × 1080** and scales losslessly to any viewport.
 
@@ -116,7 +116,7 @@ tiny screens are the same wiki, not mockups.
 ├── ui-mobile.css       Phone interface
 ├── ui-tablet.css       Tablet interface
 ├── scenes.css          Act compositions, device family, story captions, outro
-├── app.js              Timeline engine, 42-second score, player, audio
+├── app.js              Timeline engine, 29-second score, player, audio
 ├── vercel.json         Static hosting config
 ├── .nojekyll           GitHub Pages support
 └── README.md
